@@ -603,6 +603,8 @@
       collection: MaleYawn
     Snore:
       collection: Snores
+    Purr: # Hardlight
+      collection: FelinidPurrs
     Weh:
       collection: Weh
     Hew:
@@ -640,6 +642,8 @@
       collection: FemaleSigh
     Scream:
       collection: VulpkaninScreams
+    Purr: # Hardlight
+      collection: FelinidPurrs
     Growl:
       collection: Growl # Starlight
     Snarl:
