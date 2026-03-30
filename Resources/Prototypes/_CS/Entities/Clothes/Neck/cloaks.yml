@@ -1,16 +1,5 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingUniformDama0965
-  name: black fur cloak
-  description: Neat cloak with fur around the neck and hem.
-  components:
-    - type: Sprite
-      sprite: _CS/Clothes/Neck/Cloaks/shuba.rsi
-    - type: Clothing
-      sprite: _CS/Clothes/Neck/Cloaks/shuba.rsi
-
-- type: entity
-  parent: ClothingNeckBase
   id: ClothingUniformShinelVampir
   name: bloodstained aristocrat cloak
   description: A dark leather greatcoat soaked in blood.
