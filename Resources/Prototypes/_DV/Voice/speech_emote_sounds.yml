@@ -60,7 +60,7 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
+    Whimper:
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
@@ -296,7 +296,7 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
+    Whimper:
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
@@ -354,7 +354,7 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
+    Whimper:
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
