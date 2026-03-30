@@ -588,7 +588,7 @@
       collection: VulpkaninSnarls
     Bark:
       collection: Bark # Starlight
-    Whimper:
+    Whine:
       collection: VulpkaninWhines
     Crying:
       collection: MaleCry
@@ -596,8 +596,6 @@
       path: /Audio/_Starlight/Effects/howl.ogg # Starlight
     Yip:
       path: /Audio/_Starlight/Effects/yip.ogg # Starlight
-    Whine:
-      collection: Whine # Starlight
     # Starlight start
     Yawn:
       collection: MaleYawn
@@ -650,7 +648,7 @@
       collection: VulpkaninSnarls
     Bark:
       collection: Bark # Starlight
-    Whimper:
+    Whine:
       collection: VulpkaninWhines
     Crying:
       collection: FemaleCry
@@ -658,8 +656,6 @@
       path: /Audio/_Starlight/Effects/howl.ogg # Starlight
     Yip:
       path: /Audio/_Starlight/Effects/yip.ogg # Starlight
-    Whine:
-      collection: Whine # Starlight
     # Startlight start
     Yawn:
       collection: FemaleYawn
