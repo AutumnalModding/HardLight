@@ -19,7 +19,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
-    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Pout', 'Howl', 'Growl', 'Yip', 'Awoo', 'Yap', 'Gekker', 'Whimper' ] # Starlight: Yip, Whine; DV: Awoo, Yap, Gekker; HardLight: Pout, Whimper
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Pout', 'Howl', 'Growl', 'Yip', 'Awoo', 'Yap', 'Gekker', 'Whimper', 'Purr' ] # Starlight: Yip, Whine; DV: Awoo, Yap, Gekker; HardLight: Pout, Whimper, Purr
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
