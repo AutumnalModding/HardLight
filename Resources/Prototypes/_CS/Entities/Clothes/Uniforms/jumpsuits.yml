@@ -89,17 +89,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitCoroner
-  name: coroner jumpsuit
-  description: Issued to qualified and trained professionals, this jumpsuit features the phrase "I don't just work with the dead, I dance with them on their final parade!" adding a unique touch of dark humor to the professional uniform.
-  components:
-  - type: Sprite
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/coroner.rsi
-  - type: Clothing
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/coroner.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCoronerAlt
   name: surgical gown
   description: Guaranteed to protect your wardrobe from bloody details, but we can't make any promises. Ideal for medical professionals who need both protection and a touch of uncertainty.
@@ -108,40 +97,6 @@
     sprite: _CS/Clothes/Uniforms/Jumpsuit/coroneralt.rsi
   - type: Clothing
     sprite: _CS/Clothes/Uniforms/Jumpsuit/coroneralt.rsi
-
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSuperstarCop
-  name: superstar cop uniform
-  description: Flare cut trousers and a dirty shirt that might have been classy before someone took a piss in the armpits. It's the dress of a superstar.
-  components:
-  - type: Sprite
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/disco.rsi
-  - type: Clothing
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/disco.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitAerostatic
-  name: aerostatic suit
-  description: A crisp and well-pressed suit; professional, comfortable and curiously authoritative.
-  components:
-  - type: Sprite
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/kim.rsi
-  - type: Clothing
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/kim.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitCentcomOfficerBlack
-  name: special operations officer uniform
-  description: Special Operations Officer uniform, nothing like that. Although... If you have time to read this, it's too late...
-  components:
-  - type: Sprite
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/centcom_officer_black.rsi
-  - type: Clothing
-    sprite: _CS/Clothes/Uniforms/Jumpsuit/centcom_officer_black.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -205,9 +160,9 @@
   description: An aristocratic suit reeking of blood and lost dreams.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ari.rsi
+    sprite: _CS/Clothes/Uniforms/Jumpsuit/ari.rsi
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ari.rsi
+    sprite: _CS/Clothes/Uniforms/Jumpsuit/ari.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -215,7 +170,7 @@
   name: noble suit
   description: A blue noble suit that exudes elegance and refinement.
   components:
-    - type: Sprite
-      sprite: _Starlight/Clothing/Uniforms/Jumpsuit/belpero.rsi
-    - type: Clothing
-      sprite: _Starlight/Clothing/Uniforms/Jumpsuit/belpero.rsi
+  - type: Sprite
+    sprite: _CS/Clothes/Uniforms/Jumpsuit/belpero.rsi
+  - type: Clothing
+    sprite: _CS/Clothes/Uniforms/Jumpsuit/belpero.rsi
