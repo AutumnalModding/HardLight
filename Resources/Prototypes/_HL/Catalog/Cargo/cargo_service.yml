@@ -1,5 +1,5 @@
 - type: cargoProduct
-  id: BorgArmorCrate
+  id: CondimentRestockCrate
   # abstract: true # Frontier
   icon:
     sprite: Objects/Consumable/Drinks/generic_jug.rsi
