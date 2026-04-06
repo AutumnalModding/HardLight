@@ -90,6 +90,7 @@
       Glass: 50 # HL: 10 -> 50 glass
       Steel: 50 # HL: 10 -> 50 steel
       Plasteel: 30 # HL: add 30 plasteel
+      Bluespace: 10 # HL: 10 bluespace crystals
 
 - type: entity
   id: MachineGCSStationCircuitboard
