@@ -31,8 +31,8 @@
   - type: MachineBoard
     prototype: GunneryServerLow
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      Capacitor: 10 # HL: 2 -> 10
+      Manipulator: 10 # HL: 2 -> 10
     stackRequirements:
       Glass: 10
       Steel: 10
@@ -48,11 +48,12 @@
   - type: MachineBoard
     prototype: GunneryServerMedium
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      AdvancedCapacitor: 8 # HL: advanced+, 2 -> 8
+      AdvancedManipulator: 8 # HL: advanced+, 2 -> 8
     stackRequirements:
-      Glass: 10
-      Steel: 10
+      Glass: 20 # HL: 10 -> 20 glass
+      Steel: 20 # HL: 10 -> 20 steel
+      Plasteel: 5 # HL: add 5 plasteel
 
 - type: entity
   id: MachineGCSHighCircuitboard
@@ -65,11 +66,12 @@
   - type: MachineBoard
     prototype: GunneryServerHigh
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      SuperCapacitor: 6 # HL: super+, 2 -> 6
+      SuperManipulator: 6 # HL: super+, 2 -> 6
     stackRequirements:
-      Glass: 10
-      Steel: 10
+      Glass: 30 # HL: 10 -> 30 glass
+      Steel: 30 # HL: 10 -> 30 steel
+      Plasteel: 10 # HL: add 10 plasteel
 
 - type: entity
   id: MachineGCSUltraCircuitboard
@@ -82,11 +84,12 @@
   - type: MachineBoard
     prototype: GunneryServerUltra
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      Capacitor: 4 # HL: bluespace+, 2 -> 4
+      Manipulator: 4 # HL: bluespace+, 2 -> 4
     stackRequirements:
-      Glass: 10
-      Steel: 10
+      Glass: 50 # HL: 10 -> 50 glass
+      Steel: 50 # HL: 10 -> 50 steel
+      Plasteel: 30 # HL: add 30 plasteel
 
 - type: entity
   id: MachineGCSStationCircuitboard

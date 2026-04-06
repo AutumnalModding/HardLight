@@ -1,0 +1,44 @@
+- type: machinePart
+  id: CapacitorAdvanced
+  name: machine-part-name-capacitor-advanced
+  stockPartPrototype: CapacitorStockPart
+
+- type: machinePart
+  id: ManipulatorAdvanced
+  name: machine-part-name-manipulator-advanced
+  stockPartPrototype: NanoMicroManipulatorStockPart
+
+- type: machinePart
+  id: MatterBinAdvanced
+  name: machine-part-name-matter-bin-advanced
+  stockPartPrototype: AdvancedMatterBinStockPart
+
+- type: machinePart
+  id: CapacitorSuper
+  name: machine-part-name-capacitor-super
+  stockPartPrototype: SuperCapacitorStockPart
+
+- type: machinePart
+  id: ManipulatorSuper
+  name: machine-part-name-manipulator-super
+  stockPartPrototype: PicoManipulatorStockPart
+
+- type: machinePart
+  id: MatterBinSuper
+  name: machine-part-name-matter-bin-super
+  stockPartPrototype: SuperMatterBinStockPart
+
+- type: machinePart
+  id: CapacitorBluespace
+  name: machine-part-name-capacitor-bluespace
+  stockPartPrototype: QuadraticCapacitorStockPart
+
+- type: machinePart
+  id: ManipulatorBluespace
+  name: machine-part-name-manipulator-bluespace
+  stockPartPrototype: FemtoManipulatorStockPart
+
+- type: machinePart
+  id: MatterBinBluespace
+  name: machine-part-name-matter-bin-bluespace
+  stockPartPrototype: BluespaceMatterBinStockPart
