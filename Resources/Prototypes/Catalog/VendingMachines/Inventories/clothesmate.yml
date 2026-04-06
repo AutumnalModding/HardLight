@@ -205,8 +205,8 @@
     TogaUniformSuit: 4
     VintageUniformSuit: 4
     CargoOverallsUniformSuit: 4
-    RedRegaliaSuit: 4
-    # End Coats
+    RedRegaliaSuit: 4 # coyote end
+    TennisBall: 8 # hardlight, woof
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
