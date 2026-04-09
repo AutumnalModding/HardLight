@@ -341,7 +341,7 @@
   components:
   - type: InteractionPopup
     successChance: 1
-    interactSuccessString: petting-success-soft-floofy-kitsune
+    interactSuccessString: petting-success-soft-floofy
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
