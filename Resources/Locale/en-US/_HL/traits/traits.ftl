@@ -54,3 +54,5 @@ tiny-trait-cannot-attack-with-tool = You are too small to attack with { THE($ite
 tiny-trait-cannot-wield = You are too small to wield { THE($item) }.
 tiny-trait-requires-two-hands = You are too small to hold { THE($item) } with only one hand.
 
+pettable-name = Pettable
+pettable-desc = You enjoy being pet on your soft floofy head!
