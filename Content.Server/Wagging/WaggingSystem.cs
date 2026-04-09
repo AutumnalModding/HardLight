@@ -40,7 +40,7 @@ public sealed class WaggingSystem : EntitySystem
         if (!humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Tail, out var markings))
             return;
 
-        foreach (var _ in markings.Where(marking => _coyoteMarking.TryGetWaggingId(marking.MarkingId, out _)).Where(_ => !_actions.GetAction(component.ActionEntity).HasValue))
+        if (markings.Any(m => _coyoteMarking.TryGetWaggingId(m.MarkingId, out _)))
         {
             _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
         }
