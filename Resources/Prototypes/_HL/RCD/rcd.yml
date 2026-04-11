@@ -115,7 +115,7 @@
 - type: rcd
   id: WallReinforcedDiagonal
   category: Walls
-  sprite: _NF/_HL/RCD/reinfwallwalldiag.png
+  sprite: _NF/_HL/RCD/reinfwalldiag.png
   mode: ConstructObject
   prototype: WallReinforcedDiagonal
   cost: 4
