@@ -65,3 +65,61 @@
   rules:
     - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
+
+- type: rcd
+  id: WindowDirectionalShuttle
+  category: WindowsAndGrilles
+  sprite: /Textures/Structures/Windows/shuttle_window_diagonal.rsi/state0.png
+  mode: ConstructObject
+  prototype: ShuttleWindowDiagonal
+  cost: 2
+  delay: 1
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+  allowMultiDirection: true
+
+- type: rcd
+  id: WallShuttleDiagonal
+  category: Walls
+  sprite: /Textures/Structures/Walls/shuttle_diagonal.rsi/state0.png
+  mode: ConstructObject
+  prototype: WallShuttleDiagonal
+  cost: 4
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct2
+  allowMultiDirection: true
+
+- type: rcd
+  id: WallReinforcedDiagonal
+  category: Walls
+  sprite: /Textures/Interface/Radial/RCD/reinforced_wall.png
+  mode: ConstructObject
+  prototype: WallReinforcedDiagonal
+  cost: 4
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct2
+  allowMultiDirection: true
+
+- type: rcd
+  id: WallSolidDiagonal
+  category: Walls
+  sprite: /Textures/Structures/Walls/solid_diagonal.rsi/state0.png
+  mode: ConstructObject
+  prototype: WallSolidDiagonal
+  cost: 4
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct2
+  allowMultiDirection: true
