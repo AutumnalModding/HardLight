@@ -83,7 +83,7 @@
   allowMultiDirection: true
 
 - type: rcd
-  id: WindowDirectionalShuttle
+  id: WindowDirectionalReinforced
   category: WindowsAndGrilles
   sprite: /Textures/_HL/RCD/reinforcedwindowdiagonal.png
   mode: ConstructObject
