@@ -99,7 +99,7 @@
 - type: rcd
   id: WallReinforcedDiagonal
   category: Walls
-  sprite: /Textures/Interface/Radial/RCD/reinforced_wall.png
+  sprite: _NF/Structures/Walls/reinforced_diagonal.rsi/state0.png
   mode: ConstructObject
   prototype: WallReinforcedDiagonal
   cost: 4
