@@ -498,6 +498,18 @@
       collection: MothDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    #region Starlight
+    Crying:
+      path: /Audio/_Starlight/Voice/Moth/moth_cry.ogg
+    Cough:
+      path: /Audio/_Starlight/Voice/Moth/moth_cough.ogg
+    Yawn:
+      path: /Audio/_Starlight/Voice/Moth/moth_yawn.ogg
+    Sigh:
+      path: /Audio/_Starlight/Voice/Moth/moth_sigh.ogg
+    Gasp:
+      path: /Audio/_Starlight/Voice/Moth/moth_gasp.ogg
+    #endregion Starlight
 
 - type: emoteSounds
   id: UnisexSilicon
