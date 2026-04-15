@@ -1,4 +1,4 @@
-- type: entity
+type: entity
   parent: [ClothingHeadsetCommon, ClothingHeadsetAlt]
   id: ClothingHeadsetAltMercenary
   name: mercenary over-ear headset
@@ -160,3 +160,16 @@
   parent: [ClothingHeadsetCommon, ClothingHeadsetAltColCom]
   id: ClothingHeadsetAltColComCommon
 #  categories: [ HideSpawnMenu ]
+
+# HL/Coyote start
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltArcadia
+  name: arcadia over-ear headset
+  description: A dashing and attractive headset.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Ears/Headsets/arcadia.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Ears/Headsets/arcadia.rsi
+# HL/Coyote end
