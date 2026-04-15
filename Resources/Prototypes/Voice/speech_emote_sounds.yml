@@ -492,8 +492,8 @@
       collection: VulpkaninBarks
     Honk:
       collection: BikeHorn
-    Gasp:
-      collection: MaleGasp
+    # Gasp:
+    #   collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
     Belch: # Frontier
