@@ -1,0 +1,23 @@
+From abee9dcf38e0e54fddfbf103eb08d2074655e769 Mon Sep 17 00:00:00 2001
+From: DevArchwave <168038123+DevArchwave@users.noreply.github.com>
+Date: Sun, 8 Mar 2026 04:58:59 -0300
+Subject: [PATCH 4/4] Ah yes, the very dangerous c3 wallet. Clearly a weapon of
+ mass destruction.
+
+---
+ Resources/Prototypes/_NF/Entities/Clothing/Wallet/leather.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Resources/Prototypes/_NF/Entities/Clothing/Wallet/leather.yml b/Resources/Prototypes/_NF/Entities/Clothing/Wallet/leather.yml
+index 2c2da047dbd..66893207bef 100644
+--- a/Resources/Prototypes/_NF/Entities/Clothing/Wallet/leather.yml
++++ b/Resources/Prototypes/_NF/Entities/Clothing/Wallet/leather.yml
+@@ -188,7 +188,7 @@
+     - 0,0,1,1
+ 
+ - type: entity
+-  parent: [ClothingWalletLeatherBrown, BaseC3ContrabandNoValue, ContrabandClothing]
++  parent: ClothingWalletLeatherBrown # Coyote: Removed BaseC3ContrabandNoValue, ContrabandClothing
+   id: ClothingWalletLeatherArcadia
+   name: arcadian wallet
+   description: Surprisingly thick and unsurpisingly extremely stylish. Careful not to lose it, and don't sit on it.

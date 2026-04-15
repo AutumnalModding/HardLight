@@ -1,0 +1,23 @@
+From aaea9808d6f946af795134c209632dee2cf0eac4 Mon Sep 17 00:00:00 2001
+From: DevArchwave <168038123+DevArchwave@users.noreply.github.com>
+Date: Sun, 8 Mar 2026 04:50:44 -0300
+Subject: [PATCH 3/4] WHOOPSIE DAISY
+
+---
+ .../_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml    | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml b/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
+index 0428abcc353..5c39600164e 100644
+--- a/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
++++ b/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
+@@ -16,7 +16,7 @@
+     ClothingUniformJumpskirtArcadia: 5
+     ClothingUniformJumpsuitArcadia: 5
+     ClothingUniformJumpsuitMilitaryArcadiaTac: 5
+-    ClothingWebbingArcadia: 3.
++    ClothingWebbingArcadia: 3
+     ClothingWalletLeatherArcadia: 3
+   emaggedInventory:
+     ClothingHeadHatTacticalMaidHeadband: 3
+

@@ -1,0 +1,479 @@
+From 02b8fda55e0c108406b5403ebb5e849c641a6e90 Mon Sep 17 00:00:00 2001
+From: DevArchwave <168038123+DevArchwave@users.noreply.github.com>
+Date: Sun, 8 Mar 2026 04:31:45 -0300
+Subject: [PATCH 2/4] Added a new belt and headset to the Arcadiawear Vendor
+ (#4098)
+
+* Added a new belt and headset to the Arcadiawear Vendor
+
+* Changed BaseC3SyndicateContraband parent value on the Arcadiawear hearset to BaseC3ContrabandNoValue for consistency
+---
+ .../Inventories/arcadiadrobe.yml              |   2 ++
+ .../_NF/Entities/Clothing/Belt/belts.yml      |  21 ++++++++++----
+ .../Entities/Clothing/Ears/headsets_alt.yml   |  12 ++++++++
+ .../Belt/arcadia_belt.rsi/equipped-BELT.png   | Bin 0 -> 4563 bytes
+ .../Clothing/Belt/arcadia_belt.rsi/icon.png   | Bin 0 -> 4587 bytes
+ .../Belt/arcadia_belt.rsi/inhand-left.png     | Bin 0 -> 4444 bytes
+ .../Belt/arcadia_belt.rsi/inhand-right.png    | Bin 0 -> 4423 bytes
+ .../Clothing/Belt/arcadia_belt.rsi/meta.json  |  26 ++++++++++++++++++
+ .../equipped-BELT.png                         | Bin
+ .../icon.png                                  | Bin
+ .../inhand-left.png                           | Bin
+ .../inhand-right.png                          | Bin
+ .../meta.json                                 |   0
+ .../arcadia.rsi/alt-equipped-EARS.png         | Bin 0 -> 4470 bytes
+ .../Ears/Headsets/arcadia.rsi/icon_alt.png    | Bin 0 -> 4599 bytes
+ .../Ears/Headsets/arcadia.rsi/meta.json       |  18 ++++++++++++
+ 16 files changed, 74 insertions(+), 5 deletions(-)
+ create mode 100644 Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/equipped-BELT.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/icon.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-left.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-right.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/meta.json
+ rename Resources/Textures/_NF/Clothing/Belt/{arcadia.rsi => arcadia_webbing.rsi}/equipped-BELT.png (100%)
+ rename Resources/Textures/_NF/Clothing/Belt/{arcadia.rsi => arcadia_webbing.rsi}/icon.png (100%)
+ rename Resources/Textures/_NF/Clothing/Belt/{arcadia.rsi => arcadia_webbing.rsi}/inhand-left.png (100%)
+ rename Resources/Textures/_NF/Clothing/Belt/{arcadia.rsi => arcadia_webbing.rsi}/inhand-right.png (100%)
+ rename Resources/Textures/_NF/Clothing/Belt/{arcadia.rsi => arcadia_webbing.rsi}/meta.json (100%)
+ create mode 100644 Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/alt-equipped-EARS.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/icon_alt.png
+ create mode 100644 Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/meta.json
+
+diff --git a/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml b/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
+index cf116ba1c37..0428abcc353 100644
+--- a/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
++++ b/Resources/Prototypes/_NF/Catalog/VendingMachines/Inventories/arcadiadrobe.yml
+@@ -9,12 +9,14 @@
+     ClothingBeltArcadia: 3
+     ClothingEyesArcadiaVisor: 3
+     ClothingHandsGlovesArcadiaCombat: 3
++    ClothingHeadsetAltArcadia: 3
+     ClothingMaskArcadia: 3
+     ClothingOuterWinterArcadia: 3
+     ClothingOuterCoatArcadiaTrench: 3
+     ClothingUniformJumpskirtArcadia: 5
+     ClothingUniformJumpsuitArcadia: 5
+     ClothingUniformJumpsuitMilitaryArcadiaTac: 5
++    ClothingWebbingArcadia: 3.
+     ClothingWalletLeatherArcadia: 3
+   emaggedInventory:
+     ClothingHeadHatTacticalMaidHeadband: 3
+diff --git a/Resources/Prototypes/_NF/Entities/Clothing/Belt/belts.yml b/Resources/Prototypes/_NF/Entities/Clothing/Belt/belts.yml
+index ed1025b5b2b..c20ce13285b 100644
+--- a/Resources/Prototypes/_NF/Entities/Clothing/Belt/belts.yml
++++ b/Resources/Prototypes/_NF/Entities/Clothing/Belt/belts.yml
+@@ -1,13 +1,24 @@
+ - type: entity
+-  id: ClothingBeltArcadia
++  id: ClothingWebbingArcadia
+   name: arcadia webbing
+-  parent: NFClothingBeltStorageBase
+-  description: A webbing created by Arcadia Industries. Seems very capable of fitting many items.
++  parent: NFClothingBeltStorageBase # Coyote: Removed BaseC3ContrabandNoValue, ContrabandClothing
++  description: Webbing created by Arcadia Industries. Seems very capable of fitting many items.
++  components:
++  - type: Sprite
++    sprite: _NF/Clothing/Belt/arcadia_webbing.rsi
++  - type: Clothing
++    sprite: _NF/Clothing/Belt/arcadia_webbing.rsi
++
++- type: entity
++  id: ClothingBeltArcadia
++  name: arcadia belt
++  parent: NFClothingBeltStorageBase # Coyote: Removed BaseC3ContrabandNoValue, ContrabandClothing
++  description: A belt created by Arcadia Industries. Seems very capable of fitting many items.
+   components:
+   - type: Sprite
+-    sprite: _NF/Clothing/Belt/arcadia.rsi
++    sprite: _NF/Clothing/Belt/arcadia_belt.rsi
+   - type: Clothing
+-    sprite: _NF/Clothing/Belt/arcadia.rsi
++    sprite: _NF/Clothing/Belt/arcadia_belt.rsi
+ 
+ - type: entity
+   parent: NFClothingBeltStorageBase
+diff --git a/Resources/Prototypes/_NF/Entities/Clothing/Ears/headsets_alt.yml b/Resources/Prototypes/_NF/Entities/Clothing/Ears/headsets_alt.yml
+index b360cc90af2..27f48532125 100644
+--- a/Resources/Prototypes/_NF/Entities/Clothing/Ears/headsets_alt.yml
++++ b/Resources/Prototypes/_NF/Entities/Clothing/Ears/headsets_alt.yml
+@@ -148,3 +148,15 @@
+   parent: [ClothingHeadsetCommon, ClothingHeadsetAltCentCom]
+   id: ClothingHeadsetAltCentComCommon
+   categories: [ HideSpawnMenu ]
++
++#arcadiawear headset
++- type: entity
++  parent: ClothingHeadsetAlt # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent # Coyote: Removed BaseC3SyndicateContraband and ContrabandClothing
++  id: ClothingHeadsetAltArcadia
++  name: arcadia over-ear headset
++  description: A dashing and attractive headset.
++  components:
++  - type: Sprite
++    sprite: _NF/Clothing/Ears/Headsets/arcadia.rsi
++  - type: Clothing
++    sprite: _NF/Clothing/Ears/Headsets/arcadia.rsi
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/equipped-BELT.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/equipped-BELT.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..83aab937f2d0b9191ee6087d43296d728dc20ae7
+GIT binary patch
+literal 4563
+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
+LbJcapOG^F=#fqEE
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/icon.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/icon.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4bb60a3852c74f5eca229811077986745694e6ef
+GIT binary patch
+literal 4587
+zcmeHKeNYo;8efSD0wSWPoS$o?7K)qfh6FY%kqb$LsF5g0L2a*_%?9>JvLRVWfb#>?
+zij=X{<66+F)!OQ*P(RLZEFyj}w&R>AD2Rt>rB?7p{6OW@dp97$TxV{Wx&Ft_Y<Bm3
+zp6B;I&+qw|yleIIVupK<^M)X3xHeY306by-_8JO)9ogBB!Q*sxLK3%tbiy_}Yhuha
+z%w^eVn07HH2y)e1^o#wfVBgM`(K9@<{!o?vbFKD7<+`Yv9Sg6UhW+Kt`eE9J&L?w^
+z44S4}G-gj}t#4}0xrw=S%s)#GJSbnOik^A3CIp?Gw>a|9xR)`T=Lsr^?RM-yj@SL^
+z(&5WHB?Vv5bEVBOfrrq5%-qvobsn)>4lk+LXU+Qfxpw81yZe{74{695T|V`PO`jR}
+z<v)ic^R$;o`WNr`>S6xxm#jMN>+}4`PQg7v-J|58*OCuyg`h#J7?nz|RjJ-Y17i4c
+z>3T(Mm45W<xcE<mrGA<I>0U{jTel0>eN&*>r?2-eC5p=*kJu;;3K6Z#ORKEhdUp59
+zPY#y(mF2<D1kEBm<aq4bj(1j%!9H}AfBNWwyxch%mhPD=%Q39joji*eIo9!f;r@=_
+z&Gdy=VS|HAzf}KV7_;R`MqFcpbN-f}8aq-}7v)t$TVp3s$H|eb|0U}pqGf3_8al`O
+zq5R<v<=CKQcaFEVk8jyf<#EY({Po9?>BULYGxpy&yVtzyOxT%`nybNoyl`x<?Pl}d
+z#QS@f#=ScIk#cdhZF6mKKvHx-Nd9N@V}>kD%D-H;-XPSqq>p%=e>-mdoN4b5DV*T5
+zOS$^av&z>^9p)dK9~W&JT`0&M+wdyTGuxS)SarDKQ_G1Ak7rwRLrZUeC(At+cX|9o
+z#6H;9Di~WgQFl`ya;~`b?gx^fnD&~00!`D)!tX;y_%?dHOnY#nz6D<j9gyz%X?#<Y
+ze{t~qr^nBq=se!?l#R<-7WF5c{p<L`q9RarnGC3|B;8zsVl5)l$Qo#o%VGm%2SJfh
+zE*nXu(Hv}`Qy8m4_^%TcLYOfsgzw9AsLrOMQ<>OoI~|`rFM-NVqvS?m)J*S47Xbh)
+zG)KZNi`nWRTneEZmjLhlvRDYaRk$>TFiEF}Rji$cr6Q>aMKmrZQzD${4M*CICSrkl
+zRyPFrQV3Hy&PIsEPN!4k3=^^T6fq{3%f+ZfERi5U194<oInsq#9aDLTE(|s8pzMr|
+zV^}N9W0D3ogHs5FKn}n0&tlW*df=^&ZWaI^Vi#!>V<J>+v50$HI5<rv0O@w<S1lX~
+zph?9GXa}2Nr)W(kZRMu+hA>h+_O=YW*&U9N64Ped0#qGfSFF#LF<PCz$AYIIg|XP&
+zR)Fk2njB+#OI9D>c!@il-i`qC9^5|KZ(?^V11+77P_tA9@19nz5c2yIMwViXMAxf~
+zGGS7a0SUut5|LswipX)4L`bPzj^h}PhEd_YptM#8M_MVGhXUXt2H@aEnF*7iG-AXe
+zC`3w{NJJinQwT~^lu2f!Otc*D1rcXwKvk0F-d^!gMmH3N%H-iVB9lj;h!i(r04f4U
+zuy6^AhXb^5T<V50Qp7CQZXrQB84H<0i*42vw}2;{Q0lb`p+tnfUD2CK&IAlV4=`3E
+z>vX&oB`_8`o+Eiav52s6JUmPufq@d0VAxxwMB45EwaBAls3@!}9zHPy2nSG0@|6kz
+z+!i1jLS?5(j<qMStXU!Coq~DG9<dHIl#%2}HObKc6qU#b6eBQM0{<%^WLPMM5oj-c
+z*2tK${+Bl2K5%4L(qkD1*gwm?)YVh*bb8lU*Qc3rHxmrI+kzmet`Hn#CT(>439!0E
+zR4Qprp~3v<F4#Bg%&!y!B{R@CjYl8`T7n_ca1xY~j5Hupl#&}rR4NTOMf62?uqMt)
+z+G%A9;1O^I3e?RN9Ne9%kiPoPRGQBNpbSAVq!(pEad)s{eqy|dHd6dwd_=kxdW{%h
+z*R=*l7np?No>AD%7e91<!>c<Fzu^u5dSH`&@jF1*0A2lJpkK-Z)ipp@zZmG3@<4U{
+z-{|swdzhlF;2)3^9F_LugeHSy)=<No7&SB#ih`o`N21n(m0`BnWCsNKjN<P>(8ezV
+z!J;Rp)oDEM4f6Bz4U;#V%mQcWVy#-4kW|%H6cy`12A-Q-Reki<x2H79O7rLs#yx2A
+z&->h*i3W|`rqn2HBR1H)78L{sr<%Q^<#L}jgVX)lfDK1iew&tl<+~{}%62_EF>2?7
+zBNJ|P-0Y0(IJq41^z>Zwdfmm@=y{)2)5_jidnKzeQC)RwczyY*+QOVIN9S|W>}?BP
+zlSRcPwo9WT3SRtq*?WR>tjY9BN@fc@J993Knf+pNb^EEy!!NW$YtBvxxL0^Gz?D2^
+z=lK{Qf>zu*cr^ODARfxkoZ)KiXp7jko5AH3>c2NAzo}CRH<xTY8(OeE%6T(k$0l84
+zd0R+Q#mQN_>r}@URW+V1dG-C0(tC%VKL2;B^p~F_Z`^O$UusE6s(lrBIOrdLMT#zz
+zReBZ3cWoRhzG!%I*L%~X5m3`htw(LSUiM@AhsBF)>Z<Q79(DD0I&=yziJlRlnh{Wi
+zm%L~lsZlB>owp?xsELEuCZ%e(`yA9frj5?euX(j`(+2}8ZV%az64>4_`>rc@aNZQ~
+s9^mz{S6lsI`b?|&Z_R$-y4WNrJNEUa_i`>x0cnG@ntAH7=#TRL10b-VC;$Ke
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-left.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-left.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f347a628a52dfbcb1a75aee12b4b636e553930a3
+GIT binary patch
+literal 4444
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-right.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/inhand-right.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..deca9b42f247e4db1dc08ff4c21c4a0880073a73
+GIT binary patch
+literal 4423
+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
+a)9>qiYag%oyZfOSDJ3yY-yFYr`+oqZH%M;)
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/meta.json b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/meta.json
+new file mode 100644
+index 00000000000..c79371003ae
+--- /dev/null
++++ b/Resources/Textures/_NF/Clothing/Belt/arcadia_belt.rsi/meta.json
+@@ -0,0 +1,26 @@
++{
++  "version": 1,
++  "license": "CC-BY-SA-3.0",
++  "copyright": "Original sprite from SS14 (CE Toolbelt) | modified by RustyRed for Frontier",
++  "size": {
++    "x": 32,
++    "y": 32
++  },
++  "states": [
++    {
++      "name": "icon"
++    },
++    {
++      "name": "equipped-BELT",
++      "directions": 4
++    },
++    {
++      "name": "inhand-left",
++      "directions": 4
++    },
++    {
++      "name": "inhand-right",
++      "directions": 4
++    }
++  ]
++}
+\ No newline at end of file
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/equipped-BELT.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/equipped-BELT.png
+similarity index 100%
+rename from Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/equipped-BELT.png
+rename to Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/equipped-BELT.png
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/icon.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/icon.png
+similarity index 100%
+rename from Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/icon.png
+rename to Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/icon.png
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/inhand-left.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/inhand-left.png
+similarity index 100%
+rename from Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/inhand-left.png
+rename to Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/inhand-left.png
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/inhand-right.png b/Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/inhand-right.png
+similarity index 100%
+rename from Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/inhand-right.png
+rename to Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/inhand-right.png
+diff --git a/Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/meta.json b/Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/meta.json
+similarity index 100%
+rename from Resources/Textures/_NF/Clothing/Belt/arcadia.rsi/meta.json
+rename to Resources/Textures/_NF/Clothing/Belt/arcadia_webbing.rsi/meta.json
+diff --git a/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/alt-equipped-EARS.png b/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/alt-equipped-EARS.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a57a08929a45c9cb53eefb53c91a4a111f6206d
+GIT binary patch
+literal 4470
+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
+WI=m+JP*PL5AkxJqX=|fj+x8!Z%W6gd
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/icon_alt.png b/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/icon_alt.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..a26089f4484eb98caaa2ef8755723b5d56e2a207
+GIT binary patch
+literal 4599
+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
+HkX`g&p&y<6
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/meta.json b/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/meta.json
+new file mode 100644
+index 00000000000..e5385a2aefe
+--- /dev/null
++++ b/Resources/Textures/_NF/Clothing/Ears/Headsets/arcadia.rsi/meta.json
+@@ -0,0 +1,18 @@
++{
++  "version": 1,
++  "license": "CC-BY-SA-3.0",
++  "copyright": "Orginial from SS14 (Syndicate Headset), Modified by RustyRed for frontier",
++  "size": {
++    "x": 32,
++    "y": 32
++  },
++  "states": [
++    {
++      "name": "icon_alt"
++    },
++    {
++      "name": "alt-equipped-EARS",
++      "directions": 4
++    }
++  ]
++}
+
