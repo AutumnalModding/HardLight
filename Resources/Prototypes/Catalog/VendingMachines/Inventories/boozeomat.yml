@@ -58,7 +58,6 @@
     ChemistryBottleEthanol: 3
     DrinkBottleOfNothingFull: 1
     DrinkNNNCan: 10 # Coyote
-    DrinkBoykisserEnergy: 10 # Coyote
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2
     DrinkPremiumAbsintheBottleFull: 1 # Frontier
