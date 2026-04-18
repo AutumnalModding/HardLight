@@ -2782,3 +2782,9 @@ Entries:
       message: Fixed a number of major errors and crashes
   id: 296
   time: '2026-04-17T20:43:12.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: New wallets & Arcadiawear!
+  id: 297
+  time: '2026-04-18T22:48:49.0000000+00:00'
