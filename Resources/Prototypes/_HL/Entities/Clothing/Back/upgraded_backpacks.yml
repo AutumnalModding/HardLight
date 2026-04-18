@@ -62,7 +62,7 @@
 - type: entity
   id: ClothingBackpackTacticalHolding
   name: tactical pack of holding
-  parent: [ NFClothingDuffel, RecyclableItemClothDurable ]
+  parent: [ NFClothingBackpackHolding, RecyclableItemClothDurable ]
   description: An extra large tactical pack for all your extra tacticool needs.
   components:
   - type: Sprite
@@ -90,6 +90,3 @@
     - 0,11,3,15
     - 5,11,14,15
     - 16,11,19,15
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
