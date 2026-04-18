@@ -70,7 +70,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public InertiaDampeningMode DampeningMode { get; set; } = InertiaDampeningMode.Off;
     public ServiceFlags ServiceFlags { get; set; } = ServiceFlags.None;
 
-    public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
+    public float MaximumIFFDistance { get; set; } = 7500f; // Frontier // Mono - 3000 by default to not gigaclutter /// Hardlight: it's fiiiiiine
     public bool HideCoords { get; set; } = false; // Frontier
 
     private static Color _dockLabelColor = Color.White; // Frontier
