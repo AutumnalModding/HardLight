@@ -275,6 +275,7 @@
   - NFBlueprintClothingBackpackDuffelHolding # Frontier
   - NFBlueprintClothingBackpackMessengerHolding # Frontier
   - BorgModuleStorage # HardLight
+  - ClothingBackpackTacticalHolding # Hardlight
 
 - type: technology
   id: PortableFission

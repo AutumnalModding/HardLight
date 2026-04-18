@@ -63,7 +63,7 @@
   id: ClothingBackpackTacticalHolding
   name: tactical pack of holding
   parent: [ NFClothingDuffel, RecyclableItemClothDurable ]
-  description: A tactical pack for your tactical needs
+  description: An extra large tactical pack for all your extra tacticool needs.
   components:
   - type: Sprite
     sprite: _HL/Clothing/Back/tacticalpack.rsi
