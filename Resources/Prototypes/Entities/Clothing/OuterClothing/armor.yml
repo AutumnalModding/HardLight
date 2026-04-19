@@ -379,7 +379,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: [ClothingNude, ClothingOuterBaseLarge, BaseC1, AllowSuitStorageClothing, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3CultContraband, added ContrabandClothing as parent # HardLight: Add ClothingNude, C3Wizard -> C1
+  parent: [ClothingNude, ClothingOuterBaseLarge, BaseC1Contraband, AllowSuitStorageClothing, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3CultContraband, added ContrabandClothing as parent # HardLight: Add ClothingNude, C3Wizard -> C1
   id: ClothingOuterArmorChameleon
   name: emperor's new armour
   suffix: Chameleon
