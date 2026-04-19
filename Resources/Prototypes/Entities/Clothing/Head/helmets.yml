@@ -517,7 +517,7 @@
 
 # Invisible helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseC3WizardContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetBase, BaseC1Contraband, ContrabandClothing] ## Hardlight: C3Wizard -> C2
   id: ClothingHeadHelmetChameleon
   name: emperor's new helmet
   suffix: Chameleon

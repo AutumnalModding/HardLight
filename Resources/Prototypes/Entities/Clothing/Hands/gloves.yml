@@ -475,7 +475,7 @@
         Caustic: 5
 
 - type: entity
-  parent: [ ClothingHandsGlovesColorBlack, BaseC3WizardContraband ] # BaseSecurityEngineeringContraband<BaseC1Contraband
+  parent: [ ClothingHandsGlovesColorBlack ] # BaseSecurityEngineeringContraband<BaseC1Contraband ## Hardlight: Removed BaseC3WizardContraband
   id: ClothingHandsGlovesChameleon
   name: emperor's new gloves
   suffix: Chameleon
