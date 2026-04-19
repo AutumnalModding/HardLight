@@ -195,7 +195,7 @@
   - type: Appearance
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
+  # categories: [ HideSpawnMenu ] # Frontier ## Hardlight: Why, Frontier? Why?
   name: Foam Force Astro Ace
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponRifleFoam
