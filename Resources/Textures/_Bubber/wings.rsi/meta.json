@@ -76,14 +76,6 @@
             ]
         },
         {
-            "name": "m_wings_feathery_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_feathery_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_feathery_front_tertiary",
             "directions": 4
         },
@@ -112,23 +104,11 @@
             "directions": 4
         },
         {
-            "name": "m_wings_succubus_front_primary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_extra_succubus_behind",
             "directions": 4
         },
         {
             "name": "m_wings_succubus_behind_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_dragonsynth_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_dragonsynth_front_secondary",
             "directions": 4
         },
         {
@@ -151,27 +131,11 @@
             "name": "colorpalette_matrixcolors"
         },
         {
-            "name": "m_wings_dragonalt1_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_dragonalt1_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_dragonalt1_behind_primary",
             "directions": 4
         },
         {
             "name": "m_wings_dragonalt1_behind_secondary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_dragonalt2_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_dragonalt2_front_secondary",
             "directions": 4
         },
         {
@@ -211,14 +175,6 @@
             "directions": 4
         },
         {
-            "name": "m_wings_harpybat_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_harpybat_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_harpybat_front_tertiary",
             "directions": 4
         },
@@ -228,14 +184,6 @@
         },
         {
             "name": "m_wings_harpybat_fluffless_behind_secondary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_harpybat_fluffless_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_harpybat_fluffless_front_secondary",
             "directions": 4
         },
         {
@@ -271,14 +219,6 @@
             "directions": 4
         },
         {
-            "name": "m_wings_featheryalt1_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_featheryalt1_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_featheryalt1_front_tertiary",
             "directions": 4
         },
@@ -292,14 +232,6 @@
         },
         {
             "name": "m_wings_featheryalt1_behind_tertiary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_featheryalt2_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_featheryalt2_front_secondary",
             "directions": 4
         },
         {
@@ -431,14 +363,6 @@
             "directions": 4
         },
         {
-            "name": "m_wings_robowing_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_robowing_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_robowing_behind_primary",
             "directions": 4
         },
@@ -511,14 +435,6 @@
             "directions": 4
         },
         {
-            "name": "m_wings_pterodactyl_front_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_pterodactyl_front_secondary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_pterodactyl_behind_primary",
             "directions": 4
         },
@@ -527,15 +443,7 @@
             "directions": 4
         },
         {
-            "name": "m_wings_renamon_front_primary",
-            "directions": 4
-        },
-        {
             "name": "m_wings_renamon_behind_primary",
-            "directions": 4
-        },
-        {
-            "name": "m_wings_renamon_front_secondary",
             "directions": 4
         },
         {
