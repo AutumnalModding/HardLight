@@ -91,7 +91,9 @@ public sealed class CardStackSystem : EntitySystem
         if (comp.Cards.Count >= MaxCardsInStack)
             return false;
 
-        _container.Insert(card, comp.ItemContainer);
+        if (!_container.Insert(card, comp.ItemContainer))
+            return false;
+
         comp.Cards.Add(card);
 
         Dirty(uid, comp);
@@ -156,10 +158,18 @@ public sealed class CardStackSystem : EntitySystem
         {
             if (firstComp.Cards.Count >= MaxCardsInStack)
                 break;
+
             _container.Remove(card, secondComp.ItemContainer);
             secondComp.Cards.Remove(card);
+
+            if (!_container.Insert(card, firstComp.ItemContainer))
+            {
+                _container.Insert(card, secondComp.ItemContainer);
+                secondComp.Cards.Add(card);
+                continue;
+            }
+
             firstComp.Cards.Add(card);
-            _container.Insert(card, firstComp.ItemContainer);
             changed = true;
         }
         if (changed)
@@ -203,6 +213,8 @@ public sealed class CardStackSystem : EntitySystem
     {
         if (_net.IsClient)
             return;
+
+        comp.ItemContainer = _container.EnsureContainer<Container>(uid, ContainerId);
 
         var coordinates = Transform(uid).Coordinates;
         var spawnedEntities = new List<EntityUid>();
@@ -335,10 +347,18 @@ public sealed class CardStackSystem : EntitySystem
         {
             if (secondComp.Cards.Count >= MaxCardsInStack)
                 break;
+
             _container.Remove(card, firstComp.ItemContainer);
             firstComp.Cards.Remove(card);
+
+            if (!_container.Insert(card, secondComp.ItemContainer))
+            {
+                _container.Insert(card, firstComp.ItemContainer);
+                firstComp.Cards.Add(card);
+                continue;
+            }
+
             secondComp.Cards.Add(card);
-            _container.Insert(card, secondComp.ItemContainer);
             changed = true;
         }
 

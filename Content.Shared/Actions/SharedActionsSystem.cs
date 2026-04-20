@@ -737,6 +737,12 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!container.IsValid())
             container = performer;
 
+        if (TerminatingOrDeleted(performer) || TerminatingOrDeleted(container))
+        {
+            action = null;
+            return false;
+        }
+
         if (!_actionContainer.EnsureAction(container, ref actionId, out action, actionPrototypeId))
             return false;
 
@@ -754,6 +760,9 @@ public abstract class SharedActionsSystem : EntitySystem
         ActionsContainerComponent? containerComp = null
         )
     {
+        if (TerminatingOrDeleted(performer) || TerminatingOrDeleted(container))
+            return false;
+
         if (!ResolveActionData(actionId, ref action))
             return false;
 
@@ -777,6 +786,9 @@ public abstract class SharedActionsSystem : EntitySystem
         ActionsComponent? comp = null,
         BaseActionComponent? action = null)
     {
+        if (TerminatingOrDeleted(performer))
+            return false;
+
         if (!ResolveActionData(actionId, ref action))
             return false;
 

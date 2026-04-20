@@ -17,6 +17,7 @@
   - ClothingMaskWeldingGas
   - ClothingShoesBootsJump
   - MechEquipmentDrill # Goobstation
+  - DebrisBag
 
 - type: technology
   id: SpaceScanning
@@ -275,6 +276,9 @@
   - NFBlueprintClothingBackpackDuffelHolding # Frontier
   - NFBlueprintClothingBackpackMessengerHolding # Frontier
   - BorgModuleStorage # HardLight
+  - ClothingBackpackTacticalHolding # Hardlight
+  - DebrisBagOfHolding
+  - ClothingWalletLeatherBlackMagnet
 
 - type: technology
   id: PortableFission

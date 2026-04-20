@@ -26,6 +26,7 @@ public sealed class TargetSeekerAlertSystem : EntitySystem
         _alertQuery = GetEntityQuery<TargetSeekerAlertComponent>();
 
         // I didn't make a subscription for ComponentStartup because i assume EntParentChanged gets raised on entities upon spawn.
+        SubscribeLocalEvent<TargetSeekerAlertComponent, ComponentStartup>(OnAlerterStartup);
         SubscribeLocalEvent<TargetSeekerAlertComponent, EntParentChangedMessage>(OnAlerterParentChanged);
         SubscribeLocalEvent<TargetSeekerAlertComponent, ComponentShutdown>(OnAlerterShutdown);
         SubscribeLocalEvent<TargetSeekerAlertComponent, PowerChangedEvent>(OnAlerterPowerChanged);
@@ -60,6 +61,17 @@ public sealed class TargetSeekerAlertSystem : EntitySystem
             foreach (var alertEntity in alertGridComponent.ActiveAlerters)
                 UpdateActiveAlerter(alertEntity, closestSeekerDistance);
         }
+    }
+
+    private void OnAlerterStartup(Entity<TargetSeekerAlertComponent> alertEntity, ref ComponentStartup args)
+    {
+        if (!_powerReceiverSystem.IsPowered(alertEntity.Owner))
+            return;
+
+        if (Transform(alertEntity).GridUid is not { } alertGridUid)
+            return;
+
+        AddAlerterToGrid(alertGridUid, alertEntity);
     }
 
     private void OnAlerterPowerChanged(Entity<TargetSeekerAlertComponent> alertEntity, ref PowerChangedEvent args)

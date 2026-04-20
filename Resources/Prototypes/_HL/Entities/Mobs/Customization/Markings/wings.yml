@@ -1,0 +1,10 @@
+- type: marking
+  id: DragonWingsBubber
+  bodyPart: Tail
+  markingCategory: Chest
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid, Shadekin]
+  sprites:
+  - sprite: _Bubber/wings.rsi
+    state: m_wings_dragonalt2_behind_secondary
+  - sprite: _Bubber/wings.rsi
+    state: m_wings_dragonalt2_behind_primary

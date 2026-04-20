@@ -24,7 +24,7 @@ public sealed partial class JukeboxComponent : Component
     public JukeboxPlaybackMode PlaybackMode = JukeboxPlaybackMode.Single;
     // End Frontier: Shuffle & Repeat
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? AudioStream;
 
     /// <summary>

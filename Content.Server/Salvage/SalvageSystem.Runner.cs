@@ -78,8 +78,19 @@ public sealed partial class SalvageSystem
     /// </summary>
     private void Announce(EntityUid mapUid, string text)
     {
-        var mapId = Comp<MapComponent>(mapUid).MapId;
-        var sender = _mapSystem.GetMap(mapId); // HardLight
+        if (!TryComp<MapComponent>(mapUid, out var map))
+        {
+            Log.Warning($"Skipping salvage announcement for {ToPrettyString(mapUid)} because the map component is no longer available.");
+            return;
+        }
+
+        var mapId = map.MapId;
+
+        if (!_mapSystem.TryGetMap(mapId, out var sender) || sender == null || sender == EntityUid.Invalid)
+        {
+            Log.Warning($"Skipping salvage announcement for {ToPrettyString(mapUid)} because map {mapId} is no longer registered.");
+            return;
+        }
 
         // I love TComms and chat!!!
         _chat.ChatMessageToManyFiltered(
@@ -87,7 +98,7 @@ public sealed partial class SalvageSystem
             ChatChannel.Radio,
             text,
             text,
-            sender, // HardLight: _mapManager.GetMapEntityId(mapId)<sender
+            sender.Value, // HardLight: _mapManager.GetMapEntityId(mapId)<sender
             false,
             true,
             null);
