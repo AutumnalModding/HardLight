@@ -236,11 +236,12 @@
   id: EncryptionKeyBinary
   name: binary translator key
   categories: [ DoNotMap ] # Frontier
-  description: An encryption key that translates binary signals used by silicons.
+  description: An encryption key that translates binary and trinary signals used by silicons. # HL: Add Trinary
   components:
   - type: EncryptionKey
     channels:
     - Binary
+    - Trinary # Hardlight
     defaultChannel: Binary
   - type: Sprite
     layers:
@@ -251,11 +252,12 @@
   parent: [ EncryptionKey, BaseC2ContrabandUnredeemable ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
   id: EncryptionKeyBinarySyndicate
   name: binary translator key
-  description: A syndicate encryption key that translates binary signals used by silicons.
+  description: A syndicate encryption key that translates binary and trinary signals used by silicons. # HL: Add Trinary
   components:
   - type: EncryptionKey
     channels:
     - Binary
+    - Trinary # Hardlight
     defaultChannel: Binary
   - type: Sprite
     layers:
