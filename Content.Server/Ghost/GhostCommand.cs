@@ -1,8 +1,11 @@
+using Content.Server.Database;
 using Content.Server.Popups;
 using Content.Shared.Administration;
 using Content.Shared.GameTicking;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
@@ -51,7 +54,21 @@ namespace Content.Server.Ghost
                 return;
             }
 
+
             var minds = _entities.System<MindSystem>();
+            var ghost = _entities.System<GhostSystem>();
+
+            if (player.AttachedEntity is { Valid: true } entity &&
+                _entities.TryGetComponent<MobStateComponent>(entity, out var state) &&
+                state.CurrentState is MobState.Critical or MobState.Dead)
+            {
+                if (minds.TryGetMind(player, out var ident, out var that))
+                {
+                    ghost.OnGhostAttempt(ident, true, viaCommand: true, mind: that);
+                }
+                return;
+            }
+
             if (minds.TryGetMind(player, out var mindId, out var mind))
                 minds.WipeMind(mindId, mind);
             else
