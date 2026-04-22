@@ -21,3 +21,9 @@
     - type: ActiveRadio
       intrinsicChannels:
       - Trinary
+    - type: EncryptionKeyHolder
+      keySlots: 1
+      examineWhileLocked: false
+      preserveExistingChannels: true
+      intrinsicChannels:
+      - Trinary
