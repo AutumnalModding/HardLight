@@ -482,7 +482,7 @@
   name: first aid pouch
   description: Contains several subcompartments for a first responder's topicals. # Hardlight: Specific description
   components:
-  - type: Storage # Hardlight: 4x4, only fits topicals
+  - type: Storage # Hardlight: 4x3 (1/4th medical bag), only fits topicals
     maxItemSize: Small
     grid:
     - 0,0,3,2
