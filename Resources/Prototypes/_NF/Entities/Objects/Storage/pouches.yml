@@ -20,7 +20,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,2,1
+    - 0,0,3,1 # Hardlight: 2x3 -> 4x2
     blacklist:
       components: [ Storage ] # No bagception
   - type: StaticPrice
@@ -292,6 +292,12 @@
   parent: NFPouchUtility
   name: engineer's pouch
   components:
+  - type: Storage # Hardlight start: 2x5 but only fits tools
+    maxItemSize: Normal
+    grid:
+    - 0,0,4,1
+    whitelist:
+      components: [ Tool ] # Hardlight end
   - type: Sprite
     layers:
     - state: base
@@ -467,6 +473,16 @@
   parent: NFPouchBase
   name: first aid pouch
   components:
+  - type: Storage # Hardlight: 4x4, only fits topicals
+    maxItemSize: Small
+    grid:
+    - 0,0,3,2
+    whitelist:
+      tags:
+        - Ointment
+        - Brutepack
+        - Bloodpack
+        - Gauze # Hardlight end
   - type: Sprite
     layers:
     - state: base
