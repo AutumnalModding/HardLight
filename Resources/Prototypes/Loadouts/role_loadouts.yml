@@ -383,7 +383,7 @@
   - MercenaryBelt
   - ContractorBoxSurvival
   - ContractorWallet
-  - ContractorImplanter
+  - FreelancerImplanter # HL: salvs + lancers get fultons
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
