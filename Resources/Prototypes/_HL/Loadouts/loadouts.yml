@@ -198,3 +198,10 @@
   storage:
     back:
     - WeaponShotgunVortex
+
+- type: loadout
+  id: FreelancerMedicalTrackingImplanter
+  name: medical tracking implanter
+  storage:
+    back:
+    - MedicalTrackingImplanterFulton

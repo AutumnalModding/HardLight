@@ -73,7 +73,7 @@
   - MercenaryPDA
   - ContractorWallet
   - ContractorCartridge
-  - ContractorImplanter
+  - FreelancerImplanter # HL: only freelancers get trackers
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific

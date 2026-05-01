@@ -818,3 +818,18 @@
   - ServiceForcedClothingOuterEVASuit
   fallbacks:
   - ServiceForcedClothingOuterEVASuit
+
+- type: loadoutGroup
+  id: FreelancerImplanter
+  name: loadout-group-contractor-implanter
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - FreelancerMedicalTrackingImplanter
+  - ContractorLightImplanter
+  - ContractorBikeHornImplanter
+  - ContractorSadTromboneImplanter
+  - ContractorMimePowersImplanter
+  - ContractorBibleUserImplanter
+  fallbacks:
+  - FreelancerMedicalTrackingImplanter

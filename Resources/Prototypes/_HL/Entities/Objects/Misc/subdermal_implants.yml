@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MedicalTrackingImplantFulton
+  name: medical tracking implant
+  suffix: Fulton
+  description: This implant has a tracking device monitor for the Medical radio channel, as well as a bluespace fulton deployment device..
+#  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: MedicalTeleportImplant
+      teleportDelay: 30
+      teleportDuration: 5
+      teleportSound:
+        path: /Audio/Effects/teleport_departure.ogg
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Critical
+      - Dead
+      preventVore: true
+    - type: Rattle
+      radioChannel: "Medical"
