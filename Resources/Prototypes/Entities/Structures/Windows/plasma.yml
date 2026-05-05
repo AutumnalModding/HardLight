@@ -49,12 +49,12 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
+    price: 50 # Frontier: 100<50
   - type: DeltaPressure
     minPressure: 75000
     minPressureDelta: 50000
     scalingType: Linear
     scalingPower: 0.0005
-    price: 50 # Frontier: 100<50
   - type: RadiationBlocker
     resistance: 2
 
