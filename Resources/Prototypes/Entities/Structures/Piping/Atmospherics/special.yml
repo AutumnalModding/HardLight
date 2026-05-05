@@ -2,7 +2,7 @@
 - type: entity
   id: AtmosDeviceFanTiny
   name: tiny fan
-  description: A tiny fan, releasing a thin gust of air.
+  description: A tiny fan, releasing a thin gust of air. Cannot withstand high pressure. # Hardlight: ΔP note.
   placement:
     mode: SnapgridCenter
   components:
@@ -44,11 +44,17 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 10
+  - type: Damageable # Hardlight start
+  - type: DeltaPressure
+    minPressure: 12500
+    minPressureDelta: 6250
+    scalingType: Linear
+    scalingPower: 0.0005 # Hardlight end
 
 - type: entity
   id: AtmosDeviceFanDirectional
   name: directional fan
-  description: A thin fan, stopping the movement of gases across it.
+  description: A thin fan, stopping the movement of gases across it. Cannot withstand extreme pressure. # Hardlight: ΔP note.
   placement:
     mode: SnapgridCenter
   components:
@@ -95,3 +101,9 @@
   - type: ShipRepairable
     repairTime: 4
     repairCost: 8
+  - type: Damageable # Hardlight start
+  - type: DeltaPressure
+    minPressure: 50000
+    minPressureDelta: 25000
+    scalingType: Linear
+    scalingPower: 0.0005 # Hardlight end
