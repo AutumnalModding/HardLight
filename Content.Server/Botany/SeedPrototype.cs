@@ -21,8 +21,8 @@ public sealed partial class SeedPrototype : SeedData, IPrototype
 public enum HarvestType : byte
 {
     NoRepeat,
-    Repeat,
-    SelfHarvest
+    Repeat
+    // SelfHarvest /* HL: disable self harvest */
 }
 
 /*

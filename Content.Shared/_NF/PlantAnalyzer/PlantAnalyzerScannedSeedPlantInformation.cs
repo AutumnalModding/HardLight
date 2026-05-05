@@ -82,7 +82,7 @@ public enum AnalyzerHarvestType : byte
     Unknown, // Just in case the backing enum type changes and we haven't caught it.
     Repeat,
     NoRepeat,
-    SelfHarvest
+    // SelfHarvest /* HL: disable self harvest */
 }
 
 public static class GasExtensions

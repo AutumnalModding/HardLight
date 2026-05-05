@@ -19,8 +19,8 @@ public sealed partial class PlantMutateHarvest : EntityEffect
 
         if (plantholder.Seed.HarvestRepeat == HarvestType.NoRepeat)
             plantholder.Seed.HarvestRepeat = HarvestType.Repeat;
-        else if (plantholder.Seed.HarvestRepeat == HarvestType.Repeat)
-            plantholder.Seed.HarvestRepeat = HarvestType.SelfHarvest;
+        // else if (plantholder.Seed.HarvestRepeat == HarvestType.Repeat) /* HL: disable self harvest */
+        //     plantholder.Seed.HarvestRepeat = HarvestType.SelfHarvest;
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)

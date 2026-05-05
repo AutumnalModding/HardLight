@@ -381,8 +381,8 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             case HarvestType.NoRepeat:
                 harvestType = AnalyzerHarvestType.NoRepeat;
                 break;
-            case HarvestType.SelfHarvest:
-                harvestType = AnalyzerHarvestType.SelfHarvest;
+            // case HarvestType.SelfHarvest: /* HL: disable self harvest */
+            //     harvestType = AnalyzerHarvestType.SelfHarvest;
                 break;
             default:
                 break;
