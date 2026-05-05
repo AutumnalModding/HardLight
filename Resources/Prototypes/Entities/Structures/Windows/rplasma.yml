@@ -55,6 +55,11 @@
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 65
+  - type: DeltaPressure
+    minPressure: 150000
+    minPressureDelta: 100000
+    scalingType: Linear
+    scalingPower: 0.0001
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
@@ -111,6 +116,10 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 30
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
 
 - type: entity
   parent: ReinforcedPlasmaWindow
