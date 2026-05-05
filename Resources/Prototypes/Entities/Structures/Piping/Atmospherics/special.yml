@@ -44,12 +44,13 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 10
-  - type: Damageable # Hardlight start
-  - type: DeltaPressure
-    minPressure: 12500
-    minPressureDelta: 6250
-    scalingType: Linear
-    scalingPower: 0.0005 # Hardlight end
+  # HARDLIGHT: TODO: Revisit this later.
+  # - type: Damageable # Hardlight start
+  # - type: DeltaPressure
+  #   minPressure: 12500
+  #   minPressureDelta: 6250
+  #   scalingType: Linear
+  #   scalingPower: 0.0005 # Hardlight end
 
 - type: entity
   id: AtmosDeviceFanDirectional
@@ -101,9 +102,10 @@
   - type: ShipRepairable
     repairTime: 4
     repairCost: 8
-  - type: Damageable # Hardlight start
-  - type: DeltaPressure
-    minPressure: 50000
-    minPressureDelta: 25000
-    scalingType: Linear
-    scalingPower: 0.0005 # Hardlight end
+  # HARDLIGHT: TODO: Revisit this later.
+  # - type: Damageable # Hardlight start
+  # - type: DeltaPressure
+  #   minPressure: 50000
+  #   minPressureDelta: 25000
+  #   scalingType: Linear
+  #   scalingPower: 0.0005 # Hardlight end
