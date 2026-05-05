@@ -17,7 +17,7 @@ namespace Content.Server.Stunnable
         [Dependency] private readonly StunSystem _stunSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!; // Hardlight
         [Dependency] private readonly TagSystem _tag = default!; // Hardlight;
-        private static readonly ProtoId<TagPrototype> IgnoreKnockdown = "StunImmune";
+        private static readonly ProtoId<TagPrototype> IgnoreKnockdown = "KnockdownImmune";
 
         public override void Initialize()
         {

@@ -590,7 +590,7 @@
     - Hardsuit
     - ScurretWearable
     - WhitelistChameleon
-    - StunImmune # Hardlight
+    - KnockdownImmune # Hardlight
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -744,7 +744,7 @@
   - type: Tag
     tags:
     - MonkeyWearable
-    - StunImmune # Hardlight
+    - KnockdownImmune # Hardlight
 
 #Wizard Hardsuit
 - type: entity
