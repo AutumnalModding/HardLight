@@ -372,7 +372,7 @@
 
 - type: trait
   id: SyntheticHeart
-  name: trait-syntheticheart-desc
+  name: trait-syntheticheart-name
   description: trait-syntheticheart-desc
   category: Physical
   cost: 16
