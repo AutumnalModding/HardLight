@@ -386,15 +386,3 @@
   components:
   - type: SyntheticHeart
   - type: HLSynth
-  - type: HLBloodLevelPassiveDamage
-    allowedStates:
-    - Alive
-    - Critical
-    allowedDamageGroups:
-    - Brute
-    - Burn
-    bloodLevelDecrease: 1.1
-    damage:
-      groups:
-        Brute: -7
-        Burn: -7
