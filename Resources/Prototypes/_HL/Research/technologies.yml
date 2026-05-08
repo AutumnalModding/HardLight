@@ -175,6 +175,7 @@
   - CivReaperWeaponBoard
   - CivHarbringerWeaponBoard
   - CivBigThrusterBoard
+  - CivHadesWeaponBoard
 
 - type: technology
   id: HighPressureAtmospherics

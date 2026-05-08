@@ -734,7 +734,7 @@
 - type: entity
   id: CVWeaponTurretFang
   name: Civilian Fang heavy 100mm autocannon
-  description: A heavy 100mm autocannon of syndicate design, created during the corporate war. Made for shattering the hulls of NT crusiers. Uses a self loading mechanism similar to the anaconda hangun. Now coming to a backyard near you!zzzzzzzzz
+  description: A heavy 100mm autocannon of syndicate design, created during the corporate war. Made for shattering the hulls of NT crusiers. Uses a self loading mechanism similar to the anaconda hangun. Now coming to a backyard near you!
   parent: [ BaseC2ContrabandUnredeemable, WeaponTurretFang ]
   components:
   - type: Sprite
@@ -823,11 +823,34 @@
   - type: Machine
     board: CivRAC30WeaponBoard
 
+- type: entity
+  id: CVWeaponTurretHades
+  name: Civilian HADES 305mm cannon
+  description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381. Aim away from face.
+  parent: [ BaseC2ContrabandUnredeemable, WeaponTurretHades ]
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/ShuttleWeapons/cvhades.rsi
+    layers:
+    - state: space_artillery
+  - type: RadarBlip
+    radarColor: "#5bc65d"
+    scale: 3.5
+    visibleFromOtherGrids: true
+  - type: ShipGunClass
+    shipClass: CVSuperheavy
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Machine
+    board: CivHadesWeaponBoard
+
 #T1
 - type: entity
   id: CVWeaponTurretAK570
   name: Civilian AK570 90mm heavy autocannon
-  description: A dual-barrel, heavy 90mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS. ribbed for your pleasure.zzzz
+  description: A dual-barrel, heavy 90mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS. Ribbed for your pleasure.
   parent: [ BaseC2ContrabandUnredeemable, WeaponTurretAK570 ]
   components:
   - type: Sprite
@@ -850,7 +873,7 @@
 - type: entity
   id: CVWeaponTurretDravon
   name: Civilian ADBP-7 DRAVON 57mm Autocannon
-  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high fire rate but relatively low impact, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS. please consult a doctor if an erection lasts longer than 4 hours.
+  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high fire rate but relatively low impact, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS. Please consult a doctor if an erection lasts longer than 4 hours.
   parent: [ BaseC2ContrabandUnredeemable, WeaponTurretDravon ]
   components:
   - type: Sprite
@@ -873,7 +896,7 @@
 - type: entity
   id: CVWeaponLaserTurretFlayer
   name: Civilian Curio-183 auto-coil "Flayer"
-  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high fire rate but relatively low impact, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS. please consult a doctor if an erection lasts longer than 4 hours.
+  description: A single-barrel autocannon made by Aetherion Dynamics. Medium artillery piece with high fire rate but relatively low impact, firing HEAT shells to damage ship armor and systems. Can be remotely activated or linked up to a GCS. Please consult a doctor if an erection lasts longer than 4 hours.
   parent: [ BaseC2ContrabandUnredeemable, WeaponLaserTurretFlayer ]
   components:
   - type: Sprite
@@ -943,7 +966,7 @@
   id: CVWeaponTurretM220
   name: Civilian M220 RUBICON EMP launcher
   parent: [ BaseC2ContrabandUnredeemable, WeaponTurretM220 ]
-  description: Launches EMP projectiles at ships, disabling systems with powerful electromagnetic pulses. Ideal for non-lethal engagements and can be remotely activated or linked to a GCS. shock your friends.
+  description: Launches EMP projectiles at ships, disabling systems with powerful electromagnetic pulses. Ideal for non-lethal engagements and can be remotely activated or linked to a GCS. Shock your friends.
   components:
   - type: Sprite
     sprite: _HL/Objects/ShuttleWeapons/cvrubicon.rsi

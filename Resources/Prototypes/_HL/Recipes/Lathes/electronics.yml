@@ -2,3 +2,8 @@
   parent: BaseGoldCircuitboardRecipe
   id: MachineGCSUltraCircuitboard
   result: MachineGCSUltraCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: MachineGCSOmegaCircuitboard
+  result: MachineGCSOmegaCircuitboard

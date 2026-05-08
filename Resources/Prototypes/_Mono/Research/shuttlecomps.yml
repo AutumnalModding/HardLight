@@ -15,6 +15,7 @@
   - MachineGCSMediumCircuitboard
   - MachineGCSHighCircuitboard
   - MachineGCSUltraCircuitboard # HL
+  - MachineGCSOmegaCircuitboard # HL
 
 - type: technology
   id: ShuttleRadarResearch

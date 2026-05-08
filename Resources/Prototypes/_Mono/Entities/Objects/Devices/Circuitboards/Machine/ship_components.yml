@@ -49,8 +49,8 @@
   - type: MachineBoard
     prototype: GunneryServerMedium
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      Capacitor: 3 # Hardlight: 2 -> 3
+      Manipulator: 3 # Hardlight: 2 -> 3
     stackRequirements:
       Glass: 20 # HL: 10 -> 20
       Steel: 20 # HL: 10 -> 20
@@ -67,8 +67,8 @@
   - type: MachineBoard
     prototype: GunneryServerHigh
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      Capacitor: 4 # Hardlight: 2 -> 4
+      Manipulator: 4 # Hardlight: 2 -> 4
     stackRequirements:
       Glass: 30 # HL: 10 -> 30
       Steel: 30 # HL: 10 -> 30
@@ -85,13 +85,35 @@
   - type: MachineBoard
     prototype: GunneryServerUltra
     requirements:
-      Capacitor: 2
-      Manipulator: 2
+      Capacitor: 6 # Hardlight: 2 -> 6
+      Manipulator: 6 # Hardlight: 2 -> 6
     stackRequirements:
       Glass: 50 # HL: 10 -> 50
       Steel: 50 # HL: 10 -> 50
-      Plasteel: 30 # HL: add 10 plasteel
+      Plasteel: 20 # HL: add 20 plasteel
+      Plastitanium: 10 # HL: add 10 plastitanium
       Bluespace: 10 # HL: add 10 bluespace
+
+- type: entity # Hardlight
+  id: MachineGCSOmegaCircuitboard
+  parent: BaseMachineCircuitboard
+  name: omega-high-power gunnery control server board
+  description: A machine board for a GCS.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GunneryServerOmega
+    requirements:
+      Capacitor: 8
+      Manipulator: 8
+    stackRequirements:
+      Glass: 50
+      Steel: 50
+      Plasteel: 50
+      Plastitanium: 30
+      Plutonium: 10
+      Bluespace: 30 # Hardlight end
 
 - type: entity
   id: MachineGCSStationCircuitboard

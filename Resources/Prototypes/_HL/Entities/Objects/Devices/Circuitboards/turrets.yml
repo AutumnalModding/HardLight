@@ -342,6 +342,14 @@
     prototype: WeaponTurretHades
 
 - type: entity
+  id: CivHadesWeaponBoard
+  parent: BaseCivCapitalShipWeaponBoard
+  name: Civilian HADES 305mm cannon turret board
+  components:
+  - type: MachineBoard
+    prototype: CVWeaponTurretHades
+
+- type: entity
   id: HydraWeaponBoard
   parent: BaseCapitalShipWeaponBoard
   name: Hydra 200mm battery turret board

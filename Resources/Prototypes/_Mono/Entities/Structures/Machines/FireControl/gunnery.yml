@@ -55,7 +55,7 @@
     maxCharge: 125
     startingCharge: 125
   - type: ApcPowerReceiver
-    powerLoad: 250
+    powerLoad: 2750 # Hardlight: 250 -> 2750
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 300
@@ -76,7 +76,7 @@
     maxCharge: 250
     startingCharge: 250
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 3250 # Hardlight: 500 -> 3250
   - type: ApcPowerReceiverBattery
     idleLoad: 10
     batteryRechargeRate: 600
@@ -95,7 +95,7 @@
     maxCharge: 500
     startingCharge: 500
   - type: ApcPowerReceiver
-    powerLoad: 1000
+    powerLoad: 5000 # Hardlight: 1000 -> 5000
   - type: ApcPowerReceiverBattery
     idleLoad: 20
     batteryRechargeRate: 1200
@@ -114,7 +114,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: ApcPowerReceiver
-    powerLoad: 2000
+    powerLoad: 13500 # Hardlight: 2000 -> 13500
   - type: ApcPowerReceiverBattery
     idleLoad: 50
     batteryRechargeRate: 2400
@@ -124,24 +124,24 @@
 
 - type: entity
   id: GunneryServerOmega
-  parent: [BaseStructureDisableToolUse, GunneryServerBase]
+  parent: [GunneryServerBase] # HL: removed BaseStructureDisableToolUse
   name: omega-high-power gunnery control server
   components:
   - type: Machine
-    board: MachineGCSUltraCircuitboard
+    board: MachineGCSOmegaCircuitboard # HL: unique board
   - type: FireControlServer
     processingPower: 150
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
   - type: ApcPowerReceiver
-    powerLoad: 4000
+    powerLoad: 20000 # Hardlight: 4000 -> 20000
   - type: ApcPowerReceiverBattery
     idleLoad: 100
     batteryRechargeRate: 4800
     batteryRechargeEfficiency: 0.95
-  - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus.
-    flags: Anchorable
+  # - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus. ## Hardlight: :3
+  #   flags: Anchorable
 
 - type: entity
   id: GunneryServerStation

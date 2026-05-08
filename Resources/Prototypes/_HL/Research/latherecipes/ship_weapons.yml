@@ -318,6 +318,11 @@
 
 - type: latheRecipe
   parent: BaseCapitalWeaponBoardRecipe
+  id: CivHadesWeaponBoard
+  result: CivHadesWeaponBoard
+
+- type: latheRecipe
+  parent: BaseCapitalWeaponBoardRecipe
   id: HydraWeaponBoard
   result: HydraWeaponBoard
 
