@@ -379,8 +379,6 @@
   speciesBlacklist:
   - IPC
   - Synth
-  mutuallyExclusiveTraits:
-  - DermalArmor
   components:
   - type: BlockInjection
     blockHypospray: true

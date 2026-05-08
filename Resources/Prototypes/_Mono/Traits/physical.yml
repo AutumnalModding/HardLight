@@ -313,12 +313,7 @@
   cost: 6
   mutuallyExclusiveTraits:
   - PoolToy
-  - HardSkin # Hardlight
   components:
-  - type: BlockInjection # Hardlight start
-    blockHypospray: true
-    blockInjectOnProjectile: true
-    blockReason: hardskin # Hardlight end
   - type: DamageProtectionBuff
     modifiers:
       dermal:
