@@ -375,3 +375,32 @@
   - type: Amputee
     removeBodyPart: Arm
     partSymmetry: Right
+
+- type: trait
+  id: SyntheticHeart
+  name: trait-syntheticheart-desc
+  description: trait-syntheticheart-desc
+  category: Physical
+  cost: 16
+  speciesBlacklist: # HardLight
+  - IPC
+  - Synth
+  mutuallyExclusiveTraits:
+  - PlateletFactories
+  - NaturalRegen
+  - UnnaturalRegen
+  components:
+  - type: SyntheticHeart
+  - type: HLSynth
+  - type: HLBloodLevelPassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    allowedDamageGroups:
+    - Brute
+    - Burn
+    bloodLevelDecrease: 1.1
+    damage:
+      groups:
+        Brute: -7
+        Burn: -7

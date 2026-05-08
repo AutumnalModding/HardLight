@@ -86,3 +86,6 @@ hl-trait-kinky-erotic-moods-desc = Every half hour or so you receive a private r
 
 hl-trait-romantic-moods-name = Romantic Moods
 hl-trait-romantic-moods-desc = Every half hour or so you receive a private reminder of two randomly drawn romantic inclinations — tenderness, dates, closeness. Preferences rotate every one to two and a half hours.
+
+trait-syntheticheart-name = Synthetic Heart
+trait-syntheticheart-desc = You have a high-tech biomechanical heart based on the same technology found in Synths. Their nanites work on you, and chemicals will continue to process even when the rest of your body won't - but they have significantly reduced effect on you.
