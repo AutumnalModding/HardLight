@@ -376,6 +376,7 @@
   - NaturalRegen
   - ShadekinRegeneration
   - ExtremeShadekinRegeneration
+  - SyntheticHeart # HL
   speciesBlacklist:
   - IPC
   - Avali
