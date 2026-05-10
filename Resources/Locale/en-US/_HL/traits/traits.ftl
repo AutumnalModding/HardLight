@@ -43,6 +43,8 @@ pooltoy-text = You're a living inflatable, whether by some weird mutation or by 
 
 big-name = Big
 big-text = You are noticeably larger than average.
+very-big-name = Very Big
+very-big-text = You are significantly larger than average.  This has brought you no benefits over merely being big except learning how to squeeze into tight spaces.
 small-name = Small
 small-text = You are noticeably smaller than average.
 tiny-name = Tiny
@@ -89,3 +91,6 @@ hl-trait-romantic-moods-desc = Every half hour or so you receive a private remin
 
 trait-syntheticheart-name = Synthetic Heart
 trait-syntheticheart-desc = You have a high-tech biomechanical heart based on the same technology found in Synths. Their nanites work on you, and chemicals will continue to process even when the rest of your body won't - but they have significantly reduced effect on you.
+trait-hardskin-name = Hard Skin
+trait-hardskin-desc = Your skin is too hard for needles to pierce.
+injector-component-deny-hardskin = {CAPITALIZE(THE($target))}'s skin is too hard for the needle to pierce.
