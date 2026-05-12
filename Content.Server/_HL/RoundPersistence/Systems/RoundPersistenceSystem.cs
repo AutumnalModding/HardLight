@@ -77,7 +77,7 @@ public sealed class RoundPersistenceSystem : EntitySystem
     [Dependency] private Content.Shared.Objectives.Systems.SharedObjectivesSystem _objectives = default!;
     [Dependency] private CrewManifestSystem _crewManifest = default!;
 
-private ISawmill _sawmill = default!;
+    private ISawmill _sawmill = default!;
 
     /// <summary>
     /// Entity that persists across rounds to store our data
