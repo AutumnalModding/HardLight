@@ -12,7 +12,7 @@
 #
 - type: vessel
   id: Gadfly
-  name: LL2 Gadfly
+  name: TSF Gadfly
   description: A ColSec medical ship meant for triage and limited patrol work. It comes with a full chemistry lab with a small botany setup, and a special cell for treating/storing injured prisoners. Not suitable for long-term prisoner holding.
   price: 39000 # 26180 apppraised, LL2 50% markup
   category: Medium
