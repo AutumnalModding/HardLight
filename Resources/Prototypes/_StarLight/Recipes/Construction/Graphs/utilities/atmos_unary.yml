@@ -1,129 +1,133 @@
 - type: constructionGraph
-  id: GasTrinary
+  id: GasUnaryStarlight
   start: start
   graph:
   - node: start
     edges:
-    # Filter
-    - to: filter
+    - to: ventpumpAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: filterflipped
+    - to: ventpumpAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    # Goobstation
-    - to: inline_filter
+    - to: passiveventAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    # Mixer
-    - to: mixer
+    - to: passiveventAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    # Carpmosia-start - Atmos Alt Prototypes
-    - to: mixerAlt1
+    - to: ventscrubberAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerAlt2
+    - to: ventscrubberAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerAlt3
+    - to: outletinjectorAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerAlt4
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    # Carpmosia-end - Atmos Alt Prototypes
-
-    - to: mixerflipped
+    - to: outletinjectorAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    # Carpmosia-start - Atmos Alt Prototypes
-    - to: mixerflippedAlt1
+    # Vox variants
+    - to: ventpumpvoxAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerflippedAlt2
+    - to: ventpumpvoxAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerflippedAlt3
+    - to: ventscrubberVoxAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: mixerflippedAlt4
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    # Carpmosia-end - Atmos Alt Prototypes
-
-    - to: pneumaticvalve
+    - to: ventscrubberVoxAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    # Carpmosia-start - Atmos Alt Prototypes
-    - to: pneumaticvalveAlt1
+    - to: dualportventpumpVoxAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: pneumaticvalveAlt2
+    - to: dualportventpumpVoxAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: pneumaticvalveAlt3
+    # Freezer variants
+    - to: ventpumpfreezerAlt1
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
 
-    - to: pneumaticvalveAlt4
+    - to: ventpumpfreezerAlt2
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
-    # Carpmosia-end - Atmos Alt Prototypes
 
-  # Filter
-  - node: filter
-    entity: GasFilter
+    - to: ventscrubberfreezerAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: ventscrubberfreezerAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: dualportventpumpFreezerAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: dualportventpumpFreezerAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+  - node: ventpumpAlt1
+    entity: GasVentPumpAlt1
     edges:
     - to: start
       conditions:
@@ -135,12 +139,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  # Carpmosia-start - Atmos Alt Prototypes
-  - node: filterAlt1
-    entity: GasFilterAlt1
+  - node: ventpumpAlt2
+    entity: GasVentPumpAlt2
     edges:
     - to: start
       conditions:
@@ -152,11 +157,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: filterAlt2
-    entity: GasFilterAlt2
+  - node: passiveventAlt1
+    entity: GasPassiveVentAlt1
     edges:
     - to: start
       conditions:
@@ -168,11 +175,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: filterAlt3
-    entity: GasFilterAlt3
+  - node: passiveventAlt2
+    entity: GasPassiveVentAlt2
     edges:
     - to: start
       conditions:
@@ -184,11 +193,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: filterAlt4
-    entity: GasFilterAlt4
+  - node: ventscrubberAlt1
+    entity: GasVentScrubberAlt1
     edges:
     - to: start
       conditions:
@@ -200,12 +211,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
-  # Carpmosia-end - Atmos Alt Prototypes
 
-  - node: filterflipped
-    entity: GasFilterFlipped
+  - node: ventscrubberAlt2
+    entity: GasVentScrubberAlt2
     edges:
     - to: start
       conditions:
@@ -217,45 +229,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  # Goobstation - inline filter
-  # - node: inline_filter # HL: SL has a graph for this
-  #   entity: GasFilterInline
-  #   edges:
-  #   - to: start
-  #     conditions:
-  #     - !type:EntityAnchored
-  #       anchored: false
-  #     completed:
-  #     - !type:SpawnPrototype
-  #       prototype: SheetSteel1
-  #       amount: 2
-  #     - !type:DeleteEntity
-  #     steps:
-  #     - tool: Welding
-  #       doAfter: 1
-
-  # Carpmosia-start - Atmos Alt Prototypes
-  - node: filterflippedAlt1
-    entity: GasFilterFlippedAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: filterflippedAlt2
-    entity: GasFilterFlippedAlt2
+  - node: outletinjectorAlt1
+    entity: GasOutletInjectorAlt1
     edges:
     - to: start
       conditions:
@@ -270,8 +250,8 @@
       - tool: Welding
         doAfter: 1
 
-  - node: filterflippedAlt3
-    entity: GasFilterFlippedAlt3
+  - node: outletinjectorAlt2
+    entity: GasOutletInjectorAlt2
     edges:
     - to: start
       conditions:
@@ -286,8 +266,9 @@
       - tool: Welding
         doAfter: 1
 
-  - node: filterflippedAlt4
-    entity: GasFilterFlippedAlt4
+  # Vox variants
+  - node: ventpumpvoxAlt1
+    entity: GasVentPumpVoxAlt1
     edges:
     - to: start
       conditions:
@@ -299,30 +280,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
-      - tool: Welding
+      - tool: Screwing
         doAfter: 1
-  # Carpmosia-end - Atmos Alt Prototypes
-
-  # Mixer
-  - node: mixer
-    entity: GasMixer
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
       - tool: Welding
         doAfter: 1
 
-  # Carpmosia-start - Atmos Alt Prototypes
-  - node: mixerAlt1
-    entity: GasMixerAlt1
+  - node: ventpumpvoxAlt2
+    entity: GasVentPumpVoxAlt2
     edges:
     - to: start
       conditions:
@@ -334,11 +298,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: mixerAlt2
-    entity: GasMixerAlt2
+  - node: ventscrubberVoxAlt1
+    entity: GasVentScrubberVoxAlt1
     edges:
     - to: start
       conditions:
@@ -350,11 +316,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: mixerAlt3
-    entity: GasMixerAlt3
+  - node: ventscrubberVoxAlt2
+    entity: GasVentScrubberVoxAlt2
     edges:
     - to: start
       conditions:
@@ -366,11 +334,14 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: mixerAlt4
-    entity: GasMixerAlt4
+  # Freezer variants
+  - node: ventpumpfreezerAlt1
+    entity: GasVentPumpFreezerAlt1
     edges:
     - to: start
       conditions:
@@ -382,44 +353,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
-      - tool: Welding
+      - tool: Screwing
         doAfter: 1
-  # Carpmosia-end - Atmos Alt Prototypes
-
-  - node: mixerflipped
-    entity: GasMixerFlipped
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-  # Carpmosia-start - Atmos Alt Prototypes
-  - node: mixerflippedAlt1
-    entity: GasMixerFlippedAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
       - tool: Welding
         doAfter: 1
 
-  - node: mixerflippedAlt2
-    entity: GasMixerFlippedAlt2
+  - node: ventpumpfreezerAlt2
+    entity: GasVentPumpFreezerAlt2
     edges:
     - to: start
       conditions:
@@ -431,11 +371,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: mixerflippedAlt3
-    entity: GasMixerFlippedAlt3
+  - node: ventscrubberfreezerAlt1
+    entity: GasVentScrubberFreezerAlt1
     edges:
     - to: start
       conditions:
@@ -447,11 +389,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: mixerflippedAlt4
-    entity: GasMixerFlippedAlt4
+  - node: ventscrubberfreezerAlt2
+    entity: GasVentScrubberFreezerAlt2
     edges:
     - to: start
       conditions:
@@ -463,44 +407,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
-      - tool: Welding
+      - tool: Screwing
         doAfter: 1
-  # Carpmosia-end - Atmos Alt Prototypes
-
-  - node: pneumaticvalve
-    entity: PressureControlledValve
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-  # Carpmosia-start - Atmos Alt Prototypes
-  - node: pneumaticvalveAlt1
-    entity: PressureControlledValveAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
       - tool: Welding
         doAfter: 1
 
-  - node: pneumaticvalveAlt2
-    entity: PressureControlledValveAlt2
+  - node: dualportventpumpVoxAlt1
+    entity: GasDualPortVentPumpVoxAlt1
     edges:
     - to: start
       conditions:
@@ -512,11 +425,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: pneumaticvalveAlt3
-    entity: PressureControlledValveAlt3
+  - node: dualportventpumpVoxAlt2
+    entity: GasDualPortVentPumpVoxAlt2
     edges:
     - to: start
       conditions:
@@ -528,11 +443,13 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
 
-  - node: pneumaticvalveAlt4
-    entity: PressureControlledValveAlt4
+  - node: dualportventpumpFreezerAlt1
+    entity: GasDualPortVentPumpFreezerAlt1
     edges:
     - to: start
       conditions:
@@ -544,6 +461,25 @@
         amount: 2
       - !type:DeleteEntity
       steps:
+      - tool: Screwing
+        doAfter: 1
       - tool: Welding
         doAfter: 1
-  # Carpmosia-end - Atmos Alt Prototypes
+
+  - node: dualportventpumpFreezerAlt2
+    entity: GasDualPortVentPumpFreezerAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
