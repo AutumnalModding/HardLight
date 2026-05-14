@@ -22,7 +22,7 @@ public sealed partial class AtmosPipeLayersComponent : Component
     /// in <see cref="AtmosPipeLayer"/>.
     /// </summary>
     [DataField]
-    public byte NumberOfPipeLayers = 3;
+    public byte NumberOfPipeLayers = 5; // Carpmosia-edit - 5 pipe layers
 
     /// <summary>
     /// Determines which layer the pipe is currently assigned.
@@ -158,4 +158,8 @@ public enum AtmosPipeLayer
     Primary,
     Secondary,
     Tertiary,
+    // Carpmosia-start - 5 pipe layers
+    Quaternary,
+    Quinary,
+    // Carpmosia-end - 5 pipe layers
 }
