@@ -3507,3 +3507,384 @@ Entries:
       message: Fixed a test
   id: 374
   time: '2026-05-02T07:51:13.0000000+00:00'
+- author: TrylobyteWasTaken
+  changes:
+    - type: Tweak
+      message: >-
+        The Ionizing Radiation Resistance mutation is now actually able to be
+        researched instead of taunting the geneticist all shift.
+  id: 375
+  time: '2026-05-02T19:05:16.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Add
+      message: Return anaconda to the exped T2 loot table
+  id: 376
+  time: '2026-05-02T23:21:56.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: Added even more vampirism.
+  id: 377
+  time: '2026-05-05T03:30:26.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Fix
+      message: Fixed The Dark getting deleted.
+  id: 378
+  time: '2026-05-05T03:35:40.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Remove
+      message: Removed pirate rules since we lack pirates
+  id: 379
+  time: '2026-05-05T03:39:51.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: Computer consoles now dynamically blend edges when placed side-by-side.
+  id: 380
+  time: '2026-05-05T03:42:12.0000000+00:00'
+- author: Aureuix
+  changes:
+    - type: Add
+      message: Added an amputee trait. one for both arms
+  id: 381
+  time: '2026-05-05T05:16:21.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Add
+      message: Added new Gaiters! (Look at WinterDrobe).
+    - type: Tweak
+      message: Replaced Old Wizden Gaiters with the new ones.
+    - type: Tweak
+      message: Update ClothWarps, they can now go in hands slots too.
+  id: 382
+  time: '2026-05-05T18:48:05.0000000+00:00'
+- author: Mysterious Bunnyfactor
+  changes:
+    - type: Add
+      message: Bunnysuits!
+  id: 383
+  time: '2026-05-05T18:48:31.0000000+00:00'
+- author: R3v3l4t1on
+  changes:
+    - type: Fix
+      message: Fixed invalid entries in cyborg guidebook
+  id: 384
+  time: '2026-05-05T18:50:31.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Some hardsuits are now taser-immune.
+  id: 385
+  time: '2026-05-05T21:52:03.0000000+00:00'
+- author: R3v3l4t1on
+  changes:
+    - type: Fix
+      message: Knocks another test off the list of failing tests
+  id: 386
+  time: '2026-05-05T21:52:51.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: More lewd clothings~
+  id: 387
+  time: '2026-05-05T21:53:43.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Fix
+      message: Fixed expedition disk printer sprite.
+  id: 388
+  time: '2026-05-05T21:55:09.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Added new vents to scheduler
+    - type: Add
+      message: Added nightmares
+    - type: Fix
+      message: Fixed meteors
+    - type: Fix
+      message: other general bugfixes
+  id: 389
+  time: '2026-05-05T22:29:15.0000000+00:00'
+- author: Fasuh
+  changes:
+    - type: Fix
+      message: Fixed Avali displacement maps.
+  id: 390
+  time: '2026-05-05T22:30:02.0000000+00:00'
+- author: Kronyxxx
+  changes:
+    - type: Fix
+      message: >-
+        Maps referencing HL-renamed prototypes (e.g. `_HL/colcomm.yml`) once
+        again load correctly. The HL prototype migration table is now honored at
+        map load time.
+  id: 391
+  time: '2026-05-06T02:41:00.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Remove
+      message: >-
+        Removed whitelist for: BabyDragon, EmotionalSupportPet, CatCappy and
+        others FN Pets.
+  id: 392
+  time: '2026-05-07T04:50:53.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: Fixed surgery limb application forcing every marking to glow
+  id: 393
+  time: '2026-05-07T04:54:13.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Fix
+      message: Fixed where Clothwarp could not be crafted.
+  id: 394
+  time: '2026-05-07T05:08:03.0000000+00:00'
+- author: Sully669
+  changes:
+    - type: Fix
+      message: jet injectors now fit in medical bags
+  id: 395
+  time: '2026-05-07T05:08:28.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Added back broken psionics
+    - type: Fix
+      message: Fixed broken psionics
+    - type: Tweak
+      message: tweaked roundstart values
+  id: 396
+  time: '2026-05-07T05:09:54.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Tweak
+      message: Minor grammatical improvements to C3 contraband severity info text.
+    - type: Fix
+      message: >-
+        Manually constructed airlocks/windoors/etc no longer lose accesses when
+        saved on a shuttle.
+    - type: Fix
+      message: >-
+        Airlocks/windoors/etc now keep custom-applied accesses when saved on a
+        shuttle.
+    - type: Fix
+      message: >-
+        Docking airlocks no longer remain bolted open when saved on a docked
+        shuttle.
+    - type: Fix
+      message: Characters with the Pettable trait can now actually be pet.
+    - type: Fix
+      message: Passengers no longer duplicate PDAs and headsets on spawn.
+    - type: Fix
+      message: >-
+        Syringe selected mode text no longer seizes when switching between
+        modes.
+    - type: Fix
+      message: Station maps no longer attempt to use incorrect sprite paths.
+    - type: Fix
+      message: >-
+        Items with modular sprites (i.e. syringe cases/vials/etc) now correctly
+        update appearance data when saved on a shuttle.
+    - type: Fix
+      message: >-
+        Sprite icons for spray painted items now correctly update appearance
+        data when saved on a shuttle.
+    - type: Fix
+      message: >-
+        Saving turbines on a shuttle should no longer result in them becoming
+        unanchorable on load.
+    - type: Fix
+      message: Avali now correctly bleed AvaliBlood.
+    - type: Fix
+      message: Characters with the Synthetic trait now correctly bleed SyntheticBlood.
+    - type: Fix
+      message: >-
+        Zombification now correctly results in zombified characters producing
+        ZombieBlood.
+    - type: Fix
+      message: >-
+        Zombification no longer results in bloodstreams resetting to 0/max-limit
+        for zombified characters.
+    - type: Fix
+      message: >-
+        PMC C-20r and PMC Vipers are no longer incorrectly labeled C3 and no
+        longer give FUCs on exchange.
+  id: 397
+  time: '2026-05-07T05:19:53.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Tweak
+      message: Migrated StaminaSystem to SharedStaminaSystem.
+  id: 398
+  time: '2026-05-07T05:21:43.0000000+00:00'
+- author: Aureuix
+  changes:
+    - type: Fix
+      message: Fixed Kitsune using the wrong emote sound for squeak.
+  id: 399
+  time: '2026-05-08T06:45:13.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Fix
+      message: Directional wall ambient occlusion now makes sense.
+  id: 400
+  time: '2026-05-08T06:45:51.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Tweak
+      message: Updates engine to latest from upstream
+  id: 401
+  time: '2026-05-10T10:48:59.0000000+00:00'
+- author: DDoubleDee
+  changes:
+    - type: Tweak
+      message: Proto-Avali/Resomi now make emote sounds like normal avali/resomi
+  id: 402
+  time: '2026-05-10T10:49:58.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: >-
+        Skilled individiuals now have the possibility to catch specific items
+        thrown at them.
+  id: 403
+  time: '2026-05-10T10:50:33.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Fix
+      message: >-
+        Characters with the Trap Avoider trait should no longer have seizures
+        when walking on surfaces that would otherwise slip them.
+  id: 404
+  time: '2026-05-10T10:56:07.0000000+00:00'
+- author: okdamsam
+  changes:
+    - type: Fix
+      message: 'Fixed Warden duplicate "backpack items" loadout category. '
+  id: 405
+  time: '2026-05-10T11:02:52.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Remove
+      message: Blindness mutation is now disabled.
+    - type: Remove
+      message: DNR mutation is now disabled.
+  id: 406
+  time: '2026-05-10T11:07:15.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: All members of Command can now issue command bounties.
+  id: 407
+  time: '2026-05-12T21:56:31.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Fix
+      message: Room saves no longer freeze the game on save or load
+    - type: Fix
+      message: Room save files shrunk from ~4 MB to ~50 KB
+    - type: Fix
+      message: >-
+        Spray-painted walls and objects now preserve their style after a room
+        load
+    - type: Fix
+      message: Material silo contents are now preserved after a room load
+    - type: Fix
+      message: >-
+        Item positions inside bags and crates are now preserved after a room
+        load
+    - type: Fix
+      message: Stack counts are now preserved after a room load
+    - type: Fix
+      message: >-
+        Paint colors (PaintedComponent), item labels, paper content/stamps, and
+        plushie appearances now survive room loads
+    - type: Fix
+      message: >-
+        Unanchored tools and equipment are no longer saved in rooms (and turning
+        non-interactable); only items tagged `RoomSaveable` (plushies, pillows,
+        potted plants) are kept
+    - type: Add
+      message: >-
+        `RoomSaveable` tag — add to any prototype to preserve it when unanchored
+        in a room save
+  id: 408
+  time: '2026-05-13T06:42:35.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Tweak
+      message: Shadekin don't inhale foam any more
+  id: 409
+  time: '2026-05-13T06:54:37.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: STC can once again be selected as a round-start job.
+    - type: Add
+      message: The HM can now access traffic control consoles.
+    - type: Fix
+      message: The STC now correctly has access to traffic control consoles.
+  id: 410
+  time: '2026-05-13T06:55:08.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Marriage Axe from Starlight
+  id: 411
+  time: '2026-05-13T06:58:04.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Fix
+      message: >-
+        Wooden televisions should no longer incorrectly use modular console
+        sprites.
+  id: 412
+  time: '2026-05-13T09:16:55.0000000+00:00'
+- author: Kronyxxx
+  changes:
+    - type: Add
+      message: >-
+        Added Non-Con Aggressor and Non-Con Victim consent toggles. The Non-Con
+        HUD marker is now color- and shape-coded based on the target's role(s):
+        red/horns-up for aggressor, blue/horns-down for victim, purple/both for
+        either. Existing Non-Con users who don't pick a role keep the original
+        red marker.
+    - type: Add
+      message: >-
+        Added a "Use colorblind-friendly Non-Con marker colors" toggle in the
+        Consent menu. When enabled, the Non-Con role markers use a
+        colorblind-safe amber/teal-green/lavender palette instead of
+        red/blue/purple. Affects only the local viewer.
+  id: 413
+  time: '2026-05-13T09:18:30.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Fix
+      message: Maybe hopefully fix the manifest
+  id: 414
+  time: '2026-05-13T09:28:12.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Remove
+      message: Removed nullphase/shadekin changes
+    - type: Remove
+      message: 'temporarily removed the Anomaly job role '
+  id: 415
+  time: '2026-05-13T09:29:56.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Adds a new lethal security turret that targets contraband carriers
+    - type: Add
+      message: 'Added the first Livewire checkpoint to Core station  '
+    - type: Tweak
+      message: CDets no longer fire on command or security
+    - type: Tweak
+      message: CDets now go offline during Red alert or higher
+  id: 416
+  time: '2026-05-13T10:10:27.0000000+00:00'
