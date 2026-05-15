@@ -53,7 +53,7 @@
           - MetapsionicPower
           - TelepathyPower
           - MantisSummonBlackBlade
-          - AssayPower
+          - AssayPower # Hardlight
 
 - type: playTimeTracker
   id: JobForensicMantis
