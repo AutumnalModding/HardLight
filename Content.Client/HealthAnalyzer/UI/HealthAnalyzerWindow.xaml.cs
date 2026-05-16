@@ -6,6 +6,7 @@ using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Shitmed.Targeting; // Shitmed
 using Content.Shared.Alert;
+using Content.Shared.Chemistry.Reagent; // Starlight
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -33,6 +34,9 @@ namespace Content.Client.HealthAnalyzer.UI
     [GenerateTypedNameReferences]
     public sealed partial class HealthAnalyzerWindow : FancyWindow
     {
+        private static readonly Color Green = Color.FromHex("#00FF00"); // Starlight
+        private static readonly Color Red = Color.FromHex("#FF0000"); // Starlight
+
         private readonly IEntityManager _entityManager;
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
@@ -243,7 +247,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
-            DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+            DrawMetabolizingChemicals(msg.MetabolizingReagents); // Starlight - Metabolizing Chemicals Section
         }
         // Shitmed Change End
         private static string GetStatus(MobState mobState)
@@ -257,55 +261,73 @@ namespace Content.Client.HealthAnalyzer.UI
             };
         }
 
-        private void DrawDiagnosticGroups(
-            Dictionary<string, FixedPoint2> groups,
-            IReadOnlyDictionary<string, FixedPoint2> damageDict)
+        // Metabolizing chemicals display
+        private void DrawMetabolizingChemicals(List<(string ReagentId, FixedPoint2 Quantity)>? reagents)
         {
-            GroupsContainer.RemoveAllChildren();
+            ChemicalsContainer.RemoveAllChildren();
 
-            foreach (var (damageGroupId, damageAmount) in groups)
+            var hasChemicals = reagents != null && reagents.Count > 0;
+
+            ChemicalsDivider.Visible = hasChemicals;
+            ChemicalsContainer.Visible = hasChemicals;
+
+            if (!hasChemicals || reagents == null)
+                return;
+
+            // Sort by quantity descending
+            var sortedReagents = reagents.OrderByDescending(r => r.Quantity).ToList();
+
+            foreach (var reagent in sortedReagents)
             {
-                if (damageAmount == 0)
-                    continue;
+                var reagentName = reagent.ReagentId;
+                var reagentColor = Color.White;
 
-                var groupTitleText = $"{Loc.GetString(
-                    "health-analyzer-window-damage-group-text",
-                    ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
-                    ("amount", damageAmount)
-                )}";
-
-                var groupContainer = new BoxContainer
+                if (_prototypes.TryIndex<ReagentPrototype>(reagent.ReagentId, out var reagentProto))
                 {
-                    Align = BoxContainer.AlignMode.Begin,
-                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                    reagentName = reagentProto.LocalizedName;
+                    reagentColor = reagentProto.SubstanceColor;
+
+                }
+
+                var rowContainer = new BoxContainer
+                {
+                    Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                    Margin = new Thickness(0, 2),
                 };
 
-                groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
-
-                GroupsContainer.AddChild(groupContainer);
-
-                // Show the damage for each type in that group.
-                var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
-
-                foreach (var type in group.DamageTypes)
+                // Color bar
+                var colorBar = new PanelContainer
                 {
-                    if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
-                        continue;
+                    MinWidth = 10,
+                    MinHeight = 16,
+                    Margin = new Thickness(0, 0, 6, 0),
+                };
+                colorBar.PanelOverride = new StyleBoxFlat(reagentColor);
 
-                    var damageString = Loc.GetString(
-                        "health-analyzer-window-damage-type-text",
-                        ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
-                        ("amount", typeAmount)
-                    );
+                var nameLabel = new Label
+                {
+                    Text = reagentName,
+                    HorizontalExpand = true,
+                    HorizontalAlignment = HAlignment.Left,
+                };
 
-                    groupContainer.AddChild(CreateDiagnosticItemLabel(damageString.Insert(0, " · ")));
-                }
+                var quantityLabel = new Label
+                {
+                    Text = $"{reagent.Quantity}u",
+                    HorizontalAlignment = HAlignment.Right,
+                };
+
+                rowContainer.AddChild(colorBar);
+                rowContainer.AddChild(nameLabel);
+                rowContainer.AddChild(quantityLabel);
+                ChemicalsContainer.AddChild(rowContainer);
             }
         }
+        // Starlight end
 
         private Texture GetTexture(string texture)
         {
-            var rsiPath = new ResPath("/Textures/Objects/Devices/health_analyzer.rsi");
+            var rsiPath = new ResPath("/Textures/_Starlight/Objects/Devices/health_analyzer.rsi"); // Starlight - new rsi for new icons :)
             var rsiSprite = new SpriteSpecifier.Rsi(rsiPath, texture);
 
             var rsi = _cache.GetResource<RSIResource>(rsiSprite.RsiPath).RSI;
