@@ -247,6 +247,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
+            DrawDiagnosticGroups(damageSortedGroups, damagePerType);
             DrawMetabolizingChemicals(msg.MetabolizingReagents); // Starlight - Metabolizing Chemicals Section
         }
         // Shitmed Change End
@@ -259,6 +260,52 @@ namespace Content.Client.HealthAnalyzer.UI
                 MobState.Dead => Loc.GetString("health-analyzer-window-entity-dead-text"),
                 _ => Loc.GetString("health-analyzer-window-entity-unknown-text"),
             };
+        }
+
+        private void DrawDiagnosticGroups(
+            Dictionary<string, FixedPoint2> groups,
+            IReadOnlyDictionary<string, FixedPoint2> damageDict)
+        {
+            GroupsContainer.RemoveAllChildren();
+
+            foreach (var (damageGroupId, damageAmount) in groups)
+            {
+                if (damageAmount == 0)
+                    continue;
+
+                var groupTitleText = $"{Loc.GetString(
+                    "health-analyzer-window-damage-group-text",
+                    ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
+                    ("amount", damageAmount)
+                )}";
+
+                var groupContainer = new BoxContainer
+                {
+                    Align = BoxContainer.AlignMode.Begin,
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                };
+
+                groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
+
+                GroupsContainer.AddChild(groupContainer);
+
+                // Show the damage for each type in that group.
+                var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
+
+                foreach (var type in group.DamageTypes)
+                {
+                    if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
+                        continue;
+
+                    var damageString = Loc.GetString(
+                        "health-analyzer-window-damage-type-text",
+                        ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
+                        ("amount", typeAmount)
+                    );
+
+                    groupContainer.AddChild(CreateDiagnosticItemLabel(damageString.Insert(0, " · ")));
+                }
+            }
         }
 
         // Metabolizing chemicals display
@@ -327,7 +374,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private Texture GetTexture(string texture)
         {
-            var rsiPath = new ResPath("/Textures/_Starlight/Objects/Devices/health_analyzer.rsi"); // Starlight - new rsi for new icons :)
+            var rsiPath = new ResPath("/Textures/Objects/Devices/health_analyzer.rsi");
             var rsiSprite = new SpriteSpecifier.Rsi(rsiPath, texture);
 
             var rsi = _cache.GetResource<RSIResource>(rsiSprite.RsiPath).RSI;
