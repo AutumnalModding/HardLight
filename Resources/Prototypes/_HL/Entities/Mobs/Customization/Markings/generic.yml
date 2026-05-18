@@ -4,8 +4,6 @@
   markingCategory: Snout
   sprites:
     - sprite: _HL/Mobs/Customization/Generic/bonemask.rsi
-      state: SocketsBonemask-marking-head
-    - sprite: _HL/Mobs/Customization/Generic/bonemask.rsi
       state: beakBonemask-marking-head
 
 - type: marking
@@ -14,6 +12,12 @@
   markingCategory: Snout
   sprites:
     - sprite: _HL/Mobs/Customization/Generic/bonemask.rsi
-      state: SocketsBonemask-marking-head
-    - sprite: _HL/Mobs/Customization/Generic/bonemask.rsi
       state: FlatBonemask-marking-head
+
+- type: marking
+  id: BonemaskSockets
+  bodyPart: Head
+  markingCategory: Overlay
+  sprites:
+    - sprite: _HL/Mobs/Customization/Generic/bonemask.rsi
+      state: SocketsBonemask-marking-head
