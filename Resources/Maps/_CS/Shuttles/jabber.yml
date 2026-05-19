@@ -1685,6 +1685,13 @@ entities:
           - Open
         - - On
           - Close
+- proto: SpawnMechEMU
+  entities:
+  - uid: 179
+    components:
+    - type: Transform
+      pos: -3.5,-1.5
+      parent: 1
 - proto: SubstationWallBasic
   entities:
   - uid: 181
