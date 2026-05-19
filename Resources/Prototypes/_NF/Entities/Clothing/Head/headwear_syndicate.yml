@@ -1,7 +1,7 @@
 # Syndicate Bomb Suit Helmet
 - type: entity
   parent:
-  - BaseC3SyndicateContrabandUnredeemable
+  # - BaseC3SyndicateContrabandUnredeemable # HL
   - ClothingHeadHelmetBombSuit
   - ContrabandClothing
   id: ClothingHeadHelmetBombSuitSyndie

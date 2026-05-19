@@ -1,7 +1,7 @@
 # Syndicate bomb suit
 - type: entity
   parent:
-  - BaseC3SyndicateContraband
+  # - BaseC3SyndicateContraband # HL
   - ClothingOuterSuitBomb
   - ContrabandClothing
   id: ClothingOuterSuitBombSyndie
