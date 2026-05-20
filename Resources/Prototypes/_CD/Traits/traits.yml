@@ -12,10 +12,11 @@
       - BorgChassis
   components:
   - type: LanguageSpeaker # Hardlight start: EAL
-    languagesSpoken:
-      - Machine
-    languagesUnderstood:
-      - Machine # Hardlight end
+    spokenLanguages:
+    - Machine
+    understoodLanguages:
+    - Machine # Hardlight end
+
   - type: Synthetic
   # Hardlight start: Gives Trinary
   - type: IntrinsicRadioReceiver
