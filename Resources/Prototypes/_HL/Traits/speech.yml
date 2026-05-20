@@ -164,3 +164,17 @@
     speechVerb: Parrot
     speechSounds: UnisexResomi
 
+- type: trait
+  id: HLVoiceWawa
+  name: hl-trait-voice-wawa-name
+  description: hl-trait-voice-wawa-desc
+  replaceComponents: true
+  cost: 1
+  category: SpeechTraits
+  components:
+  - type: Speech
+    speechVerb: Wawa
+    speechSounds: Wawa
+  - type: TypingIndicator
+    proto: moth
+

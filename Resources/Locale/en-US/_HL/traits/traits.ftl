@@ -37,6 +37,9 @@ hl-trait-voice-dog-desc = Through one way or another, you sound like a dog.
 hl-trait-voice-cat-name = Cat Voice
 hl-trait-voice-cat-desc = Through one way or another, you sound like a cat.
 
+hl-trait-voice-wawa-name = Scurret Voice
+hl-trait-voice-wawa-desc = Through one way or another, you sound like an adorable scurret!!
+
 
 hl-trait-horny-name = Horny
 hl-trait-horny-desc = Your moods have a tendency to be erotic, and drive you to act accordingly.
