@@ -28,7 +28,7 @@
       - Trinary
     - type: LanguageSpeaker
       languagesSpoken:
-      - Machine
+        - Machine
       languagesUnderstood:
-      - Machine
+        - Machine
     # Hardlight end
