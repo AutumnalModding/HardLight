@@ -12,7 +12,7 @@
       - BorgChassis
   components:
     - type: Synthetic
-    # Hardlight start: Gives Trinary
+    # Hardlight start: Gives Trinary & EAL
     - type: IntrinsicRadioReceiver
     - type: IntrinsicRadioTransmitter
       intrinsicChannels:
@@ -26,4 +26,9 @@
       preserveExistingChannels: true
       intrinsicChannels:
       - Trinary
+    - type: LanguageSpeaker
+      languagesSpoken:
+      - Machine
+      languagesUnderstood:
+      - Machine
     # Hardlight end
