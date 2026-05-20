@@ -17,7 +17,7 @@ hl-trait-voice-resomi-name = Resomi Voice
 hl-trait-voice-resomi-desc = Through one way or another, you sound like a Resomi.
 
 hl-trait-voice-vulpkanin-name = Vulpkanin Voice
-hl-trait-voice-vulpknain-desc = Through one way or another, you sound like a Vulpkanin.
+hl-trait-voice-vulpkanin-desc = Through one way or another, you sound like a Vulpkanin.
 
 hl-trait-voice-lizard-name = Reptilian Voice
 hl-trait-voice-lizard-desc = Through one way or another, you sound like a Reptilian.
