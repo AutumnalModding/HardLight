@@ -63,7 +63,7 @@
 - type: trait
   id: HLVoiceVulpkanin
   name: hl-trait-voice-vulpkanin-name
-  description: hl-trait-voice-vu;pkanin-desc
+  description: hl-trait-voice-vulpkanin-desc
   replaceComponents: true
   cost: 1
   category: SpeechTraits
