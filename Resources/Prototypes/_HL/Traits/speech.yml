@@ -152,3 +152,15 @@
   - type: TypingIndicator
     proto: felinid
 
+- type: trait
+  id: HLVoiceResomi
+  name: hl-trait-voice-resomi-name
+  description: hl-trait-voice-resomi-desc
+  replaceComponents: true
+  cost: 1
+  category: SpeechTraits
+  components:
+  - type: Speech
+    speechVerb: Parrot
+    speechSounds: UnisexResomi
+

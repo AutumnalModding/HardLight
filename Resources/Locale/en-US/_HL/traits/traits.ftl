@@ -16,14 +16,17 @@ hl-trait-voice-xenoborg-desc = Through a synthetic larynx or some other way, you
 hl-trait-voice-avali-name = Avali Voice
 hl-trait-voice-avali-desc = Through one way or another, you sound like an Avali.
 
+hl-trait-voice-resomi-name = Resomi Voice
+hl-trait-voice-resomi-desc = Through one way or another, you sound like a Resomi.
+
 hl-trait-voice-vulpkanin-name = Vulpkanin Voice
 hl-trait-voice-vulpknain-desc = Through one way or another, you sound like a Vulpkanin.
 
 hl-trait-voice-lizard-name = Reptilian Voice
 hl-trait-voice-lizard-desc = Through one way or another, you sound like a Reptilian.
 
-hl-trait-voice-slime-name = Slime Voice
-hl-trait-voice-slime-desc = Through one way or another, you sound like a Slime.
+hl-trait-voice-slime-name = Slimeperson Voice
+hl-trait-voice-slime-desc = Through one way or another, you sound like a slimeperson.
 
 hl-trait-voice-moth-name = Moth Voice
 hl-trait-voice-moth-desc = Through one way or another, you sound like a mothperson.
