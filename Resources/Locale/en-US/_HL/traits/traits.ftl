@@ -10,9 +10,6 @@ hl-trait-voice-syndieborg-desc = Through a synthetic larynx or some other way, y
 hl-trait-voice-xenoborg-name = Xenoborg Voice
 hl-trait-voice-xenoborg-desc = Through a synthetic larynx or some other way, you sound like a xenoborg.
 
-hl-trait-voice-xenoborg-name = Xenoborg Voice
-hl-trait-voice-xenoborg-desc = Through a synthetic larynx or some other way, you sound like a xenoborg.
-
 hl-trait-voice-avali-name = Avali Voice
 hl-trait-voice-avali-desc = Through one way or another, you sound like an Avali.
 
