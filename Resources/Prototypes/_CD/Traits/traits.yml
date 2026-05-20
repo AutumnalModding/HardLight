@@ -11,24 +11,24 @@
     components:
       - BorgChassis
   components:
-    - type: Synthetic
-    # Hardlight start: Gives Trinary & EAL
-    - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      intrinsicChannels:
-      - Trinary
-    - type: ActiveRadio
-      intrinsicChannels:
-      - Trinary
-    - type: EncryptionKeyHolder
-      keySlots: 1
-      examineWhileLocked: false
-      preserveExistingChannels: true
-      intrinsicChannels:
-      - Trinary
-    - type: LanguageSpeaker
-      languagesSpoken:
-        - Machine
-      languagesUnderstood:
-        - Machine
-    # Hardlight end
+  - type: LanguageSpeaker # Hardlight start: EAL
+    languagesSpoken:
+      - Machine
+    languagesUnderstood:
+      - Machine # Hardlight end
+  - type: Synthetic
+  # Hardlight start: Gives Trinary
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    intrinsicChannels:
+    - Trinary
+  - type: ActiveRadio
+    intrinsicChannels:
+    - Trinary
+  - type: EncryptionKeyHolder
+    keySlots: 1
+    examineWhileLocked: false
+    preserveExistingChannels: true
+    intrinsicChannels:
+    - Trinary
+  # Hardlight end
