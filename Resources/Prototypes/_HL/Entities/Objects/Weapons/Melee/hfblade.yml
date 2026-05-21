@@ -8,7 +8,7 @@
     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -60
-    ignoreResistances: true
+    resistanceBypass: true
     damage:
       types:
         Slash: 16
@@ -38,7 +38,7 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: -60
-    ignoreResistances: true
+    resistanceBypass: true
     damage:
       types:
         Heat: 20
@@ -58,7 +58,7 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: -60
-    ignoreResistances: true
+    resistanceBypass: true
     damage:
       types:
         Radiation: 16
