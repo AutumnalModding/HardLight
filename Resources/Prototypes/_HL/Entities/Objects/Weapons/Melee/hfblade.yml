@@ -8,10 +8,10 @@
     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -60
+    ignoreResistances: true
     damage:
       types:
-        Slash: 25
-        Shock: 5
+        Slash: 16
         Structural: 25
   - type: Item
     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
@@ -26,7 +26,7 @@
   - type: StaticPrice
     price: 5000
   - type: Reflect
-    reflectProb: 0.5 # if it was 100% fenn would chop my head off
+    reflectProb: 0.5
     reflects:
     - NonEnergy
 
