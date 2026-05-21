@@ -37,7 +37,7 @@
   productEntity: WeaponHFKatanaGamma
   icon: { sprite: _Mono/Objects/Weapons/Melee/phaseblade.rsi, state: e_sword }
   cost:
-    MercCoin: 15
+    MercCoin: 20 # it's rads
   categories:
     - UplinkMercenaryMelee
   conditions:
@@ -53,7 +53,7 @@
   productEntity: ClothingBeltKatanaSheathFilled
   icon: { sprite: Nyanotrasen/Clothing/Belt/katanasheath.rsi, state: sheath-sabre }
   cost:
-    MercCoin: 30
+    MercCoin: 20
   categories:
     - UplinkMercenaryMelee
   conditions:
