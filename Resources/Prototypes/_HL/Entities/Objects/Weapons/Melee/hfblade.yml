@@ -12,7 +12,7 @@
     damage:
       types:
         Slash: 16
-        Structural: 25
+        Structural: 100 # fenn's idea
   - type: Item
     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
   - type: Clothing
