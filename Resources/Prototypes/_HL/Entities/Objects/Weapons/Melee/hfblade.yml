@@ -27,9 +27,6 @@
     malus: 0.9
   - type: StaticPrice
     price: 5000
-  - type: Construction
-    graph: GraphWeaponHFKatana
-    node: WeaponHFKatana
 
 - type: entity
   name: β-type high-frequency blade
@@ -46,9 +43,6 @@
      - Back
      - Belt
      - suitStorage
-   - type: Construction
-     graph: GraphWeaponHFKatanaBeta
-     node: WeaponHFKatanaBeta
 
 - type: entity
   name: γ-type high-frequency blade
@@ -67,6 +61,3 @@
      - Back
      - Belt
      - suitStorage
-   - type: Construction
-     graph: GraphWeaponHFKatanaGamma
-     node: WeaponHFKatanaGamma
