@@ -1178,15 +1178,6 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: MachineFTLDrive25S
-  entities:
-  - uid: 96
-    components:
-    - type: Transform
-      pos: -2.5,-5.5
-      parent: 1
-    - type: Anchorable
-      flags: Anchorable
 - proto: Grille
   entities:
   - uid: 2

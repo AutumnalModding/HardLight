@@ -9,8 +9,8 @@
 - type: vessel
   id: Jabber
   name: LRSI Jabber
-  description: A cargo shuttle focusing on speed and comfort. Comes with a fast FTL drive.
-  price: 65250 # Hardlight: 3x markup
+  description: A cargo shuttle focusing on speed and comfort.
+  price: 21750
   category: Small
   group: Shipyard
 
