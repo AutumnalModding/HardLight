@@ -56,7 +56,6 @@
      state: e_sword
    - type: Item
      sprite: _Mono/Objects/Weapons/Melee/phaseblade.rsi
-     state: e_sword
    - type: Clothing
      sprite: _Mono/Objects/Weapons/Melee/phaseblade.rsi
      slots:
