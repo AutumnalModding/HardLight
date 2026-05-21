@@ -1,6 +1,6 @@
 - type: entity
   name: α-type high-frequency blade
-  parent: EnergyKatana
+  parent: Katana
   id: WeaponHFKatana
   description: Hey, wait a minute. This isn't my sword.
   components:
@@ -25,6 +25,10 @@
     malus: 0.5
   - type: StaticPrice
     price: 5000
+  - type: Reflect
+    reflectProb: 0.5 # if it was 100% fenn would chop my head off
+    reflects:
+    - NonEnergy
 
 - type: entity
   name: β-type high-frequency blade
