@@ -1401,7 +1401,7 @@ entities:
   - uid: 132
     components:
     - type: Transform
-      pos: -2.5,-4.5
+      pos: -2.5,-5.5
       parent: 1
 - proto: ReinforcedWindow
   entities:
