@@ -898,7 +898,9 @@
     - PlumbingRpldDuctBend
     - PlumbingRpldDuctTJunction
     - PlumbingRpldDuctFourway
+    - PlumbingRpldDuctManifold
     - PlumbingRpldTank
+    - PlumbingRpldBuffer
     - PlumbingRpldInput
     - PlumbingRpldOutput
     - PlumbingRpldSink
@@ -906,8 +908,9 @@
     - PlumbingRpldPillPress
     - PlumbingRpldFilter
     - PlumbingRpldSynthesizer
-    - PlumbingRpldSmartFridge
+    - PlumbingRpldSmartDispenser
     - PlumbingRpldDrain
+    - PlumbingRpldDisposal
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
