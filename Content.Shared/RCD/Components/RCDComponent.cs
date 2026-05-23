@@ -72,4 +72,11 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     public EntityUid? LinkedShuttleUid = null;
     // End Frontier: ship-based RCDs
+
+    // Starlight: RPLD
+    /// <summary>
+    /// Indicates whether this is an RPLD (plumbing)
+    /// </summary>
+    [DataField("isRPLD"), AutoNetworkedField]
+    public bool IsRPLD { get; set; } = false;
 }
