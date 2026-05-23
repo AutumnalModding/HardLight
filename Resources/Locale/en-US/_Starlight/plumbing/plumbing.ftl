@@ -25,7 +25,7 @@ plumbing-reactor-output = Output Contents
 plumbing-reactor-invalid-reagent = Unknown reagent: {$reagent}
 
 # Filter UI
-plumbing-filter-window-title = Plumbing Filter
+starlight-plumbing-filter-window-title = Plumbing Filter
 plumbing-filter-status = Status:
 plumbing-filter-enabled = Enabled
 plumbing-filter-disabled = Disabled

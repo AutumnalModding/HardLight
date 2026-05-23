@@ -15,7 +15,7 @@
   cost: 1
   delay: 0
   rotation: User
-  hasLayers: true
+  # hasLayers: true # HL: doesn't exist
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -27,7 +27,7 @@
   cost: 1
   delay: 0
   rotation: User
-  hasLayers: true
+  # hasLayers: true # HL: doesn't exist
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -39,7 +39,7 @@
   cost: 1
   delay: 0
   rotation: User
-  hasLayers: true
+  # hasLayers: true # HL: doesn't exist
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -51,7 +51,7 @@
   cost: 1
   delay: 0
   rotation: User
-  hasLayers: true
+  # hasLayers: true # HL: doesn't exist
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -63,7 +63,7 @@
   cost: 1
   delay: 0
   rotation: User
-  hasLayers: true
+  # hasLayers: true # HL: doesn't exist
   fx: EffectRCDConstruct0
 
 # -----------------------------------------------------------------------------
@@ -164,7 +164,7 @@
   sprite: /Textures/_Starlight/Interface/Radial/RPLD/filter.png
   mode: ConstructObject
   prototype: PlumbingFilter
-  mirrorPrototype: PlumbingFilterFlipped
+  # mirrorPrototype: PlumbingFilterFlipped # HL: doesn't exist
   cost: 1
   delay: 0
   collisionMask: MachineMask

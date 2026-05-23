@@ -763,7 +763,7 @@
   - type: Charger
     slotId: cell_slot
     chargeRate: 5
-    passiveDraw: 1
+    # passiveDraw: 1 # HL: doesn't exist
   - type: ApcPowerReceiver
     powerLoad: 1
   - type: ExtensionCableReceiver
