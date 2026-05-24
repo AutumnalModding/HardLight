@@ -662,7 +662,7 @@ public sealed partial class ShuttleSystem
                 toProcess.Add(uid);
             }
         }
-        catch (InvalidOperationException) // VRS: drop fragile message-text match; collection-modified throws InvalidOperationException
+        catch (Exception e) when (e is InvalidOperationException || e.Message.Contains("Collection was modified"))
         {
             return;
         }

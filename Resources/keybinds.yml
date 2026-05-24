@@ -134,14 +134,6 @@ binds:
 - function: FocusConsoleChatWindow
   type: State
   key: Slash
-# VRS: Floofstation — subtle channel keybinds
-- function: FocusSubtle
-  type: State
-  key: Minus
-- function: FocusSubtleOOC
-  type: State
-  mod1: Shift
-  key: LBracket
 - function: EditorLinePlace
   type: State
   key: MouseLeft
@@ -220,6 +212,9 @@ binds:
 - function: OpenEmotesMenu
   type: State
   key: Y
+- function: OpenLanguageMenu # Starlight
+  type: State
+  key: L
 - function: TextCursorSelect
   # TextCursorSelect HAS to be above ExamineEntity
   # So that LineEdit receives it correctly.
@@ -276,6 +271,10 @@ binds:
 - function: SmartEquipBackpack
   type: State
   key: B
+  mod1: Shift
+- function: SmartEquipSuitStorage
+  type: State
+  key: F
   mod1: Shift
 - function: SmartEquipBelt
   type: State
