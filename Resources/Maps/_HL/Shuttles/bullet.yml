@@ -4,7 +4,7 @@ meta:
   engineVersion: 274.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/25/2026 04:14:38
+  time: 05/25/2026 04:19:59
   entityCount: 186
 maps: []
 grids:
@@ -148,16 +148,16 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 12.5,-0.5
+      pos: 11.5,-0.5
       parent: 1
     - type: DeviceList
       devices:
-      - 8
-      - 94
       - 92
-      - 91
-      - 93
       - 7
+      - 94
+      - 91
+      - 8
+      - 93
 - proto: AirCanister
   entities:
   - uid: 3
@@ -202,6 +202,7 @@ entities:
     - type: DeviceNetwork
       configurators:
       - invalid
+      - invalid
       deviceLists:
       - 2
   - uid: 8
@@ -211,6 +212,7 @@ entities:
       parent: 1
     - type: DeviceNetwork
       configurators:
+      - invalid
       - invalid
       deviceLists:
       - 2
@@ -1965,6 +1967,7 @@ entities:
     - type: DeviceNetwork
       configurators:
       - invalid
+      - invalid
       deviceLists:
       - 2
     - type: AtmosPipeColor
@@ -1977,6 +1980,7 @@ entities:
       parent: 1
     - type: DeviceNetwork
       configurators:
+      - invalid
       - invalid
       deviceLists:
       - 2
@@ -1993,6 +1997,7 @@ entities:
     - type: DeviceNetwork
       configurators:
       - invalid
+      - invalid
       deviceLists:
       - 2
     - type: AtmosPipeColor
@@ -2005,6 +2010,7 @@ entities:
       parent: 1
     - type: DeviceNetwork
       configurators:
+      - invalid
       - invalid
       deviceLists:
       - 2
