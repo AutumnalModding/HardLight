@@ -662,7 +662,7 @@
 - type: entity
   parent: BaseComputerTabletopStationAdminBankATM
   id: ComputerTabletopStationAdminBankATMNfsd
-  description: Used to transfer funds from the ColSec bank account
+  description: Used to transfer funds from ColSec bank account
   suffix: ColSec, Tabletop
   components:
   - type: StationBankATM
