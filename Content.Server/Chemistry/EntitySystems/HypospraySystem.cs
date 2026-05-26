@@ -153,12 +153,12 @@ public sealed class HypospraySystem : SharedHypospraySystem
         if (!EligibleEntity(target, EntityManager, component))
             return false;
 
-        if (!component.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, HardsuitTag))
+        if (!component.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, HardsuitTag)) // Hardlight start
         {
             _popup.PopupEntity(Loc.GetString(component.BlockedByHardsuitPopupMessage, ("weapon", entity.Owner)), entity.Owner, user, PopupType.SmallCaution);
 
             return false;
-        }
+        } // Hardlight end
 
         // Target event
         var targetEvent = new TargetBeforeHyposprayInjectsEvent(user, entity.Owner, target);
