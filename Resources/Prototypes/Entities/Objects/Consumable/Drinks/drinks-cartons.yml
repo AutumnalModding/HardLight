@@ -43,6 +43,9 @@
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: DnaSubstanceTrace
+  - type: Tag # Hardlight / Frontier
+    tags:
+    - DrinkBottle
 
 - type: entity
   parent: DrinkCartonBaseFull
@@ -164,9 +167,6 @@
           Quantity: 120 # Coyote: 100 -> 120u
   - type: Sprite
     sprite: Objects/Consumable/Drinks/milk.rsi
-  - type: Tag
-    tags:
-    - DrinkBottle # Hardlight: Why can't you put milk in the coffee machine...?
 
 - type: entity
   parent: [RecyclableItemPlasticMedium, DrinkCartonVisualsOpenable, DrinkCartonBaseLargeFull] # Frontier: added RecyclableItemPlasticMedium
@@ -182,9 +182,6 @@
           Quantity: 100
   - type: Sprite
     sprite: Objects/Consumable/Drinks/soymilk.rsi
-  - type: Tag
-    tags:
-    - DrinkBottle # Hardlight: Why can't you put milk in the coffee machine...?
 
 - type: entity
   parent: [RecyclableItemPlasticMedium, DrinkCartonVisualsOpenable, DrinkCartonBaseLargeFull] # Frontier: added RecyclableItemPlasticMedium
@@ -200,9 +197,6 @@
           Quantity: 100
   - type: Sprite
     sprite: Objects/Consumable/Drinks/oatmilk.rsi
-  - type: Tag
-    tags:
-    - DrinkBottle # Hardlight: Why can't you put milk in the coffee machine...?
     
 - type: entity
   parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
