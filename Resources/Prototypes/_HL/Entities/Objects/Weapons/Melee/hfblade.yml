@@ -12,7 +12,7 @@
     damage:
       types:
         Slash: 16
-        Structural: 100 # fenn's idea
+        Structural: 25
   - type: Item
     sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi
   - type: Clothing
@@ -42,7 +42,7 @@
     damage:
       types:
         Heat: 20
-        Structural: 100
+        Structural: 25
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Melee/murasama.rsi
   - type: Item
@@ -62,7 +62,7 @@
     damage:
       types:
         Radiation: 16
-        Structural: 100
+        Structural: 25
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Melee/phaseblade.rsi
     state: e_sword
