@@ -375,7 +375,10 @@
   id: Pouch
 
 - type: Tag
-  id: KnockdownImmune
-  
-- type: Tag
   id: Bunnysuit
+
+- type: Tag
+  id: Medipen
+
+- type: Tag
+  id: CCSabre

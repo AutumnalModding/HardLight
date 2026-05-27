@@ -18,6 +18,13 @@ namespace Content.Shared.Chemistry
         public const uint LabelMaxLength = 50;
     }
 
+    // Starlight-start: Plumbing valve toggle
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterToggleValveMessage : BoundUserInterfaceMessage
+    {
+    }
+    // Starlight-end
+
     [Serializable, NetSerializable]
     public sealed class ChemMasterSetModeMessage : BoundUserInterfaceMessage
     {
@@ -170,6 +177,7 @@ namespace Content.Shared.Chemistry
     {
         public readonly ContainerInfo? InputContainerInfo;
         public readonly ContainerInfo? OutputContainerInfo;
+        public readonly bool ValveOpen;
 
         /// <summary>
         /// A list of the reagents and their amounts within the buffer, if applicable.
@@ -190,7 +198,7 @@ namespace Content.Shared.Chemistry
         public ChemMasterBoundUserInterfaceState(
             ChemMasterMode mode, ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel)
+            uint selectedPillType, uint pillDosageLimit, bool updateLabel, bool valveOpen)
         {
             InputContainerInfo = inputContainerInfo;
             OutputContainerInfo = outputContainerInfo;
@@ -201,6 +209,7 @@ namespace Content.Shared.Chemistry
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
+            ValveOpen = valveOpen;
         }
     }
 

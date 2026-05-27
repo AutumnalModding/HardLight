@@ -25,6 +25,8 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Linq;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.RCD.Systems;
@@ -47,6 +49,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // Starlight
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -67,10 +70,34 @@ public sealed class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
+        SubscribeNetworkEvent<RPDSelectedLayerEvent>(OnRPDSelectedLayerEvent);
         SubscribeLocalEvent<IdCardComponent, AfterInteractEvent>(OnIdCardSwipeHappened); // Frontier
     }
 
     #region Event handling
+
+    // Starlight: RPLD
+    private void OnRPDSelectedLayerEvent(RPDSelectedLayerEvent ev, EntitySessionEventArgs session)
+    {
+        var uid = GetEntity(ev.NetEntity);
+
+        if (session.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (_hands.GetActiveItem(player) != uid)
+            return;
+
+        if (!TryComp<RCDComponent>(uid, out var rcd))
+            return;
+
+        var layerInt = Math.Clamp(ev.Layer, (byte) AtmosPipeLayer.Primary, (byte) AtmosPipeLayer.Tertiary); // HL: Replace with Quinary when we get 5 layers lol
+        var selectedLayer = (AtmosPipeLayer) layerInt;
+
+        if (rcd.IsRPLD && selectedLayer > AtmosPipeLayer.Tertiary)
+            selectedLayer = AtmosPipeLayer.Tertiary;
+
+        rcd.LastSelectedLayer = selectedLayer;
+    }
 
     private void OnMapInit(EntityUid uid, RCDComponent component, MapInitEvent args)
     {
@@ -420,7 +447,7 @@ public sealed class RCDSystem : EntitySystem
         }
 
         // Finalize the operation (this should handle prediction properly)
-        FinalizeRCDOperation(uid, component, gridUid, mapGrid, tile, position, args.Direction, args.Target, args.User);
+        FinalizeRCDOperation(uid, component, gridUid, mapGrid, tile, position, args.Direction, args.PipeLayer, args.Target, args.User);
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -681,7 +708,7 @@ public sealed class RCDSystem : EntitySystem
         else
         {
             // The object is not in the whitelist
-            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable)
+            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable || TryComp<RCDComponent>(uid, out var rcd) && !deconstructible.RpldDeconstructable && rcd.IsRPLD) // Starlight: RPLD
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -697,7 +724,8 @@ public sealed class RCDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
+    // Starlight Edit: Add layer to finalize for deterministic layer placement.
+    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, AtmosPipeLayer pipeLayer, EntityUid? target, EntityUid user)
     {
         if (!_net.IsServer)
             return;
@@ -781,6 +809,9 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
 
     [DataField]
     public Direction Direction { get; private set; }
+
+    [DataField]
+    public AtmosPipeLayer PipeLayer { get; private set; } = AtmosPipeLayer.Primary;     // Starlight Edit: Layer snapshot captured at doafter start and replayed on finalize.
 
     [DataField]
     public ProtoId<RCDPrototype> StartingProtoId { get; private set; }

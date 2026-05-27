@@ -8,7 +8,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking.Events;
-using Content.Server._HL.Cleanup;
+using Content.Server._Mono.Cleanup;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
@@ -39,6 +39,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.DeviceNetwork.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.HL.CCVar; // HardLight
+using System.Diagnostics.CodeAnalysis; // HardLight
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -187,7 +189,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         {
             if (colcomm.Entity != null && Exists(colcomm.Entity.Value))
             {
-                EnsureComp<CleanupProtectedGridComponent>(colcomm.Entity.Value);
+                EnsureComp<CleanupImmuneComponent>(colcomm.Entity.Value);
 
                 if (TryComp(colcomm.Entity.Value, out TransformComponent? xform) && xform.MapUid != null)
                     colcomm.MapEntity = xform.MapUid;
@@ -260,7 +262,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         if (targetGrid == null)
             return;
 
-        var config = _dock.GetDockingConfig(stationShuttle.EmergencyShuttle.Value, targetGrid.Value, DockTag);
+        var config = GetEmergencyDockingConfig(stationShuttle.EmergencyShuttle.Value, targetGrid.Value, DockTag); // HardLight: _dock.GetDockingConfig<GetEmergencyDockingConfig
         if (config == null)
             return;
 
@@ -363,7 +365,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         }
 
         ShuttleDockResultType resultType;
-        if (_shuttle.TryFTLDock(stationShuttle.EmergencyShuttle.Value, shuttle, targetGrid.Value, out var config, DockTag))
+        if (TryEmergencyFTLDock(stationShuttle.EmergencyShuttle.Value, shuttle, targetGrid.Value, out var config, DockTag)) // HardLight: _shuttle.TryFTLDock<TryEmergencyFTLDock
         {
             _logger.Add(
                 LogType.EmergencyShuttle,
@@ -392,6 +394,70 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             TargetGrid = targetGrid,
         };
     }
+
+    // HardLight start
+    // Use the capped docking-config lookup on evac paths so station/ColComm searches
+    // preserve DockEmergency priority, keep the full-search fallback on capped misses, and avoid
+    // paying the worst-case dock-pair scan on the common path.
+    private DockingConfig? GetEmergencyDockingConfig(EntityUid shuttleUid, EntityUid targetGrid, string? priorityTag = null)
+    {
+        if (!_configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapEnabled))
+            return _dock.GetDockingConfig(shuttleUid, targetGrid, priorityTag);
+
+        var maxShuttleDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapShuttle);
+        var maxGridDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapGrid);
+        return _dock.GetDockingConfig(shuttleUid, targetGrid, priorityTag, DockType.Airlock, maxShuttleDocks, maxGridDocks);
+    }
+
+    private bool TryEmergencyFTLDock(
+        EntityUid shuttleUid,
+        ShuttleComponent shuttle,
+        EntityUid targetGrid,
+        [NotNullWhen(true)] out DockingConfig? config,
+        string? priorityTag = null)
+    {
+        if (!_configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapEnabled))
+            return _shuttle.TryFTLDock(shuttleUid, shuttle, targetGrid, out config, priorityTag);
+
+        var maxShuttleDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapShuttle);
+        var maxGridDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapGrid);
+        return _shuttle.TryFTLDock(
+            shuttleUid,
+            shuttle,
+            targetGrid,
+            out config,
+            maxShuttleDocks,
+            maxGridDocks,
+            priorityTag);
+    }
+
+    private void QueueEmergencyFTLToDock(
+        EntityUid shuttleUid,
+        ShuttleComponent shuttle,
+        EntityUid targetGrid,
+        float? startupTime = null,
+        float? hyperspaceTime = null,
+        string? priorityTag = null)
+    {
+        if (!_configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapEnabled))
+        {
+            _shuttle.FTLToDock(shuttleUid, shuttle, targetGrid, startupTime, hyperspaceTime, priorityTag);
+            return;
+        }
+
+        var maxShuttleDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapShuttle);
+        var maxGridDocks = _configManager.GetCVar(HLCCVars.EmergencyShuttleDockCapGrid);
+        _shuttle.FTLToDock(
+            shuttleUid,
+            shuttle,
+            targetGrid,
+            maxShuttleDocks,
+            maxGridDocks,
+            startupTime,
+            hyperspaceTime,
+            priorityTag);
+    }
+    // HardLight end
 
     /// <summary>
     /// Do post-shuttle-dock setup. Announce to the crew and set up shuttle timers.
@@ -585,7 +651,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         {
             component.MapEntity = _singletonColcommMap;
             component.Entity = _singletonColcommGrid;
-            EnsureComp<CleanupProtectedGridComponent>(_singletonColcommGrid.Value);
+            EnsureComp<CleanupImmuneComponent>(_singletonColcommGrid.Value);
             return;
         }
 
@@ -614,7 +680,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         component.Entity = grid;
         _singletonColcommMap = map;
         _singletonColcommGrid = grid;
-        EnsureComp<CleanupProtectedGridComponent>(grid.Value);
+        EnsureComp<CleanupImmuneComponent>(grid.Value);
         _metaData.SetEntityName(map, Loc.GetString("map-name-Colcomm"));
         _shuttle.TryAddFTLDestination(mapId, true, out _);
         Log.Info($"Created Colcomm grid {ToPrettyString(grid)} on map {ToPrettyString(map)} for station {ToPrettyString(station)}");
@@ -640,6 +706,25 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         }
 
         return maps;
+    }
+
+    /// <summary>
+    /// HardLight: Returns true if the provided map is one of the active ColComm maps.
+    /// This avoids per-call set allocations for common objective checks.
+    /// </summary>
+    public bool IsColcommMap(EntityUid mapUid)
+    {
+        if (_singletonColcommMap == mapUid)
+            return true;
+
+        var query = AllEntityQuery<StationColcommComponent>();
+        while (query.MoveNext(out var comp))
+        {
+            if (comp.MapEntity == mapUid)
+                return true;
+        }
+
+        return false;
     }
 
     private void AddEmergencyShuttle(Entity<StationEmergencyShuttleComponent?, StationColcommComponent?> ent)
@@ -689,7 +774,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         ent.Comp1.EmergencyShuttle = shuttle;
         _singletonColcommShuttle = shuttle; // Store singleton
         EnsureComp<ProtectedGridComponent>(shuttle.Value);
-        EnsureComp<CleanupProtectedGridComponent>(shuttle.Value);
+        EnsureComp<CleanupImmuneComponent>(shuttle.Value);
         EnsureComp<PreventPilotComponent>(shuttle.Value);
         EnsureComp<EmergencyShuttleComponent>(shuttle.Value);
 
