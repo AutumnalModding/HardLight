@@ -20,7 +20,6 @@ using Content.Server._HL.RoundPersistence.Components;
 using Content.Server._NF.RoundNotifications.Events;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server._NF.ShuttleRecords.Components;
-using Content.Server.CrewManifest;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
 using Content.Shared.HL.CCVar; // HardLight CCVar namespace
@@ -75,7 +74,6 @@ public sealed class RoundPersistenceSystem : EntitySystem
     [Dependency] private JobSystem _jobs = default!;
     [Dependency] private RoleSystem _roles = default!;
     [Dependency] private Content.Shared.Objectives.Systems.SharedObjectivesSystem _objectives = default!;
-    [Dependency] private CrewManifestSystem _crewManifest = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -285,10 +283,10 @@ public sealed class RoundPersistenceSystem : EntitySystem
 
             //_sawmill.Info($"Pushed CharacterInfo updates to {sessions.Count} players after antag/objective cleanup");
         }
-        catch (Exception)
+        catch (Exception ex) // VRS: include the exception so cleanup failures are diagnosable instead of just "something happened".
         {
-            // Swallow errors to avoid breaking round startup; optional logging can be enabled.
-            _sawmill.Error("Error refreshing character info after cleanup.");
+            // Swallow errors to avoid breaking round startup; the exception is logged for diagnostics.
+            _sawmill.Error($"Error refreshing character info after cleanup: {ex}");
         }
     }
 
@@ -610,9 +608,6 @@ public sealed class RoundPersistenceSystem : EntitySystem
             {
                 persistedRecords.GeneralRecords[id] = record;
             }
-
-            var entries = _crewManifest.GetCrewManifest();
-            persistedRecords.CrewManifest = entries.Entries.ToList();
 
             // Get crew manifest
             persistence.StationRecords[stationName] = persistedRecords;

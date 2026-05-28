@@ -765,6 +765,9 @@
   id: HighRiskItem
 
 - type: Tag
+  id: Hypospray
+
+- type: Tag
   id: HighSecDoor
 
 - type: Tag
@@ -1190,6 +1193,12 @@
 
 - type: Tag
   id: RifleStock
+
+- type: Tag
+  id: AICoreElectronics
+
+- type: Tag
+  id: WeaponShotgunBigBuddy
 
 - type: Tag
   id: Ring

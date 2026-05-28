@@ -21,9 +21,10 @@
     areaInsert: true
     whitelist:
       components:
+        - Injector
+      tags:
         - Pill
         - Hypospray
-      tags:
         - PillCanister
         - CentrifugeCompatible
         - Syringe
@@ -33,6 +34,7 @@
         - Gauze
         - Bottle
         - JetInjector
+        - Medipen
   - type: Dumpable
   - type: MagnetPickup
     magnetEnabled: false

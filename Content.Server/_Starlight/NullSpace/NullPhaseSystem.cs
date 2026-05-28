@@ -3,6 +3,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
 using Content.Shared._Starlight.NullSpace;
 using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Content.Shared.Popups;
 using Content.Shared._Starlight;
@@ -23,6 +24,7 @@ public sealed class EtherealPhaseSystem : EntitySystem
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private EntProtoId ShadekinPhaseInEffect = "ShadekinPhaseInEffect";
     private EntProtoId ShadekinPhaseOutEffect = "ShadekinPhaseOutEffect";
@@ -119,18 +121,33 @@ public sealed class EtherealPhaseSystem : EntitySystem
     private void Toggle(EntityUid uid, NullPhaseComponent component, bool toggle)
     {
         if (toggle)
+        {
             _actionsSystem.AddAction(uid, ref component.PhaseAction, "NullPhaseAction", uid);
+            EnsureComp<ShowNullSpaceComponent>(uid);
+        }
         else
+        {
             _actionsSystem.RemoveAction(uid, component.PhaseAction);
+            RemComp<ShowNullSpaceComponent>(uid);
+        }
     }
 
     public bool Phase(EntityUid uid)
     {
         if (TryComp<NullSpaceComponent>(uid, out var ethereal))
         {
+            var currentTile = _turf.GetTileRef(Transform(uid).Coordinates);
+            // MobMask (not just Impassable) so that windows, shutters, glass airlocks, and anything
+            // else a normal mob cannot walk through also prevents exit — not only solid walls.
+            if (currentTile != null && _turf.IsTileBlocked(currentTile.Value, CollisionGroup.MobMask))
+            {
+                _popup.PopupEntity(Loc.GetString("phase-fail-generic"), uid, uid);
+                return false;
+            }
+
             if (HasComp<ShadekinComponent>(uid))
             {
-                var lightQuery = _lookup.GetEntitiesInRange(uid, 5, flags: LookupFlags.StaticSundries)
+                var lightQuery = _lookup.GetEntitiesInRange(uid, 3, flags: LookupFlags.StaticSundries)
                     .Where(x => HasComp<PoweredLightComponent>(x));
                 foreach (var light in lightQuery)
                     _ghost.DoGhostBooEvent(light);
@@ -151,11 +168,23 @@ public sealed class EtherealPhaseSystem : EntitySystem
                 return false;
             }
 
+            foreach (var flasher in _lookup.GetEntitiesInRange<BluespacePulseOnTriggerComponent>(Transform(uid).Coordinates, 30))
+            {
+                if (!Transform(flasher).Anchored)
+                    continue;
+
+                if (_lookup.GetEntitiesInRange(flasher, flasher.Comp.Radius).Contains(uid))
+                {
+                    _popup.PopupEntity(Loc.GetString("phase-fail-flasher"), uid, uid);
+                    return false;
+                }
+            }
+
             EnsureComp<NullSpaceComponent>(uid);
 
             if (HasComp<ShadekinComponent>(uid))
             {
-                var lightQuery = _lookup.GetEntitiesInRange(uid, 5, flags: LookupFlags.StaticSundries)
+                var lightQuery = _lookup.GetEntitiesInRange(uid, 3, flags: LookupFlags.StaticSundries)
                     .Where(x => HasComp<PoweredLightComponent>(x));
                 foreach (var light in lightQuery)
                     _ghost.DoGhostBooEvent(light);
