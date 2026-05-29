@@ -39,7 +39,7 @@ public sealed partial class Painkillers : EntityEffect
             {
                 if (!manager.HasComponent<PainNumbnessComponent>(args.TargetEntity))
                 {
-                    manager.AddComponent(args.TargetEntity, new PainNumbnessComponent());
+                    manager.AddComponent<PainNumbnessComponent>(args.TargetEntity);
                 }
 
                 break;
@@ -47,11 +47,11 @@ public sealed partial class Painkillers : EntityEffect
 
             case StatusEffectMetabolismType.Remove:
             {
-                if (manager.TryGetComponent(args.TargetEntity, out PainNumbnessComponent? numbness))
+                if (manager.TryGetComponent<PainNumbnessComponent>(args.TargetEntity, out var numbness))
                 {
                     if (!numbness.Permanent)
                     {
-                        manager.RemoveComponent(args.TargetEntity, numbness);
+                        manager.RemoveComponent<PainNumbnessComponent>(args.TargetEntity);
                     }
                 }
 
