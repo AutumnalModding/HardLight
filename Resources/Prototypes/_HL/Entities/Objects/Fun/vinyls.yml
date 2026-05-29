@@ -92,7 +92,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: blue-vinyl-disk
+    state: cyan-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/ballsfish.ogg
@@ -103,7 +103,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: red-vinyl-disk
+    state: glossy-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/chronograph.ogg
@@ -114,7 +114,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: red-vinyl-disk
+    state: forgotten-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/crueltyengines.ogg
@@ -125,7 +125,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: orange-vinyl-disk
+    state: green-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/duetime.ogg
@@ -147,7 +147,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: lightblue-vinyl-disk
+    state: lightishred-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/rerecalled.ogg
@@ -158,7 +158,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: green-vinyl-disk
+    state: yellow-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/seige.ogg
@@ -169,7 +169,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: lightishred-vinyl-disk
+    state: pink-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_HL/RadioStation/music/nulb/timeout.ogg
