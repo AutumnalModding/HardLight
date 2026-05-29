@@ -22,3 +22,28 @@
         amount: 1
       - id: DrinkSoysauceJug
         amount: 1
+
+- type: entity
+  id: CrateVinylsNulb
+  name: nulb vinyls crate
+  parent: CrateGenericSteel
+  description: A crate containing eight vinyls by Nulb, shipped by LRSI.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VinylDiskNulbEmulator
+        amount: 1
+      - id: VinylDiskNulbEruption
+        amount: 1
+      - id: VinylDiskNulbEverpresence
+        amount: 1
+      - id: VinylDiskNulbHakonechloa
+        amount: 1
+      - id: VinylDiskNulbHyperacusis
+        amount: 1
+      - id: VinylDiskNulbImDown
+        amount: 1
+      - id: VinylDiskNulbRecalled
+        amount: 1
+      - id: VinylDiskNulbTakeYourTime
+        amount: 1
