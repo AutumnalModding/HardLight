@@ -1534,108 +1534,109 @@
 
 # Instability Mutations
 
-- type: geneticMutation
-  id: geneticMonkeyMorph
-  name: "Monkeyified"
-  desc: "Subject's DNA has become so unstable they permanently turned into a monkey."
-  popupText: "You have regressed into a primitive form"
-  hidden: true
-  researchPoints: 6000
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 20
-  strictEntityWhitelist:
-    - BaseMobHuman
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticMonkeyMorph
-
-- type: geneticMutation
-  id: geneticKoboldMorph
-  name: "Koboldified"
-  desc: "Subject's DNA has become so unstable they permanently turned into a kobold."
-  popupText: "You have regressed into a primitive form"
-  hidden: true
-  researchPoints: 6000
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 20
-  strictEntityWhitelist:
-    - BaseMobReptilian
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticKoboldMorph
-
-- type: geneticMutation
-  id: FleshJaredCurse
-  name: "Flesh Wad"
-  desc: "The subject has been overtaken by aberrant flesh."
-  popupText: "Your body twists and warps into grotesque flesh!"
-  hidden: true
-  researchPoints: 6000
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 10
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticFleshJaredMorph
-
-- type: geneticMutation
-  id: FleshGolemCurse
-  name: "Flesh Golem"
-  desc: "The subject's body has swollen into a hulking mass of flesh."
-  popupText: "Your body twists and warps into grotesque flesh!"
-  hidden: true
-  researchPoints: 6000
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 20
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticFleshGolemMorph
-
-- type: geneticMutation
-  id: FleshClampCurse
-  name: "Flesh Clamp"
-  desc: "The subject's body has mutated into a grotesque, snapping horror."
-  popupText: "Your body twists and warps into grotesque flesh!"
-  hidden: true
-  researchPoints: 6000
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 10
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticFleshClampMorph
-
-- type: geneticMutation
-  id: FleshLoverCurse
-  name: "Flesh Lover"
-  desc: "The subject's body has twisted into a horrifying form that resembles a heart."
-  popupText: "Your body twists and warps into grotesque flesh!"
-  researchPoints: 6000
-  hidden: true
-  instabilityMutation: true
-  mutadoneResistant: true
-  sequencerResistant: true
-  scrambleResistant: true
-  printable: false
-  instability: 10
-  components:
-  - type: MutationInstabilityPolymorph
-    polymorphId: GeneticFleshLoverMorph
+# Hardlight: N o .
+# - type: geneticMutation
+#   id: geneticMonkeyMorph
+#   name: "Monkeyified"
+#   desc: "Subject's DNA has become so unstable they permanently turned into a monkey."
+#   popupText: "You have regressed into a primitive form"
+#   hidden: true
+#   researchPoints: 6000
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 20
+#   strictEntityWhitelist:
+#     - BaseMobHuman
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticMonkeyMorph
+#
+# - type: geneticMutation
+#   id: geneticKoboldMorph
+#   name: "Koboldified"
+#   desc: "Subject's DNA has become so unstable they permanently turned into a kobold."
+#   popupText: "You have regressed into a primitive form"
+#   hidden: true
+#   researchPoints: 6000
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 20
+#   strictEntityWhitelist:
+#     - BaseMobReptilian
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticKoboldMorph
+#
+# - type: geneticMutation
+#   id: FleshJaredCurse
+#   name: "Flesh Wad"
+#   desc: "The subject has been overtaken by aberrant flesh."
+#   popupText: "Your body twists and warps into grotesque flesh!"
+#   hidden: true
+#   researchPoints: 6000
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 10
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticFleshJaredMorph
+#
+# - type: geneticMutation
+#   id: FleshGolemCurse
+#   name: "Flesh Golem"
+#   desc: "The subject's body has swollen into a hulking mass of flesh."
+#   popupText: "Your body twists and warps into grotesque flesh!"
+#   hidden: true
+#   researchPoints: 6000
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 20
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticFleshGolemMorph
+#
+# - type: geneticMutation
+#   id: FleshClampCurse
+#   name: "Flesh Clamp"
+#   desc: "The subject's body has mutated into a grotesque, snapping horror."
+#   popupText: "Your body twists and warps into grotesque flesh!"
+#   hidden: true
+#   researchPoints: 6000
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 10
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticFleshClampMorph
+#
+# - type: geneticMutation
+#   id: FleshLoverCurse
+#   name: "Flesh Lover"
+#   desc: "The subject's body has twisted into a horrifying form that resembles a heart."
+#   popupText: "Your body twists and warps into grotesque flesh!"
+#   researchPoints: 6000
+#   hidden: true
+#   instabilityMutation: true
+#   mutadoneResistant: true
+#   sequencerResistant: true
+#   scrambleResistant: true
+#   printable: false
+#   instability: 10
+#   components:
+#   - type: MutationInstabilityPolymorph
+#     polymorphId: GeneticFleshLoverMorph
