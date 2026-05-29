@@ -175,17 +175,6 @@
       path: /Audio/_HL/RadioStation/music/nulb/timeout.ogg
 
 - type: entity
-  name: "vinyl disk: Take Your TIME"
-  id: VinylDiskNulbTakeYourTime
-  parent: BaseVinylDisk
-  components:
-  - type: Sprite
-    state: darkblue-vinyl-disk
-  - type: Vinyl
-    song:
-      path: /Audio/_HL/RadioStation/music/nulb/takeyourtime.ogg
-
-- type: entity
   name: "vinyl disk: turf war vol 1"
   id: VinylDiskTWV1
   parent: BaseVinylDisk
