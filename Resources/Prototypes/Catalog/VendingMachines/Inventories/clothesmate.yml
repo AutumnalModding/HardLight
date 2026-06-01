@@ -4,9 +4,10 @@
   startingInventory:
     ClothingBackpack: 5
     ClothingBackpackDuffel: 5
-    ClothingBackpackSatchel: 3
+    ClothingBackpackSatchel: 5 # Hardlight
     ClothingBackpackMessenger: 5 # Frontier
-    ClothingBackpackSatchelLeather: 2
+    ClothingBackpackSatchelLeather: 5 # Hardlight
+    ClothingBackpackTrunkMail: 5 # Hardlight
     ClothingWalletLeatherBrown: 5 # Frontier
     ClothingWalletLeatherBlack: 5 # Frontier
     # ClothingRandomSpawner: 8 # Frontier
