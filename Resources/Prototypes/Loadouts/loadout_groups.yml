@@ -147,6 +147,8 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -193,6 +195,8 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
   - HoPBackpackIan
 
 - type: loadoutGroup
@@ -235,6 +239,8 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -497,6 +503,8 @@
   - BotanistBackpack
   - BotanistSatchel
   - BotanistDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -537,6 +545,8 @@
   - ClownBackpack
   - ClownSatchel
   - ClownDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -607,6 +617,8 @@
   - MimeBackpack
   - MimeSatchel
   - MimeDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: MimeOuterClothing
@@ -770,6 +782,8 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
@@ -797,6 +811,8 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -921,6 +937,8 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -976,6 +994,8 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
@@ -1088,6 +1108,8 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: ScientistOuterClothing
@@ -1253,6 +1275,8 @@
   - SecurityBackpack
   - SecuritySatchel
   - SecurityDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: SecurityBelt
@@ -1459,6 +1483,8 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -1543,6 +1569,8 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
 
 - type: loadoutGroup
   id: ParamedicHead

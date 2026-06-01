@@ -67,3 +67,33 @@
     Telecrystal: 20
   categories:
     - UplinkWeaponry
+
+- type: listing
+  id: UplinkSatchelSyndicate
+  name: uplink-satchel-syndicate-name
+  description: uplink-satchel-syndicate-desc
+  productEntity: ClothingBackpackSatchelSyndicate
+  cost:
+    Telecrystal: 3
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: UplinkDuffelSyndicate
+  name: uplink-duffel-syndicate-name
+  description: uplink-duffel-syndicate-desc
+  productEntity: ClothingBackpackDuffelSyndicate
+  cost:
+    Telecrystal: 4
+  categories:
+    - UplinkWearables
+
+- type: listing
+  id: UplinkTrunkSyndicate
+  name: uplink-trunk-syndicate-name
+  description: uplink-trunk-syndicate-desc
+  productEntity: ClothingBackpackTrunkSyndicate
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWearables

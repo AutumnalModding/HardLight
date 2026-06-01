@@ -198,3 +198,17 @@
   storage:
     back:
     - WeaponShotgunVortex
+
+- type: loadout
+  id: LeatherSatchel
+  price: 0
+  storage:
+    back:
+    - ClothingBackpackSatchelLeather
+
+- type: loadout
+  id: StorageTrunk
+  price: 0
+  storage:
+    back:
+    - ClothingBackpackTrunkMail

@@ -411,6 +411,8 @@
   - ContractorClothingBackpack
   - ContractorClothingBackpackDuffel
   - ContractorClothingBackpackSatchel
+  - LeatherSatchel # Hardlight
+  - StorageTrunk # Hardlight
   - ContractorClothingBackpackMessenger
   - ContractorClothingBackpackCaptain
   - ContractorClothingBackpackDuffelCaptain
