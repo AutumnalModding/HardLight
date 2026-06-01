@@ -24,10 +24,10 @@
         amount: 1
 
 - type: entity
-  id: CrateVinylsNulbOne
-  name: first edition nulb vinyls crate
+  id: CrateVinylsNulb
+  name: vinyls crate "nulb"
   parent: CrateGenericSteel
-  description: A crate containing eight vinyls by Nulb, shipped by LRSI.
+  description: A crate containing eight vinyls. The artist tag on the side says "Nulb".
   components:
   - type: StorageFill
     contents:
@@ -49,10 +49,10 @@
         amount: 1
 
 - type: entity
-  id: CrateVinylsNulbTwo
-  name: second edition nulb vinyls crate
+  id: CrateVinylsDeltarisk
+  name: vinyls crate "deltarisk"
   parent: CrateGenericSteel
-  description: A crate containing eight vinyls by Nulb, shipped by LRSI.
+  description: A crate containing eight vinyls. The artist tag on the side says "Deltarisk".
   components:
   - type: StorageFill
     contents:

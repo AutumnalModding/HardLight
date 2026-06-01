@@ -9,21 +9,21 @@
   group: market
 
 - type: cargoProduct
-  id: NulbVinylsCrateOne
+  id: VinylsNulb
   icon:
     sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
     state: red-vinyl-disk
-  product: CrateVinylsNulbOne
+  product: CrateVinylsNulb
   cost: 5000
   category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
-  id: NulbVinylsCrateTwo
+  id: VinylsDeltarisk
   icon:
     sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
     state: blue-vinyl-disk
-  product: CrateVinylsNulbTwo
+  product: CrateVinylsDeltarisk
   cost: 5000
   category: cargoproduct-category-name-service
   group: market
