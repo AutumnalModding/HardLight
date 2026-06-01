@@ -667,6 +667,7 @@
   - ContractorClothingShoesBootsPunkRandomized # Punkish (Randomized visuals)
   - ContractorClothingShoesBeeSocks # HL - Add lingerie to generic loadouts
   - ContractorClothingShoesCoderSocks # HL - Add lingerie to generic loadouts
+  - ContractorClothingShoesHeels # Hardlight
   - ContractorClothingShoesDameDane
   - ContractorClothingShoesBootsWork
   - ContractorClothingShoesBootsCowboyBlack
@@ -674,7 +675,6 @@
   - ContractorClothingShoesBootsCowboyWhite
   - ContractorClothingShoesSnakeskinBoots
   - ContractorClothingShoesHighheelBoots
-  - ContractorClothingShoesHeels # Hardlight
   - ContractorClothingShoesBootsCowboyFancy
   - ContractorClothingShoesBootsWinterChiefEngineer
   - ContractorClothingShoesBootsWinterCMO #HL Uncommented
