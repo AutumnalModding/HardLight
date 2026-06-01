@@ -1616,6 +1616,8 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterJumpskirt
+  - JournalistJumpskirt
   subgroups:
   - ServiceJumpsuit # HL - Add departmental NF-style loadouts
   - ContractorJumpsuit # HL - Add departmental NF-style loadouts

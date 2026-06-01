@@ -70,6 +70,9 @@
   - ContractorClothingUniformJumpsuitLibrarian
   - ContractorClothingUniformJumpskirtLibrarian
   - ContractorClothingUniformJumpsuitReporter
+  - ContractorClothingUniformJumpskirtReporter # HL
+  - ContractorClothingUniformJumpsuitJournalist # HL
+  - ContractorClothingUniformJumpskirtJournalist # HL
   - ContractorClothingUniformJumpsuitBH
   - ContractorClothingUniformJumpskirtBH
   - ContractorClothingUniformJumpsuitBHGrey
