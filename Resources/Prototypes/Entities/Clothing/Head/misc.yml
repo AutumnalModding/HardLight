@@ -222,7 +222,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatDogEars
   name: doggy ears
-  description: Only for good boys.
+  description: Only for good doggies. # Hardlight: Ew, gendered
   categories: [ DoNotMap ]
   components:
   - type: Sprite
