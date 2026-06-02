@@ -1061,6 +1061,49 @@
     # Posters
   - ContractorNFPosterCorporate
   - ContractorNFPosterContraband
+  # Hardlight start - BunnysuitBoxChemist
+  - BunnysuitBoxGenetics
+  - BunnysuitBoxPsychologist
+  - BunnysuitBoxHeadOfPersonnel
+  - BunnysuitBoxGreen
+  - BunnysuitBoxLawTeal
+  - BunnysuitBoxCaptain
+  - BunnysuitBoxSyndie
+  - BunnysuitBoxChef
+  - BunnysuitBoxRobotics
+  - BunnysuitBoxChiefMedicalOfficer
+  - BunnysuitBoxRed
+  - BunnysuitBoxCrimsonGold
+  - BunnysuitBoxPrisoner
+  - BunnysuitBoxMime
+  - BunnysuitBoxDoctor
+  - BunnysuitBoxEngineer
+  - BunnysuitBoxLawRed
+  - BunnysuitBoxBar
+  - BunnysuitBoxCoroner
+  - BunnysuitBoxQuartermaster
+  - BunnysuitBoxUSSP
+  - BunnysuitBoxUnionJack
+  - BunnysuitBoxCrimson
+  - BunnysuitBoxCrimsonWhite
+  - BunnysuitBoxJanitor
+  - BunnysuitBoxNetrunner
+  - BunnysuitBoxScience
+  - BunnysuitBoxClown
+  - BunnysuitBoxAtmos
+  - BunnysuitBoxChaplain
+  - BunnysuitBoxParamedic
+  - BunnysuitBoxTeal
+  - BunnysuitBoxLiberty
+  - BunnysuitBoxCargo
+  - BunnysuitBoxResearchDirector
+  - BunnysuitBoxMail
+  - BunnysuitBoxLawBlack
+  - BunnysuitBoxVirology
+  - BunnysuitBoxBotanist
+  - BunnysuitBoxChiefEngineer
+  - BunnysuitBoxMiner
+  # Hardlight end
 
 - type: loadoutGroup
   id: ContractorHandItems
