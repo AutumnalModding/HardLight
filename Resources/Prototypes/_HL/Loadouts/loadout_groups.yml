@@ -287,6 +287,9 @@
   name: loadout-group-contractor-jumpsuit
   loadouts:
   - CargoClothingJumpsuitThong
+  - CargoTechnicianJumpsuitAlt
+  - CargoTechnicianJumpsuitFormal
+  - CargoTechnicianJumpskirtFormal
   subgroups:
   - ContractorJumpsuit
 
@@ -344,6 +347,9 @@
   name: loadout-group-contractor-jumpsuit
   loadouts:
   - SalvageSpecialistClothingJumpsuit
+  - ClothingUniformJumpskirtCargoSalvage
+  - ClothingUniformJumpskirtCargoSalvageFormal
+  - ClothingUniformJumpsuitSalvageFormal
   subgroups:
   - CargoJumpsuit
   - MercenaryJumpsuit
@@ -436,6 +442,7 @@
   name: loadout-group-contractor-jumpsuit
   loadouts:
   - ScienceClothingJumpsuitThong
+  - ScientistJumpskirtFormal
   subgroups:
   - ContractorJumpsuit
 
@@ -613,6 +620,10 @@
   name: loadout-group-contractor-jumpsuit
   loadouts:
   - MedicalClothingJumpsuitThong
+  - NurseJumpskirt
+  - CoronerJumpskirt
+  - CoronerJumpsuit
+  - CoronerJumpsuitAlt
   subgroups:
   - ContractorJumpsuit
 

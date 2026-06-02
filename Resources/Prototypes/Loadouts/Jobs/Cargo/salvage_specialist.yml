@@ -25,3 +25,23 @@
   id: SalvageBoots
   equipment:
     shoes: ClothingShoesBootsSalvage
+
+- type: loadout # starlight start
+  id: ClothingUniformJumpsuitMiningSpecialist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMiningSpecialist
+
+- type: loadout
+  id: ClothingUniformJumpskirtCargoSalvage
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCargoSalvage
+
+- type: loadout
+  id: ClothingUniformJumpskirtCargoSalvageFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCargoSalvageFormal
+
+- type: loadout
+  id: ClothingUniformJumpsuitSalvageFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageFormal
