@@ -3,32 +3,27 @@
   price: 600
   equipment:
     jumpsuit: ClothingUniformJumpskirtElegantMaid
-  groupBy: "maid outfit"
 
 - type: loadout
   id: MaidUniformTactical
   price: 600
   equipment:
     jumpsuit: ClothingUniformJumpskirtTacticalMaid
-  groupBy: "maid outfit"
 
 - type: loadout
   id: MaidUniformLatex
   price: 600
   equipment:
     jumpsuit: MaidUniformLatex
-  groupBy: "maid outfit"
 
 - type: loadout
   id: MaidUniformAlt
   price: 600
   equipment:
     jumpsuit: MaidUniform
-  groupBy: "maid outfit"
 
 - type: loadout
   id: MaidUniformAltAlt
   price: 600
   equipment:
     jumpsuit: MaidUniformAlt
-  groupBy: "maid outfit"

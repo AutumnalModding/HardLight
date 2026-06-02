@@ -57,11 +57,9 @@
   price: 600
   equipment:
     gloves: MaidGloves
-  groupBy: "maid outfit"
 
 - type: loadout
   id: MaidGlovesLatex
   price: 600
   equipment:
     gloves: MaidGlovesLatex
-  groupBy: "maid outfit"

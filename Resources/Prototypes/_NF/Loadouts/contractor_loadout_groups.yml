@@ -672,10 +672,15 @@
   - ContractorClothingShoeSlippersDuck
   - ContractorClothingShoesFlippers
   - ContractorClothingShoesBootsPunkRandomized # Punkish (Randomized visuals)
-  - ContractorClothingShoesBeeSocks # HL - Add lingerie to generic loadouts
-  - ContractorClothingShoesCoderSocks # HL - Add lingerie to generic loadouts
-  - DominantHeels # Hardlight
-  - ContractorClothingShoesHeels # Hardlight
+  # Hardlight start
+  - ContractorClothingShoesBeeSocks
+  - ContractorClothingShoesCoderSocks
+  - DominantHeels
+  - LatexHeels
+  - LatexSocks
+  - KneeBoots
+  - ContractorClothingShoesHeels
+  # Hardlight end
   - ContractorClothingShoesDameDane
   - ContractorClothingShoesBootsWork
   - ContractorClothingShoesBootsCowboyBlack

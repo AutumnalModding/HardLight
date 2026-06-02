@@ -125,6 +125,13 @@
     - BunnysuitBoxLawRed
 
 - type: loadout
+  id: BunnysuitBoxBar
+  price: 2000
+  storage:
+    back:
+    - BunnysuitBoxBar
+
+- type: loadout
   id: BunnysuitBoxCoroner
   price: 2000
   storage:

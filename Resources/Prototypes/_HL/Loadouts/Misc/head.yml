@@ -3,25 +3,21 @@
   price: 600
   equipment:
     head: ClothingHeadHatTacticalMaidHeadband
-  groupBy: "maid outfit"
 
 - type: loadout
   id: CatEars
   price: 600
   equipment:
-    head: ClothingHeadHatWhiteCatEars
-  groupBy: "cat ears"
+    head: ClothingHeadHatCatEars
 
 - type: loadout
   id: BunnyEars
   price: 600
   equipment:
     head: ClothingHeadHatBunny
-  groupBy: "cat ears"
 
 - type: loadout
   id: DogEars
   price: 600
   equipment:
     head: ClothingHeadHatDogEars
-  groupBy: "cat ears"
