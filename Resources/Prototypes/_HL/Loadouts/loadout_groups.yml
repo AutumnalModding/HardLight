@@ -381,6 +381,10 @@
   loadouts:
   - EngineeringClothingHandsGlovesColorYellow
   - EngineeringClothingHandsWarmers
+  - PawsWhiteInsulated
+  - PawsBrownInsulated
+  - PawsBlackInsulated
+  - PawsBlackWhiteInsulated
   subgroups:
   - ContractorGloves
 

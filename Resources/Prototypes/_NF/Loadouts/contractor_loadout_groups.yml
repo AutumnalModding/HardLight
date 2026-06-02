@@ -825,6 +825,11 @@
   - ContractorClothingHandsGlovesBoxingYellow
   - ContractorClothingHandsCoderValidWarmers # HL - Add lingerie to generic loadouts
   - ContractorClothingHandsGlovesCaptain
+  - PawsWhite
+  - PawsBrown
+  - PawsBlack
+  - PawsBlackWhite
+  - RedRegaliaGloves
   - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
