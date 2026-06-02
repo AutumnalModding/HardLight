@@ -21,7 +21,11 @@
     - GeneticistBackpack
     - GeneticistGloves
     - GeneticistShoes
-    - Survival
-    - Trinkets
+    - MedicalDoctorHead # Hardlight
+    - ContractorBackpackItems # Hardlight
+    - ContractorHandItems # Hardlight
+    - ContractorWallet # Hardlight
+    - ContractorImplanter # Hardlight
+    - ContractorBoxSurvival # Hardlight
     - GroupSpeciesBreathTool
 

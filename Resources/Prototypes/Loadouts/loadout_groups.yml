@@ -1345,6 +1345,7 @@
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
+  minLimit: 0 # Hardlight
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
