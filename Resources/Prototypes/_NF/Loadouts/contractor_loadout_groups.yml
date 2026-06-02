@@ -416,6 +416,7 @@
 - type: loadoutGroup
   id: ContractorBackpack
   name: loadout-group-contractor-backpack
+  minLimit: 0 # Hardlight
   loadouts:
   - ContractorClothingBackpackChameleonCiv
   - ContractorClothingBackpack
@@ -633,6 +634,7 @@
 
 - type: loadoutGroup
   id: ContractorShoes
+  minLimit: 0 # Hardlight
   name: loadout-group-contractor-shoes
   loadouts:
   - ContractorClothingShoesChameleonCiv
@@ -791,7 +793,7 @@
 - type: loadoutGroup
   id: ContractorEars
   name: loadout-group-contractor-ears
-  minLimit: 1
+  minLimit: 0 # Hardlight
   maxLimit: 1
   loadouts:
   - ContractorClothingHeadsetGreyCommon
