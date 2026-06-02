@@ -53,6 +53,7 @@
 
 - type: loadoutGroup
   id: GeneticistShoes
+  minLimit: 0 # Hardlight
   name: loadout-group-geneticist-shoes
   loadouts:
     - GeneticistShoesWhite

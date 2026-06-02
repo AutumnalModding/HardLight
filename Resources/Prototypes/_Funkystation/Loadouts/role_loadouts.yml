@@ -16,12 +16,12 @@
 - type: roleLoadout
   id: JobGeneticist
   groups:
+    - MedicalDoctorHead # Hardlight
     - GeneticistJumpsuit
     - GeneticistOuterClothing
     - GeneticistBackpack
     - GeneticistGloves
     - GeneticistShoes
-    - MedicalDoctorHead # Hardlight
     - ContractorBackpackItems # Hardlight
     - ContractorHandItems # Hardlight
     - ContractorWallet # Hardlight
