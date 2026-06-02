@@ -836,6 +836,7 @@
   - ContractorClothingHandsGlovesColorOrange
   - ContractorClothingHandsGlovesColorPurple
   - ContractorClothingHandsGlovesColorRed
+  - ContractorClothingHandsGlovesColorWhite # Hardlight: Moved here
   - ContractorClothingHandsBeeWarmers # HL - Add lingerie to generic loadouts
   - ContractorClothingHandsCoderWarmers # HL - Add lingerie to generic loadouts
   - ContractorClothingHandsGlovesBoxingGreen
@@ -851,7 +852,6 @@
   - MaidGloves # Hardlight
   - MaidGlovesLatex # Hardlight
   - RedRegaliaGloves
-  - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
   id: ContractorNeck
