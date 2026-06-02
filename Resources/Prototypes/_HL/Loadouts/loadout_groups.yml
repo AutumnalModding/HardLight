@@ -481,6 +481,9 @@
   minLimit: 0
   loadouts:
   - MantisFezHat
+  subgroups:
+  - ScienceHead
+  - ContractorHead
 
 - type: loadoutGroup
   id: MantisJumpsuit
@@ -488,6 +491,9 @@
   loadouts:
   - MantisJumpsuit
   - MantisJumpskirt
+  subgroups:
+  - ScienceJumpsuit
+  - ContractorJumpsuit
 
 - type: loadoutGroup
   id: MantisOuterClothing
@@ -495,12 +501,18 @@
   minLimit: 0
   loadouts:
   - MantisCoat
+  subgroups:
+  - ScienceOuterClothing
+  - ContractorOuterClothing
 
 - type: loadoutGroup
   id: MantisShoes
   name: loadout-group-mantis-shoes
   loadouts:
   - MantisBoots
+  subgroups:
+  - ScienceShoes
+  - ContractorShoes
 
 - type: loadoutGroup
   id: MantisGloves
@@ -508,6 +520,9 @@
   minLimit: 0
   loadouts:
   - WhiteGloves
+  subgroups:
+  - ScienceGloves
+  - ContractorGloves
 
 ## Security
 
@@ -518,6 +533,10 @@
   loadouts:
   - SecurityClothingHandsGlovesCombat
   - SecurityClothingHandsWarmers
+  - PawsWhiteInsulated
+  - PawsBrownInsulated
+  - PawsBlackInsulated
+  - PawsBlackWhiteInsulated
   subgroups:
   - ContractorGloves
   fallbacks:
@@ -541,6 +560,10 @@
   loadouts:
   - SecurityClothingHandsGlovesCombat
   - HeadofSecurityClothingHandsWarmers
+  - PawsWhiteInsulated
+  - PawsBrownInsulated
+  - PawsBlackInsulated
+  - PawsBlackWhiteInsulated
   subgroups:
   - ContractorGloves
   fallbacks:

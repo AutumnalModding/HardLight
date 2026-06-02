@@ -22,10 +22,15 @@
     - GeneticistBackpack
     - GeneticistGloves
     - GeneticistShoes
-    - ContractorBackpackItems # Hardlight
-    - ContractorHandItems # Hardlight
-    - ContractorWallet # Hardlight
-    - ContractorImplanter # Hardlight
-    - ContractorBoxSurvival # Hardlight
-    - GroupSpeciesBreathTool
+  # HardLight start: Add departmental NF-style loadouts
+    - ContractorForcedOuterClothing
+    - ContractorFace
+    - ContractorGlasses
+    - ContractorBoxSurvival
+    - ContractorWallet
+    - ContractorImplanter
+    - ContractorBackpackItems
+    - ContractorHandItems
+    - NFSpeciesSpecific
+  # HardLight end
 
