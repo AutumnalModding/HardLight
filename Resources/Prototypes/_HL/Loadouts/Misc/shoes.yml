@@ -1,0 +1,5 @@
+- type: loadout
+  id: DominantHeels
+  price: 600
+  equipment:
+    shoes: DominantHeels

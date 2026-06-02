@@ -214,7 +214,14 @@
   - ContractorClothingUniformJumpskirtBlueTurtleneckDress
   - ContractorClothingUniformJumpskirtYellowTurtleneckDress
   - ContractorClothingUniformJumpskirtYellowOldDress
-#_CS Start
+  # Hardlight start
+  - MaidUniform
+  - MaidUniformTactical
+  - MaidUniformLatex
+  - MaidUniformAlt
+  - MaidUniformAltAlt
+  # Hardlight end
+  # Coyote start
   - LoadoutCoolCoyoteClothesAcolyte
   - LoadoutCoolCoyoteClothesAfrMerc
   - LoadoutCoolCoyoteClothesArtisan
@@ -667,6 +674,7 @@
   - ContractorClothingShoesBootsPunkRandomized # Punkish (Randomized visuals)
   - ContractorClothingShoesBeeSocks # HL - Add lingerie to generic loadouts
   - ContractorClothingShoesCoderSocks # HL - Add lingerie to generic loadouts
+  - DominantHeels # Hardlight
   - ContractorClothingShoesHeels # Hardlight
   - ContractorClothingShoesDameDane
   - ContractorClothingShoesBootsWork
@@ -829,6 +837,8 @@
   - PawsBrown
   - PawsBlack
   - PawsBlackWhite
+  - MaidGloves # Hardlight
+  - MaidGlovesLatex # Hardlight
   - RedRegaliaGloves
   - ContractorClothingHandsGlovesColorWhite
 
