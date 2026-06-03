@@ -31,15 +31,6 @@
 
 - type: entity
   parent: ClothingBackpackTrunk
-  id: ClothingBackpackTrunkMailSenior
-  name: senior mail trunk
-  description: A huge trunk for the station's strongest mail technicians.
-  components:
-  - type: Sprite
-    sprite: _Starlight/Clothing/Back/Trunks/mailseniortrunk.rsi
-
-- type: entity
-  parent: ClothingBackpackTrunk
   id: ClothingBackpackTrunkSyndicate
   name: syndicate storage trunk
   description: Huge, metal, reflective, and stylish. All the other syndicates will want to get their hands on this trunk. Unfortunately, it's also heavier than other trunks.
@@ -64,3 +55,12 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+
+- type: entity
+  parent: ClothingBackpackTrunk
+  id: ClothingBackpackTrunkSpaceCourier
+  name: space courier trunk
+  description: A huge trunk themed after a legendary space courier.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Back/Trunks/space_courier_trunk.rsi

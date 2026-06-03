@@ -192,12 +192,12 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
-  - LeatherSatchel # Hardlight
-  - StorageTrunk # Hardlight
-  - HoPBackpackIan
+  - HoPBackpack # Hardlight: was common
+  - HoPSatchel # Hardlight: was common
+  - HoPDuffel # Hardlight: was common
+  - HoPBackpackIan # Hardlight: moved up
+  - LeatherSatchel # Hardlight addition
+  - StorageTrunk # Hardlight addition
 
 - type: loadoutGroup
   id: HoPOuterClothing
