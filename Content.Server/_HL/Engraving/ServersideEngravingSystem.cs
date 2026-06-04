@@ -36,13 +36,19 @@ public sealed partial class ServersideEngravingSystem : EntitySystem
         if (args.Target == null || _tag.HasTag(args.Target.Value, PreventTag) || TryComp<MindComponent>(args.Target, out _))
             return;
 
-        // SSD indicator is a good catchall for NPCs
-        if (HasComp<EngravedDataComponent>(args.Target.Value) && !tool.CanReengrave || HasComp<MindComponent>(args.Target.Value) || HasComp<MindContainerComponent>(args.Target.Value) || HasComp<SSDIndicatorComponent>(args.Target.Value))
+        if (HasComp<EngravedDataComponent>(args.Target.Value) && !tool.CanReengrave ||
+            HasComp<MindComponent>(args.Target.Value) ||
+            HasComp<MindContainerComponent>(args.Target.Value) ||
+            HasComp<SSDIndicatorComponent>(args.Target.Value) || // specifically catches NPCs
+            HasComp<ActorComponent>(args.Target.Value))
             return;
 
         if (TryComp(args.Target.Value, out MetaDataComponent? meta)) // I'm gonna be honest. If this fails, you probably have bigger problems?
         {
             if (!TryComp<ActorComponent>(args.User, out var actor))
+                return;
+
+            if (tool is { Ephemeral: true, RemainingUses: <= 0 })
                 return;
 
             // not going to do xaml for this lmao
@@ -59,8 +65,6 @@ public sealed partial class ServersideEngravingSystem : EntitySystem
                     data.OriginalDesc = meta.EntityDescription;
 
                     tool.RemainingUses--;
-                    if (tool.RemainingUses <= 0)
-                        RemComp<EngravingToolComponent>(tool.Owner);
                 });
         }
     }

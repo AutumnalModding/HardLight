@@ -11,4 +11,7 @@ public sealed partial class EngravingToolComponent : Component
 
     [DataField]
     public bool CanReengrave;
+
+    [DataField]
+    public bool Ephemeral = true;
 }
