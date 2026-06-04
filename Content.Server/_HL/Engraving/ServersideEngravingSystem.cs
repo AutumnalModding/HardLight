@@ -3,6 +3,8 @@ using Content.Shared._HL.Engraving;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.SSDIndicator;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
@@ -34,7 +36,8 @@ public sealed partial class ServersideEngravingSystem : EntitySystem
         if (args.Target == null || _tag.HasTag(args.Target.Value, PreventTag) || TryComp<MindComponent>(args.Target, out _))
             return;
 
-        if (HasComp<EngravedDataComponent>(args.Target.Value) && !tool.CanReengrave)
+        // SSD indicator is a good catchall for NPCs
+        if (HasComp<EngravedDataComponent>(args.Target.Value) && !tool.CanReengrave || HasComp<MindComponent>(args.Target.Value) || HasComp<MindContainerComponent>(args.Target.Value) || HasComp<SSDIndicatorComponent>(args.Target.Value))
             return;
 
         if (TryComp(args.Target.Value, out MetaDataComponent? meta)) // I'm gonna be honest. If this fails, you probably have bigger problems?
