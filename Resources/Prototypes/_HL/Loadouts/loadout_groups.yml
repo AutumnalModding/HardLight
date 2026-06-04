@@ -482,7 +482,7 @@
   loadouts:
   - MantisFezHat
   subgroups:
-  - ScienceHead
+  - ScientisttHead
   - ContractorHead
 
 - type: loadoutGroup
@@ -502,7 +502,7 @@
   loadouts:
   - MantisCoat
   subgroups:
-  - ScienceOuterClothing
+  - ScientistOuterClothing
   - ContractorOuterClothing
 
 - type: loadoutGroup

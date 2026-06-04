@@ -26,11 +26,7 @@
   equipment:
     shoes: ClothingShoesBootsSalvage
 
-- type: loadout # starlight start
-  id: ClothingUniformJumpsuitMiningSpecialist
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitMiningSpecialist
-
+# starlight start
 - type: loadout
   id: ClothingUniformJumpskirtCargoSalvage
   equipment:
