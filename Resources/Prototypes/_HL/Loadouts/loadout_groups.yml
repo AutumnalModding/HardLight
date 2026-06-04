@@ -482,7 +482,7 @@
   loadouts:
   - MantisFezHat
   subgroups:
-  - ScientisttHead
+  - ScientistHead
   - ContractorHead
 
 - type: loadoutGroup
