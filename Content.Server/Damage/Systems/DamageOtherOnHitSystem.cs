@@ -1,3 +1,4 @@
+using Content.Server._NF.PacifiedZone;
 using Content.Server.Administration.Logs;
 using Content.Server.Damage.Components;
 using Content.Server.Weapons.Ranged.Systems;
@@ -38,8 +39,7 @@ namespace Content.Server.Damage.Systems
                 return;
 
             // Hardlight: Pacifists can't hurt with throws
-            Log.Info($"null: {args.User == null}, paci: {TryComp<PacifiedComponent>(args.User, out _)}");
-            if (args.User != null && TryComp<PacifiedComponent>(args.User, out _))
+            if (args.User != null && (TryComp<PacifiedComponent>(args.User, out _) || TryComp<PacifiedByZoneComponent>(args.User, out _)))
                 return;
 
             var dmg = _damageable.TryChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Component.Thrower);
