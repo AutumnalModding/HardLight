@@ -46,6 +46,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly ArrivalsSystem _arrivalsSystem = default!;
         [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!; // Hardlight
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -534,6 +535,13 @@ namespace Content.Server.GameTicking
                     // Only evacuate shuttles that are currently on the round's station map.
                     if (xform.MapID != DefaultMap)
                         return;
+
+                    HashSet<Entity<ShuttleConsoleComponent>> consoles = new();
+                    _lookup.GetChildEntities(shuttleUid, consoles);
+                    if (consoles.Any(entity => !entity.Comp.CanFTL))
+                    {
+                        return;
+                    }
 
                     var shuttleRadius = 32f;
                     if (TryComp<MapGridComponent>(shuttleUid, out var grid))
