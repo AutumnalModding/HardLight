@@ -46,10 +46,13 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Server._Mono.Projectiles.TargetGuided;
+using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared._Mono;
+using Content.Shared._Crescent.ShipShields;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -79,6 +82,7 @@ using Content.Shared.Interaction; // Frontier
 using Content.Shared.Examine; // Frontier
 using Content.Shared.Hands.Components;
 using Content.Shared.Power;
+using Content.Shared._Starlight.NullSpace;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -153,16 +157,9 @@ public sealed partial class GunSystem : SharedGunSystem
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
         mapAngle = mapDirection.ToAngle(); // HardLight
-        var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
-
-        // GetMapLinearVelocity walks fromEnt's parent chain, but in ship-mounted gun paths
-        // (FireControl, SpaceArtillery) fromCoordinates can already be map-parented or race
-        // with reparenting, causing the walk to return Vector2.Zero. This makes shells appear
-        // to spawn from the ship's centre and lose forward range when the ship is moving.
-        // Override with the firing grid's authoritative LinearVelocity when we know it.
-        // No effect on off-grid handheld guns (gridUid is EntityUid.Invalid).
-        if (gridUid != EntityUid.Invalid && TryComp<PhysicsComponent>(gridUid, out var gridPhysics))
-            gunVelocity = gridPhysics.LinearVelocity;
+        // HardLight: gun-relative muzzle velocity (includes the ship's rotational omega x r component).
+        // Using only the grid's linear velocity made a rotating ship's shells render from the grid centre.
+        var gunVelocity = Physics.GetMapLinearVelocity(gunUid) - Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
@@ -232,6 +229,10 @@ public sealed partial class GunSystem : SharedGunSystem
                     //in the situation when user == null, means that the cannon fires on its own (via signals). And we need the gun to not fire by itself in this case
                     var lastUser = user ?? gunUid;
 
+                    // HardLight: ship shield interaction (own-shield bypass + enemy-shield scatter).
+                    var firingGrid = Transform(gunUid).GridUid;
+                    var isShipWeaponBeam = HasComp<Content.Server._Mono.SpaceArtillery.Components.SpaceArtilleryComponent>(gunUid);
+
                     if (hitscan.Reflective != ReflectType.None)
                     {
                         var reflectAttempts = 0;
@@ -246,8 +247,14 @@ public sealed partial class GunSystem : SharedGunSystem
                                 break;
 
                             var ray = new CollisionRay(from.Position, dir, hitscan.CollisionMask);
+                            // HardLight: also ignore the firing ship's own shield so a turret never hits its own bubble.
                             var rayCastResults =
-                                Physics.IntersectRay(from.MapId, ray, hitscan.MaxLength, lastUser, false).ToList();
+                                Physics.IntersectRayWithPredicate(from.MapId, ray, hitscan.MaxLength,
+                                    ent => ent == lastUser
+                                        || (firingGrid != null
+                                            && TryComp<ShipShieldComponent>(ent, out var ownSc)
+                                            && ownSc.Shielded == firingGrid.Value),
+                                    false).ToList();
                             if (!rayCastResults.Any())
                                 break;
 
@@ -259,6 +266,8 @@ public sealed partial class GunSystem : SharedGunSystem
                                 // Checks if the laser should pass over unless targeted by its user
                                 foreach (var collide in rayCastResults)
                                 {
+                                    if (hitscan.Reflective != ReflectType.Energy && HasComp<NullSpaceComponent>(collide.HitEntity))
+                                        continue;
                                     if (collide.HitEntity != gun.Target &&
                                         CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true)
                                     {
@@ -273,6 +282,31 @@ public sealed partial class GunSystem : SharedGunSystem
                             var hit = result.HitEntity;
 
                                 FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan, hit, user, gunUid);
+
+                            // HardLight: an enemy shield scatters a ship-weapon beam instead of
+                            // blocking it, and drains the shield emitter; the beam then continues from the crossing point.
+                            if (TryComp<ShipShieldComponent>(hit, out var crossedShield))
+                            {
+                                if (isShipWeaponBeam)
+                                {
+                                    if (crossedShield.Source is { } emitterSource)
+                                    {
+                                        var drain = (float)(hitscan.Damage?.GetTotal() ?? 0);
+                                        var drainEv = new Content.Server._Crescent.ShipShields.ShipShieldsSystem.ShieldHitscanDeflectedEvent(drain);
+                                        RaiseLocalEvent(emitterSource, ref drainEv);
+                                    }
+
+                                    var deviation = Angle.FromDegrees(Random.NextFloat(-80f, 80f));
+                                    dir = deviation.RotateVec(dir).Normalized();
+                                }
+
+                                // Continue from the crossing point, ignoring this shield so we don't re-hit it.
+                                from = new MapCoordinates(result.HitPos + dir * 0.1f, from.MapId);
+                                fromEffect = TransformSystem.ToCoordinates(from);
+                                lastUser = hit;
+                                reflectAttempts++;
+                                continue;
+                            }
 
                             var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
                             RaiseLocalEvent(hit, ref ev);
@@ -389,6 +423,12 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
     {
+        if (HasComp<Content.Server._Mono.FireControl.FireControllableComponent>(gunUid))
+        {
+            // HardLight: ship-gun shells phase through their own ship for their whole flight (networked).
+            EnsureComp<Content.Shared._Mono.ProjectileGridPhaseComponent>(uid);
+        }
+
         if (gun.Target is { } target && !TerminatingOrDeleted(target))
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
@@ -418,6 +458,18 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified);
+
+        if (TryComp<TargetSeekingComponent>(uid, out var targetSeeking))
+        {
+            targetSeeking.InheritedVelocity = gunVelocity;
+            targetSeeking.InheritedVelocityInitialized = true;
+        }
+
+        if (TryComp<TargetGuidedComponent>(uid, out var targetGuided))
+        {
+            targetGuided.InheritedVelocity = gunVelocity;
+            targetGuided.InheritedVelocityInitialized = true;
+        }
     }
 
     /// <summary>

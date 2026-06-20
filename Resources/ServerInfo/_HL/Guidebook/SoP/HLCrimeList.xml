@@ -1,37 +1,31 @@
-<!--
-SPDX-FileCopyrightText: 2026 CarefulLilCassie <4233621+CarefulLilCassie@users.noreply.github.com>
-
-SPDX-License-Identifier: AGPL 3.0
--->
-
+<!-- SPDX-FileCopyrightText: 2026 CarefulLilCassie <carefulcassie@gmail.com> -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
 <Document>
-  # Pathos Of The Law
-  [bold]Space Law is a tool used to benefit the sector, not a cudgel.[/bold]
-  [bullet] The greater good of the station is to be considered during sentencing
-  [bullet] Space Law is designed to protect the station and crew, not to hinder them.
-  [bullet] Station-Wide emergencies are to take priority over enforcing Space law.
-  [bullet] Roleplay fun is to take priority over all others.
+  Space Law is a tool used to benefit the sector, not a cudgel. The greater good of the station is to be considered during sentencing. Space Law is designed to protect the station and crew, not to hinder them. Station-wide emergencies are to take priority over enforcing Space Law. Roleplay fun is to take priority over all others.
+
+  Read [textlink="RP-First Sentencing" link="https://docs.hardlight.space/space-law/security-overview.html"] in Security Overview before applying charges. Space Law is meant to support roleplay, reward cooperation, and avoid punitive maximization.
 
   # Modifiers
+  Modifiers adjust sentences up or down. Multiple modifiers may apply to a single charge.
   <Table Columns="4">
     <ColorBox Color="#55ff55" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Code[/color]
+        [color=black][bold]Code[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#55ff55" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Crime[/color]
+        [color=black][bold]Modifier[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#55ff55" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Description[/color]
+        [color=black][bold]Description[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#55ff55" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Adjustments[/color]
+        [color=black][bold]Adjustment[/bold][/color]
       </Box>
     </ColorBox>
 
@@ -52,7 +46,7 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Voiding of charges.[/color]
+        [color=black]Voiding of charges[/color]
       </Box>
     </ColorBox>
 
@@ -68,12 +62,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]The scope of the crime(s), or repetitive behavior committed, warrants the charge be elevated to a higher offense for punishment in increments of one level per instance.[/color]
+        [color=black]The scope of the crime(s), or repetitive behavior committed, warrants the charge be elevated to a higher offence in increments of one level per instance.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Adjustments are to be decided by the HoS, Warden, or Captain.[/color]
+        [color=black]Decided by HoS, Warden, or Captain[/color]
       </Box>
     </ColorBox>
 
@@ -89,12 +83,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Actions taken to defend oneself from an assailant may have sentences reduced, voided, or expunged if the officer(s) involved deem that use of force reasonable.[/color]
+        [color=black]Actions taken to defend oneself from an assailant may have sentences reduced, voided, or expunged if the officer(s) involved deem the use of force reasonable.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Voiding of charges.[/color]
+        [color=black]Voiding of charges[/color]
       </Box>
     </ColorBox>
 
@@ -115,7 +109,7 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Forced medical treatment or cryogenic storage.[/color]
+        [color=black]Forced medical treatment or cryogenic storage[/color]
       </Box>
     </ColorBox>
 
@@ -131,33 +125,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Coordinated behavior by those with no clear assigned duty, which interrupts the normal function of any one department.[/color]
+        [color=black]Coordinated behavior by those with no clear assigned duty which interrupts the normal function of any one department may lead to sentencing for crimes committed during such actions being increased by one level.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Severity increased by one level.[/color]
-      </Box>
-    </ColorBox>
-
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]M06[/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Resisting Arrest[/bold][/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Knowingly resisting attempts at legal detention by members of the security team.[/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]20% Punishment increase.[/color]
+        [color=black]Severity increased by one level[/color]
       </Box>
     </ColorBox>
 
@@ -173,12 +146,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Knowingly resisting attempts at legal detention by members of the security team.[/color]
+        [color=black]Knowingly resisting attempts at legal detention by members of the security team. Sentences should be increased by the recommended 20% of total duration.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]20% Punishment increase.[/color]
+        [color=black]20% punishment increase[/color]
       </Box>
     </ColorBox>
 
@@ -194,12 +167,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Someone who has escaped their cell should be recaptured and returned to the brig.[/color]
+        [color=black]Someone who has escaped their cell should be recaptured and returned to the brig. Their timer should be reset to the full length of the original sentence. If the prisoner is a Perma, they are to be stowed within Cryo.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Reset of the time of imprisonment, if prisoner is in permanent confinement Cryogenic storage.[/color]
+        [color=black]Reset of imprisonment time; if permanent confinement, cryogenic storage[/color]
       </Box>
     </ColorBox>
 
@@ -215,12 +188,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Anyone that tries to commit a Felony or below offense but fails to achieve it, is to be charged under the relevant crime while recording that it was an attempt.[/color]
+        [color=black]Anyone who tries to commit a Felony or below offense but fails to achieve it is to be charged under the relevant crime while recording that it was an attempt. Attempts warrant a 5% decrease in punishment.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Charged for the same crime, with a 5% decrease in punishment.[/color]
+        [color=black]Same crime, 5% decrease in punishment[/color]
       </Box>
     </ColorBox>
 
@@ -236,14 +209,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]If the crime is committed to cause fear, injury, or other harm due to racial reasons, spiritual, physical, sexual orientation, gender identity, or other reasons that could be classified as a hate crime.
-
-        This can not be applied to the crime of discriminatory language, as it is implied.[/color]
+        [color=black]If the crime is committed to cause fear, injury, or harm due to racial, spiritual, physical, sexual orientation, gender identity, or other classifiable hate crime reasons. Cannot be applied to 111 — Discriminatory Language, as it is implied.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]50% time increase.[/color]
+        [color=black]50% time increase[/color]
       </Box>
     </ColorBox>
 
@@ -259,33 +230,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To be issued a pardon/sentence modification by Colonial Command. Colonial Command may waive sections of Space Law. Irrespective of the original crime, if a pardon or modification to a sentence is issued, it is to be followed immediately.[/color]
+        [color=black]A pardon or sentence modification issued by Colonial Command. Colonial Command may waive sections of Space Law. If issued, it is to be followed immediately.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Immediate release or modification.[/color]
-      </Box>
-    </ColorBox>
-
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]M11[/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Medical Attention[/bold][/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]A sick or injured prisoner requires medical aid. Prisoners have the right to medical aid if injured or sick. In cases of self-harm, aid is discretionary by security. The timer is to continue running during medical aid being provided.[/color]
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#aaffaa" OutlineColor="#000000">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Running timer.[/color]
+        [color=black]Immediate release or modification[/color]
       </Box>
     </ColorBox>
 
@@ -301,12 +251,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]A sick or injured prisoner requires medical aid. Prisoners have the right to medical aid if injured or sick. In cases of self-harm, aid is discretionary by security. The timer is to continue running during medical aid being provided.[/color]
+        [color=black]A sick or injured prisoner requires medical aid. Prisoners have the right to medical aid if injured or sick. In cases of self-harm, aid is discretionary by security. The timer continues running during medical aid.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Running timer.[/color]
+        [color=black]Running timer[/color]
       </Box>
     </ColorBox>
 
@@ -327,7 +277,7 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Deconversion and release.[/color]
+        [color=black]Deconversion and release[/color]
       </Box>
     </ColorBox>
 
@@ -343,18 +293,175 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To completely comply and work with security during detainment, Search, or arrest. Such as willingly being put into cuffs without causing disruption, or actively turning oneself in. In cases of Capital crimes, It would lower punishment to Permanent Confinement.[/color]
+        [color=black]To completely comply and work with security during detainment, search, or arrest — such as willingly being cuffed or actively turning oneself in. In cases of Capital crimes, lowers punishment to Permanent Confinement.[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#aaffaa" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]25% punishment decrease.[/color]
+        [color=black]25% punishment decrease[/color]
       </Box>
     </ColorBox>
+
   </Table>
 
-  # Infraction
-  These crimes tend to have only fines as punishments.
+  ## Sentencing Reference
+  The following table defines the baseline sentencing range for each crime tier, to provide context when applying [bold]M02 — Elevated Sentencing[/bold] (which elevates a charge by one tier).
+  <Table Columns="2">
+    <ColorBox Color="#55ff55" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Tier[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#55ff55" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Typical Sentence[/bold][/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Infraction[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Fine only: 10–25k speso; no brig unless fine is evaded[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#88ffff" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Minor Crime[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#88ffff" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Up to 10 min brig; fine optional[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Misdemeanor[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5–15 min brig; 20–45k speso fine[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Felony[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]10–20 min brig; 35–85k speso fine; possible demotion[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#696969" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Capital Crime[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#696969" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Permanent Confinement, Execution, or Force Borgification[/color]
+      </Box>
+    </ColorBox>
+
+  </Table>
+
+  ## Lesser Included Offenses
+  When two charges describe the same criminal act at different severities, only the greatest applicable charge should be applied. [bold]Stacking is not permitted.[/bold]
+  <Table Columns="2">
+    <ColorBox Color="#55ff55" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Crime Type[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#55ff55" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Severity Chain (Greatest to Lesser Included)[/bold][/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Homicide / Assault[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]401 — Capital Murder > 301 — Murder > 201 — Aggravated Assault > 101 — Assault[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Sabotage / Property Destruction[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]403 — Grand Sabotage > 303 — Sabotage > 203 — Vandalism, Major[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Breaking and Entering (Forcible Entry)[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]310 — Breaking and Entering, High Security Areas > 210 — Breaking and Entering, Inherently Dangerous Areas > 110 — Breaking and Entering[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Trespass (Unlawful Presence)[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]309 — Trespass, High Security Areas > 209 — Trespass, Inherently Dangerous Areas > 109 — Trespass[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Theft[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]302 — Larceny > 202 — Theft > 102 — Pickpocketing[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Sexual Offenses[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#aaffaa" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]318 — Sexual Assault > 218 — Sexual Harassment[/color]
+      </Box>
+    </ColorBox>
+
+  </Table>
+  [bold]Stacking is not permitted.[/bold] Security may not charge both a greater offense and its lesser included offense for the same underlying act. The greatest offense should be charged, but may be reduced to a lesser included offense at officer discretion.
+  [bold]Trespass and Breaking and Entering are legally distinct offenses.[/bold] 109/209/309 govern unlawful presence in a restricted area; 110/210/310 govern the act of forcible entry. When both the unlawful entry and the unlawful presence are established, both charges may apply.
+  ---
+
+  # Infractions
+  All of these crimes tend to be monetary punishments.
   <Table Columns="4">
     <ColorBox Color="#11ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
@@ -389,12 +496,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To deface the station or property of another individual.[/color]
+        [color=black]Defaced station property or property belonging to another individual[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Force repairing [bold]OR[/bold] 15000 speso fine.[/color]
+        [color=black]Force repairing or 15k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -405,17 +512,17 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Possession, Drugs[/bold][/color]
+        [color=black][bold]Drug Possession[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]The possession of illegal drugs in quantities appropriate for personal use.[/color]
+        [color=black]Possessed illegal drugs; In quantities consistent with personal use[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Confiscation of illegal drugs, 25000 speso fine.[/color]
+        [color=black]Confiscation and 25k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -431,12 +538,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To conduct oneself in a way unsuitable for the retention of one’s position, When sentenced along with M02 results in demotion.[/color]
+        [color=black]Conducted oneself in a manner unsuitable for their position[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Brig until 25000 speso fine paid.[/color]
+        [color=black]Brig until 25k speso fine paid; with M02: demotion[/color]
       </Box>
     </ColorBox>
 
@@ -452,12 +559,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To create a situation that may lead to the harm of others during normal operation in that department.[/color]
+        [color=black]Created a condition capable of causing harm to others; During normal departmental operations[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Forced removal of the situation, 15000 speso fine.[/color]
+        [color=black]Forced removal of situation and 15k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -473,18 +580,19 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly disrupt or needlessly populate a radio frequency with the intent to be a nuisance to users of that frequency. If done whilst brigged, the right to a headset is voided.[/color]
+        [color=black]Knowingly disrupted or needlessly populated a radio frequency; With intent to be a nuisance[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#88ffff" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Brig until fine paid, unless under M02, 10000 speso fine.[/color]
+        [color=black]Brig until fine paid (unless M02); 10k speso fine[/color]
       </Box>
     </ColorBox>
+
   </Table>
 
-  # Minor
-  These crimes tend to have only brig time as punishments.
+  # Minor Crimes
+  These crimes tend to be just brig time.
   <Table Columns="4">
     <ColorBox Color="#ffee42" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
@@ -519,12 +627,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To use physical force against someone without the apparent intent to kill them.[/color]
+        [color=black]Used physical force against another person; Without apparent intent to kill[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Restraining and separation of individuals, 5 minutes in brig.[/color]
+        [color=black]Restraining and separation; 5 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -540,12 +648,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To steal items from another person.[/color]
+        [color=black]Stole an item; Directly from another person's person (pocket, hand, or worn equipment)[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Return of object(s), 5 minutes in brig.[/color]
+        [color=black]Return of item(s) and 5 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -561,12 +669,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To damage, destroy, or permanently deface non-critical furniture, vendors, or personal property.[/color]
+        [color=black]Damaged, destroyed, or permanently defaced; Non-critical furniture, a vendor, or personal property[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Work duty to repair damage. Brig time according to the damage and repairs done.[/color]
+        [color=black]Work duty to repair damage; brig time varies by damage[/color]
       </Box>
     </ColorBox>
 
@@ -582,12 +690,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To perform the responsibilities and duties of the security department without approval or due cause to act.[/color]
+        [color=black]Performed the responsibilities or duties of the security department; Without approval or due cause[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig.[/color]
+        [color=black]5 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -603,12 +711,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]The possession of dangerous or illegal drugs/equipment in a quantity greater than that which is reasonable for personal consumption.[/color]
+        [color=black]Possessed illegal or dangerous drugs or equipment; In quantities beyond reasonable personal use[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 40000 speso fine.[/color]
+        [color=black]5 min brig and 40k fine[/color]
       </Box>
     </ColorBox>
 
@@ -624,12 +732,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly organize a movement that disrupts the normal operations of a department.[/color]
+        [color=black]Engaged in conduct that a reasonable person would find clearly disruptive, threatening, or harmful to public order; Including: excessive noise, public fighting, or abusive language that is directed, repeated, and likely to provoke immediate confrontation (mere insults alone are insufficient); Or organized activity that materially disrupts normal operations[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Warning to disperse, up to 10 minutes of brig time, depending on how easily the illegal protest is dispersed.[/color]
+        [color=black]Warning first; then 5–10 min brig or 15k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -645,12 +753,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To be negligent in one’s duty to an extent that it may cause harm, illness, or other negative effects to another. This includes the reckless operation of a craft.[/color]
+        [color=black]Failed in their duty to a negligent degree; Caused or risked harm, illness, or negative effects to another; Did not result in death[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Simple Negligence does not result in death, and should only have a sentence of 5 minutes.[/color]
+        [color=black]5 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -666,12 +774,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To be in an area which a person has either not purposefully been admitted to, does not have access, or has been asked to leave by someone a part of the department.[/color]
+        [color=black]Present in an area without admission or access; Or remained after being asked to leave by department staff[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Non-resisting offenders without damage or theft may be released without punishment. Resisting offenders should be sentenced, minimum 5 minutes in brig.[/color]
+        [color=black]Peacefully leaving: release. Otherwise: 5 min brig, or time equal to time spent trespassing if greater than 5 min[/color]
       </Box>
     </ColorBox>
 
@@ -682,17 +790,17 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Breaking &amp; Entering[/bold][/color]
+        [color=black][bold]Breaking and Entering[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To trespass into an area using a method of forcible entry, regardless of destructiveness.[/color]
+        [color=black]Used a method of forcible entry to trespass into an area; Includes non-destructive methods (hacking, bypassing access controls); Distinct from simple trespass and charged as the primary entry offense when forcible entry is proven[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Damage caused in entry should be reflected by brig timer. Minimum 5 minutes in brig.[/color]
+        [color=black]Baseline 7.5 min brig (50% above 109), increased further by damage caused[/color]
       </Box>
     </ColorBox>
 
@@ -708,12 +816,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To use language that demeans, generalizes, or otherwise de-personifies the individual to whom it is targeted.[/color]
+        [color=black]Used language targeting an individual; That demeans, generalizes, or de-personifies them[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig.[/color]
+        [color=black]10 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -729,12 +837,33 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To purposefully avoid or refuse to pay a legal fine, Or to be unable to be able to pay a fine.[/color]
+        [color=black]Purposefully avoided, refused, or was unable to pay a legal fine; After reasonable notice and opportunity to pay[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Reasonable time &amp; notification should be provided to offender. If fine is blatantly opposed or ignored after multiple warnings, time in brig equal to 15 seconds per 1000 spesos. Example, 30000 spesos gives time of 7.5 minutes.[/color]
+        [color=black]15 sec per 1k speso owed (e.g., 30k fine = 7.5 min brig)[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]116[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Brandishing[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Brandished a weapon; Without lawful purpose or due cause[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5 min brig or a person search[/color]
       </Box>
     </ColorBox>
 
@@ -745,23 +874,66 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Brandishing[/bold][/color]
+        [color=black][bold]Harassment[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To brandish a weapon unlawfully and without due cause.[/color]
+        [color=black]Repeatedly targeted, followed, contacted, provoked, or otherwise engaged with another individual; After being clearly told to stop; Creating a hostile, intimidating, or disruptive environment[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffee93" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig [bold]OR[/bold] a person search.[/color]
+        [color=black]5–10 min brig, 15k speso fine[/color]
       </Box>
     </ColorBox>
+
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]118[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Failure to Identify[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Refused to provide name, job, or identification; During lawful questioning or detainment by security; Or failed to wear a valid ID card while on Blue Alert or higher[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Warning; 5 min brig if refusal continues[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]119[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Resist, Delay, or Obstruct Justice[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Resisted, delayed, or obstructed a lawful arrest, investigation, evidence collection, prisoner transport, or security operation; Including: physically impeding officers, providing false information, "slipping" officers, failing to comply with reasonable requests to vacate or create space near officers or a crime scene, or any conduct that distracts or hinders Security response[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffee93" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5–10 min brig, fine optional[/color]
+      </Box>
+    </ColorBox>
+
   </Table>
 
-  # Misdemeanor
-  These crimes tend to have both fines and brig time as punishments.
+  # Misdemeanors
+  These crimes tend to include both fines and brig time.
   <Table Columns="4">
     <ColorBox Color="#ffa34b" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
@@ -796,12 +968,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To take physical action against a person with the intent to grievously harm, but not to kill.[/color]
+        [color=black]Took physical action against a person; With intent to grievously harm; But without intent to kill[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 25000 speso fine.[/color]
+        [color=black]10 min brig, flat 25k fine[/color]
       </Box>
     </ColorBox>
 
@@ -817,12 +989,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To steal equipment or items from a workplace, or items of extraordinary value from one’s person.[/color]
+        [color=black]Stole equipment or items from a workplace; Or items of extraordinary value from a person's person[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Return of item(s), 5 minutes in brig, 20000 speso fine.[/color]
+        [color=black]Return of items, 5 min brig, 20k fine[/color]
       </Box>
     </ColorBox>
 
@@ -838,12 +1010,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To destroy or damage non-critical furniture, vendors, or personal property in a manner that can not be repaired.[/color]
+        [color=black]Destroyed or damaged non-critical furniture, vendors, or personal property; In a manner that cannot be repaired[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Replacement of item(s), 5 minutes in brig, fine equal to monetary damages.[/color]
+        [color=black]Replacement of item(s), monetary recompensation, 5 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -859,12 +1031,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly work with another person in the interest of committing an illegal action.[/color]
+        [color=black]Knowingly planned or conspired to commit a misdemeanor or greater offense; With intent to carry that offense out[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5-10 minutes in brig.[/color]
+        [color=black]5–10 min brig (discretionary)[/color]
       </Box>
     </ColorBox>
 
@@ -880,12 +1052,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly act as a recruiter, representative, messenger, ally, benefactor, or other associate of a hostile organization as defined within Code 405.[/color]
+        [color=black]Knowingly supported, aided, or associated with a hostile organization; In a non-combat capacity: recruitment, messaging, smuggling, harboring, or financing; (see 405 — Enemy of the Government)[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 25000 speso fine.[/color]
+        [color=black]5 min brig, 25k fine[/color]
       </Box>
     </ColorBox>
 
@@ -901,12 +1073,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly act as a recruiter, representative, messenger, ally, benefactor, or other associate of a hostile organization as defined within Code 405.[/color]
+        [color=black]Possessed Class 2 contraband equipment; Without a valid C2 Permit[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 25000 speso fine, confiscation of contraband equipment.[/color]
+        [color=black]5 min brig, 25k fine, confiscation[/color]
       </Box>
     </ColorBox>
 
@@ -922,12 +1094,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To act as a member in a group that collectively commits acts of major vandalism, sabotage, grand sabotage, or other felony crimes.[/color]
+        [color=black]Acted as a member of a group; That collectively committed major vandalism, sabotage, or other felony crimes[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Per judgment of Head of Securty or Warden.[/color]
+        [color=black]HoS or Warden's judgement[/color]
       </Box>
     </ColorBox>
 
@@ -943,12 +1115,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To be negligent in one’s duty to an extent that it may cause harm to multiple individuals, a department, or in a manner that directly leads to a serious injury of another person, which requires emergency medical treatment.[/color]
+        [color=black]Negligent in their duty; Caused harm to multiple individuals or a department; Or directly led to serious injury requiring emergency medical treatment[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Time in brig according to severity of harm minimum 10 minutes, 30000 speso fine, possible demotion.[/color]
+        [color=black]Baseline 10 min brig (varies by severity), possible demotion, 30k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -964,12 +1136,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Trespassing in an area that may lead to the injury of oneself or others. This also includes NFZs.[/color]
+        [color=black]Trespassed in an area that may lead to injury of oneself or others; Includes No-Fly Zones (NFZs)[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Removal from area, 15 minutes in brig, 25000 speso fine, with adjustments per 109.[/color]
+        [color=black]15 min brig, 25k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -980,17 +1152,17 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Breaking &amp; Entering, Inherently Dangerous Areas[/bold][/color]
+        [color=black][bold]Breaking and Entering, Inherently Dangerous Areas[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To trespass into an area which may lead to the injury of oneself or others using a method of forcible entry, regardless of destructiveness.[/color]
+        [color=black]Used forcible entry to trespass; Into an area that may lead to injury of oneself or others[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Damage caused in entry should be reflected by brig timer. Minimum 10 minutes in brig, 30000 speso fine.[/color]
+        [color=black]10 min brig (potentially increased by damage), 30k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1006,12 +1178,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly disobey a lawful order from a superior or Security without good reason.[/color]
+        [color=black]Knowingly disobeyed a lawful order; From a superior or security officer; Without good reason[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 25000 speso fine, possible demotion.[/color]
+        [color=black]5 min brig, possible demotion, 25k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1027,12 +1199,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To misrepresent one's intention in the interest of gaining property or money from another individual.[/color]
+        [color=black]Misrepresented their intentions; With the purpose of gaining property or money from another individual[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 45000 speso fine, return of property of money to victim.[/color]
+        [color=black]10 min brig, return of property or money, 45k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1048,12 +1220,33 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To purposefully modify an individual without consent, or with the intent to harm, including medical malpractice.[/color]
+        [color=black]Purposefully modified a person without consent, or with intent to harm; Includes minor medical malpractice[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Reverse of operations if applicable, 5 minutes in brig.[/color]
+        [color=black]Reversal of operations if applicable, 5 min brig[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]214[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Evidence Tampering[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Destroyed, concealed, altered, planted, or stole evidence; Related to an active or reasonably anticipated investigation[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]10 min brig, 30k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1069,12 +1262,33 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully confine or restrain a person.[/color]
+        [color=black]Unlawfully arrested, detained, confined, or held a person; Includes holding an individual beyond their lawful sentence; Without legal authority to do so[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 20000 speso fine.[/color]
+        [color=black]5 min brig, 20k fine[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]216[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]False Report[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Knowingly submitted a false criminal report, false witness statement, or false emergency call[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5–10 min brig, 25k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1090,12 +1304,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To threaten to take violent action against a person.[/color]
+        [color=black]Made a credible threat of violent action against a specific person; That a reasonable person in the victim’s position would believe could realistically be carried out; Victim must agree to press charges[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 15000 speso fine, instead 35000 if methods to follow up are found on person.[/color]
+        [color=black]5 min brig, 15k fine (increased to 35k if means to follow up are found on their person)[/color]
       </Box>
     </ColorBox>
 
@@ -1111,14 +1325,78 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Any unwelcome conduct of a sexual nature, incl. physical contact, verbal comments, or non-verbal gestures, that violate a person's dignity or create an intimidating, hostile, or offensive environment[/color]
+        [color=black]Engaged in unwelcome conduct of a sexual nature (physical touching, verbal comments, or non-verbal gestures); That either: violated the victim’s dignity, OR created a hostile, intimidating, or offensive environment[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffc995" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]5 minutes in brig, 10000 speso fine.[/color]
+        [color=black]5 min brig, 10k fine[/color]
       </Box>
     </ColorBox>
+
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]219[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Unlawful Search[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Conducted a search of a person, vessel, or department; Without lawful cause, consent, a valid warrant, or emergency justification[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5 min brig, possible demotion[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]220[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Abuse of Authority[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Used a position of command, security, medical, or legal authority; To harass, extort, falsely arrest, or unlawfully punish another individual[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]10 min brig, demotion[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]221[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Unlawful Butchering of Fauna[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Killed or caused the death of a non-sentient creature aboard the station; That posed no threat to the individual or others at the time; Including station pets, common friendly station fauna, and similar non-hostile creatures[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffc995" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]5–10 min brig, 20k speso fine; restitution where applicable[/color]
+      </Box>
+    </ColorBox>
+
   </Table>
 
   # Felonies
@@ -1157,12 +1435,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully cause the death of someone with intent to kill.[/color]
+        [color=black]Intentionally killed another person with malice[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10-20 minutes in brig, 40000-60000 speso fine.[/color]
+        [color=black]10–20 min brig, 40–60k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1178,12 +1456,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To steal rare, expensive (greater than 50000 speso value) or restricted equipment from secure areas or one's person.[/color]
+        [color=black]Stole rare, expensive (>50k speso value), or restricted equipment; From a secure area or directly from a person[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 40000 speso fine, return of item(s).[/color]
+        [color=black]10 min brig, return of items, 40k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1199,12 +1477,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To destroy station assets or resources critical to normal or emergency station procedures, or cause sections of the station to become uninhabitable.[/color]
+        [color=black]Destroyed station assets or resources critical to normal or emergency station procedures; Or caused sections of the station to become uninhabitable[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 40000 speso fine.[/color]
+        [color=black]10 min brig, 40k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1220,12 +1498,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly work with another person in the interest of committing a Felony or Capital crime.[/color]
+        [color=black]Knowingly planned or conspired to commit a Felony or Capital crime; With intent to carry that offense out[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Punishment equal to the punishment of the other conspirators.[/color]
+        [color=black]Same punishment as the associated crime[/color]
       </Box>
     </ColorBox>
 
@@ -1241,12 +1519,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To knowingly commit an act which is in direct opposition to the interests of Colonial Command, or to directly assist a known enemy of the New Avalon Government.[/color]
+        [color=black]Committed a direct hostile act against the station, crew, or Colonial Command; In coordination with or on behalf of a hostile organization[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 20000 speso fine.[/color]
+        [color=black]10 min brig, 20k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1262,12 +1540,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To possess restricted or illegal equipment that has a primary purpose of causing harm to others, or large amounts of destruction, including any and all C3 equipment.[/color]
+        [color=black]Possessed restricted or illegal equipment; With a primary purpose of causing harm or large-scale destruction; C3 equipment is included[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 35000 speso fine, removal of item(s), shuttle search.[/color]
+        [color=black]Item removal, 10 min brig, 35k speso fine, mandatory shuttle search[/color]
       </Box>
     </ColorBox>
 
@@ -1283,12 +1561,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To perform actions in the interest of causing large amounts of unrest up to and including rioting.[/color]
+        [color=black]Performed actions intended to cause large-scale unrest; Up to and including facilitating or causing rioting[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 45000-60000 speso fine.[/color]
+        [color=black]10 min brig, 45–60k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1304,12 +1582,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully cause the death of someone without intent to kill.[/color]
+        [color=black]Unintentionally killed another person; Through negligent but non-malicious actions[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 35000-50000 speso fine.[/color]
+        [color=black]10 min brig, 35–50k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1325,19 +1603,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Trespassing in any of the following areas or includes NFZs declared around them:
-        [bullet]Command areas
-        [bullet]Personnel offices
-        [bullet]Weapon production areas
-        [bullet]Explosives storage or production areas
-        [bullet]Nanotrasen vaults
-        [bullet]Syndicate caches
-        [bullet]Et cetera[/color]
+        [color=black]Trespassed without permission; In Command areas, personal offices, weapons/explosive storage or production, or other high security areas; Includes NT Vaults, Syndicate caches, and NFZ-covered space[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]15 minutes in brig, 45000-60000 speso fine, return of item(s). If result of NFZ violation, add half of time in NFZ.[/color]
+        [color=black]15 min brig, return of items taken, 45–60k speso fine; NFZ violation adds half the time spent in NFZ[/color]
       </Box>
     </ColorBox>
 
@@ -1348,17 +1619,17 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black][bold]Breaking &amp; Entering, High Security Areas[/bold][/color]
+        [color=black][bold]Breaking and Entering, High Security Areas[/bold][/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To trespass into an area detailed in 309 using a method of forcible entry, regardless of destructiveness.[/color]
+        [color=black]Used forcible entry to trespass; Into a high security area as defined under 309 — Trespass, High Security Areas[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Per 210, additional 10000 speso fine suggested.[/color]
+        [color=black]As per 210, plus an additional 10k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1374,12 +1645,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To willfully abandon an obligation that is critical to the station's continued operation.[/color]
+        [color=black]Willfully abandoned an obligation; Critical to the station's continued operation[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]40000 speso fine, mandatory demotion.[/color]
+        [color=black]Demotion, 40k speso fine[/color]
       </Box>
     </ColorBox>
 
@@ -1395,12 +1666,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully transfer funds from station accounts to personal accounts.[/color]
+        [color=black]Embezzled funds from station fund computers[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]15 minutes in brig, 40000 speso fine, return of funds, mandatory demotion.[/color]
+        [color=black]Return of funds, 40k fine, demotion, 15 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -1416,12 +1687,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully and permanently remove a psion's abilities and/or latency, outside of an extenuating emergency situation.[/color]
+        [color=black]Permanently removed a psion's abilities; Not as a lawful punishment, by a Mantis in the line of duty, or during an extenuating emergency[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]15 minutes in brig, 85000 speso fine, return of victim's powers if able, removal of the offender's powers. (if applicable)[/color]
+        [color=black]15 min brig, 85k fine, restoration of psion's powers if able, removal of perpetrator's powers if applicable[/color]
       </Box>
     </ColorBox>
 
@@ -1437,12 +1708,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To assume the identity of another individual or job.[/color]
+        [color=black]Assumed the identity of another individual or job[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 40000 speso fine, removal of impersonatory items.[/color]
+        [color=black]Removal of items used to impersonate, 40k speso fine, 10 min brig[/color]
       </Box>
     </ColorBox>
 
@@ -1458,12 +1729,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To unlawfully abduct a person to a new location and confine them against their will.[/color]
+        [color=black]Unlawfully abducted a person; Transported them to a new location; Confined them against their will[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 70000 speso fine.[/color]
+        [color=black]10 min brig, 70k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1479,12 +1750,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]To accept a bribe as a contracted member of the station, to offer a bribe to a contracted member of the station, or to blackmail a person.[/color]
+        [color=black]Offered or accepted a bribe as or to a contracted station member; Or blackmailed someone[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]10 minutes in brig, 40000 speso fine, confication of the bribe money or items.[/color]
+        [color=black]10 min brig, removal of bribe money or items, 40k fine[/color]
       </Box>
     </ColorBox>
 
@@ -1500,14 +1771,57 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Any involuntary, non-consensual sexual act, including unwanted contact and forced penetration, which violates a person's bodily autonomy.[/color]
+        [color=black]Engaged in an involuntary, non-consensual sexual act; Ranging from unwanted touching to forced penetration; Violating bodily autonomy[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#ffa397" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [color=black]15 minutes in brig, 40000 speso fine.[/color]
+        [color=black]15 min brig, 40k fine[/color]
       </Box>
     </ColorBox>
+
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]319[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Unauthorized Implantation / Deimplantation[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Implanted, removed, tracked, mindshielded, or otherwise physically modified another individual; Without their informed consent or lawful authority[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]10–15 min brig, 40k fine, reversal if possible[/color]
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]320[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black][bold]Gross Medical Malpractice[/bold][/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]Committed severe medical misconduct; Resulting in death, permanent disability, wrongful Borgification, organ loss, or major irreversible harm; Through willful disregard or gross negligence[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffa397" OutlineColor="#000000">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        [color=black]10–15 min brig, demotion, 50k fine[/color]
+      </Box>
+    </ColorBox>
+
   </Table>
 
   # Capital Crimes
@@ -1546,12 +1860,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To unlawfully cause the death of someone with intent to kill, and to have then materially taken steps to prevent the revival of that person, or to force the borging or decorporalisation of a person without consent or command authorization.
+        Committed murder with clear intent to kill; And materially took steps to prevent the victim's revival; Or forced Borging or discorporealization without consent or authorization
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Execution [bold]OR[/bold] permanent confinement [bold]OR[/bold] forced borging.
+        Execution, Permanent Confinement, or Force Borgification
       </Box>
     </ColorBox>
 
@@ -1567,12 +1881,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To destroy or modify station assets or equipment that the lack of may cause the station to collapse or become otherwise uninhabitable.
+        Destroyed or modified station assets or equipment; Without which the station may collapse or become entirely uninhabitable
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement, demotion.
+        Permanent Confinement, Demotion
       </Box>
     </ColorBox>
 
@@ -1588,12 +1902,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To knowingly betray critical information to enemies of the station.
+        Knowingly betrayed critical station information; To enemies of the station
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement.
+        Permanent Confinement
       </Box>
     </ColorBox>
 
@@ -1604,22 +1918,17 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        [bold]Enemy Of The Government[/bold]
+        [bold]Enemy of the Government[/bold]
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To be a member of any of the following organizations:
-        [bullet]True Nexus
-        [bullet]The Unity
-        [bullet]Xenoborg Collective
-        [bullet]Cults
-        [bullet]Hostile boarding parties
+        Is or was a confirmed member of a hostile organization: True Nexus, Xenoborg Collective, hostile boarding parties, Changeling Hiveminds, cults, or Dirizher Cartel
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement [bold]OR[/bold] transportation to Colonial Command.
+        Permanent Confinement or transportation to Colonial Command for interrogation
       </Box>
     </ColorBox>
 
@@ -1635,12 +1944,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To disrupt the chain of command via either the murder of a member of Command, [bold]OR[/bold] illegally declaring oneself to be a member of Command.
+        Disrupted the chain of command via the murder of a commanding officer; Or illegally declared oneself to be a commanding officer
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement. Execution if the offender is a Head Revolutionary.
+        Permanent Confinement; Execution if Criminal is a Head Revolutionary
       </Box>
     </ColorBox>
 
@@ -1656,12 +1965,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To knowingly release, cause, or otherwise incite the station to become affected by a disease, plant, or other biological form which may spread contained and/or cause serious physical harm.
+        Knowingly released or caused the station to be affected by a disease, plant, or biological form; That may spread uncontained and/or cause serious physical harm
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Execution [bold]OR[/bold] permanent confinement [bold]OR[/bold] forced borging.
+        Permanent Confinement, Execution, or Force Borgification
       </Box>
     </ColorBox>
 
@@ -1677,12 +1986,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        As a member of Security or Command, to act in a way that is detrimental to the station, sector, or Colonial Command, including but not limited to selling station gear to spacers or intentionally permitting or encouraging felony or capital crimes.
+        As security or command, acted in a way detrimental to the station, sector, or Colonial Command; Examples: selling station gear to spacers, intentionally permitting or encouraging felony or capital crimes
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement [bold]OR[/bold] transporation to Colonial Command. Execution in extreme cases.
+        Permanent Confinement, transportation to Colonial Command, Execution in extreme cases
       </Box>
     </ColorBox>
 
@@ -1698,12 +2007,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To unlawfully abduct a member of Command or higher to a new location and confine them against their will.
+        Unlawfully abducted a Command member or higher authority; And confined them against their will
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement.
+        Permanent Confinement
       </Box>
     </ColorBox>
 
@@ -1719,12 +2028,12 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To incite a Security or Command to believe peaceful resolution is sought, to then either attempt to flee or to start a surprise attack.
+        Intentionally baited Security or Command with a peaceful resolution; Then betrayed their trust to elude capture or launch a surprise attack
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Permanent confinement.
+        Permanent Confinement
       </Box>
     </ColorBox>
 
@@ -1740,13 +2049,14 @@ SPDX-License-Identifier: AGPL 3.0
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        To non-consentually brainwash a person, or to make them commit crimes through brainwashing.
+        Brainwashed someone non-consensually; Or caused them to commit crimes under mind control
       </Box>
     </ColorBox>
     <ColorBox Color="#696969" OutlineColor="#000000">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        Execution [bold]OR[/bold] permanent confinement [bold]OR[/bold] forced borging.
+        Punishments applied for crimes committed by the brainwashed; Permanent Confinement, Forced Borgification, or Execution
       </Box>
     </ColorBox>
+
   </Table>
 </Document>

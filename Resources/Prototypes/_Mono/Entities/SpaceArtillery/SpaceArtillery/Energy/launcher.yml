@@ -321,6 +321,12 @@
     layers:
     - state: space_artillery
   - type: Appearance
+  - type: ContainerContainer #HL start
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Machine
+    board: WeaponTurretM25Circuitboard #HL End
   - type: AmmoCounter
   - type: Battery
     maxCharge: 40000
@@ -914,7 +920,7 @@
     powerUseActive: 7500
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipIonProjectile
+    proto: ShipAntiMatterProjectile # HardLight: Reaper "tachyon lance" is the hull-shatterer (was ion/EMP by mistake)
     fireCost: 4000
   - type: Fixtures
     fixtures:
@@ -990,7 +996,7 @@
   - type: FireControlRotate
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipAntiMatterProjectile
+    proto: ShipIonProjectile # HardLight: Harbinger "ion cannon" is the EMP weapon (was antimatter by mistake)
     fireCost: 5000
   - type: Destructible
     thresholds:

@@ -48,6 +48,7 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        ChatInput.FilterButton.Popup.OnRadioFilterChanged += OnRadioFilterChanged;
 
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
@@ -72,6 +73,14 @@ public partial class ChatBox : UIWidget
     {
         Logger.DebugS("chat", $"{msg.Channel}: {msg.Message}");
         if (!ChatInput.FilterButton.Popup.IsActive(msg.Channel))
+        {
+            return;
+        }
+
+        // HardLight: client-side radio channel filter
+        if (msg.Channel == ChatChannel.Radio
+            && msg.RadioChannelId != null
+            && !ChatInput.FilterButton.Popup.IsRadioChannelVisible(msg.RadioChannelId))
         {
             return;
         }
@@ -137,6 +146,16 @@ public partial class ChatBox : UIWidget
         if (active)
         {
             _controller.ClearUnfilteredUnreads(channel);
+        }
+    }
+
+    // HardLight: repopulate when a radio sub-channel filter changes
+    private void OnRadioFilterChanged()
+    {
+        Contents.Clear();
+        foreach (var message in _controller.History)
+        {
+            OnMessageAdded(message.Item2);
         }
     }
 

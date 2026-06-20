@@ -1,27 +1,22 @@
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared._Mono.Traits.Physical;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
 using Content.Shared.FloofStation.Traits.Events;
+using Content.Shared.FloofStation.Traits.Events.Components;
 using Robust.Shared.Timing;
-using JetBrains.Annotations;
 
 namespace Content.Server.FloofStation.Traits;
 
-[UsedImplicitly]
-public sealed class LewdTraitSystem : EntitySystem
+public sealed class LewdTraitSystem : SharedLewdTraitSystem // HL: Move LewdTrait to shared system to fix slow UI loading
 {
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -41,13 +36,6 @@ public sealed class LewdTraitSystem : EntitySystem
         SubscribeLocalEvent<MilkProducerComponent, ComponentStartup>(OnComponentInitMilk);
         //SubscribeLocalEvent<SquirtProducerComponent, ComponentStartup>(OnComponentInitSquirt); //Unused-Trait is WIP
         SubscribeLocalEvent<PissProducerComponent, ComponentStartup>(OnComponentInitPiss);
-
-        //Verbs
-        SubscribeLocalEvent<CumProducerComponent, GetVerbsEvent<InnateVerb>>(AddCumVerb);
-        SubscribeLocalEvent<RefillableSolutionComponent, GetVerbsEvent<AlternativeVerb>>(AddRefillableInsideVerbs);
-        SubscribeLocalEvent<InjectableSolutionComponent, GetVerbsEvent<AlternativeVerb>>(AddInjectableInsideVerbs);
-        SubscribeLocalEvent<MilkProducerComponent, GetVerbsEvent<AlternativeVerb>>(AddMilkVerbs); // Hardlight added AlternativeVerb and additional Verb
-        //SubscribeLocalEvent<SquirtProducerComponent, GetVerbsEvent<InnateVerb>>(AddSquirtVerb); //Unused-Trait is WIP
 
         //Events
         SubscribeLocalEvent<CumProducerComponent, CummingDoAfterEvent>(OnDoAfterCum);
@@ -102,177 +90,6 @@ public sealed class LewdTraitSystem : EntitySystem
         solutionPiss.AddReagent(entity.Comp.ReagentId, entity.Comp.MaxVolume - solutionPiss.Volume);
     }
 
-    public void AddCumVerb(Entity<CumProducerComponent> entity, ref GetVerbsEvent<InnateVerb> args)
-    {
-        if (args.Using == null ||
-             !args.CanInteract ||
-             args.User != args.Target ||
-             !EntityManager.HasComponent<RefillableSolutionComponent>(args.Using.Value)) //see if removing this part lets you milk on the ground.
-            return;
-
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.SolutionName, out _);
-
-        var user = args.User;
-        var used = args.Using.Value;
-
-        InnateVerb verbCum = new()
-        {
-            Act = () => AttemptCum(entity, user, used),
-            Text = Loc.GetString($"cum-verb-get-text"),
-            Priority = 1
-        };
-        args.Verbs.Add(verbCum);
-    }
-
-    // Combined handler for RefillableSolutionComponent verbs (cum and piss)
-    public void AddRefillableInsideVerbs(EntityUid uid, RefillableSolutionComponent component, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanInteract)
-            return;
-
-        var user = args.User;
-        var target = uid;
-
-        // Add cum verb if user has CumProducerComponent
-        if (TryComp<CumProducerComponent>(args.User, out var cumProducer))
-        {
-            _solutionContainer.EnsureSolution(args.User, cumProducer.SolutionName, out _);
-
-            AlternativeVerb verbCumInside = new()
-            {
-                Act = () => AttemptCum((args.User, cumProducer), user, target),
-                Text = Loc.GetString("cum-verb-inside-text"),
-                Priority = -50 // HardLight: 2<-50; Should never happen as an alt+click verb unless absolutely no other alt-click verbs are available.
-            };
-            args.Verbs.Add(verbCumInside);
-        }
-
-        // Add piss verb if user has PissProducerComponent
-        if (TryComp<PissProducerComponent>(args.User, out var pissProducer))
-        {
-            _solutionContainer.EnsureSolution(args.User, pissProducer.SolutionName, out _);
-
-            AlternativeVerb verbPissInside = new()
-            {
-                Act = () => AttemptPiss((args.User, pissProducer), user, target),
-                Text = Loc.GetString("piss-verb-inside-text"),
-                Priority = -50 // HardLight: 2<-50; Should never happen as an alt+click verb unless absolutely no other alt-click verbs are available.
-            };
-            args.Verbs.Add(verbPissInside);
-        }
-    }
-
-    // Combined handler for InjectableSolutionComponent verbs (cum and piss)
-    public void AddInjectableInsideVerbs(EntityUid uid, InjectableSolutionComponent component, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanInteract)
-            return;
-
-        var user = args.User;
-        var target = uid;
-
-        // Add cum verb if user has CumProducerComponent
-        if (TryComp<CumProducerComponent>(args.User, out var cumProducer))
-        {
-            _solutionContainer.EnsureSolution(args.User, cumProducer.SolutionName, out _);
-
-            AlternativeVerb verbCumInside = new()
-            {
-                Act = () => AttemptCum((args.User, cumProducer), user, target),
-                Text = Loc.GetString("cum-verb-inside-text"),
-                Priority = -50 // HardLight: 2<-50; Should never happen as an alt+click verb unless absolutely no other alt-click verbs are available.
-            };
-            args.Verbs.Add(verbCumInside);
-        }
-
-        // Add piss verb if user has PissProducerComponent
-        if (TryComp<PissProducerComponent>(args.User, out var pissProducer))
-        {
-            _solutionContainer.EnsureSolution(args.User, pissProducer.SolutionName, out _);
-
-            AlternativeVerb verbPissInside = new()
-            {
-                Act = () => AttemptPiss((args.User, pissProducer), user, target),
-                Text = Loc.GetString("piss-verb-inside-text"),
-                Priority = -50 // HardLight: 2<-50; Should never happen as an alt+click verb unless absolutely no other alt-click verbs are available.
-            };
-            args.Verbs.Add(verbPissInside);
-        }
-    }
-    // Hardlight Start
-
-    public void AddMilkVerbs(Entity<MilkProducerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        AddMilkVerb(entity, ref args);
-        AddDrinkMilkVerb(entity, ref args);
-    }
-    // Hardlight End
-
-    public void AddMilkVerb(Entity<MilkProducerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args) // Hardlight Changed to AlternativeVerb
-    {
-        if (args.Using == null ||
-             !args.CanInteract ||
-             // Hardlight removed self-cast only
-             !EntityManager.HasComponent<RefillableSolutionComponent>(args.Using.Value)) //see if removing this part lets you milk on the ground.
-            return;
-
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.SolutionName, out _);
-
-        var user = args.User;
-        var used = args.Using.Value;
-
-        AlternativeVerb verbMilk = new() // Hardlight Changed to AlternativeVerb
-        {
-            Act = () => AttemptMilk(entity, user, used),
-            Text = Loc.GetString($"milk-verb-get-text"),
-            Priority = 1
-        };
-        args.Verbs.Add(verbMilk);
-    }
-
-    // Hardlight Start
-    public void AddDrinkMilkVerb(Entity<MilkProducerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanInteract)
-            return;
-
-        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.SolutionName, out _);
-
-        var user = args.User;
-
-        AlternativeVerb verbDrinkMilk = new()
-        {
-            Act = () => AttemptDrinkMilk(entity, user),
-            Text = Loc.GetString($"drink-milk-verb-get-text"),
-            Priority = 1
-        };
-        args.Verbs.Add(verbDrinkMilk);
-    }
-    // Hardlight End
-
-    //public void AddSquirtVerb(Entity<SquirtProducerComponent> entity, ref GetVerbsEvent<InnateVerb> args) //Unused-Trait is WIP
-    //{
-    //    if (args.Using == null ||
-    //         !args.CanInteract ||
-    //         !EntityManager.HasComponent<RefillableSolutionComponent>(args.Using.Value)) //see if removing this part lets you milk on the ground.
-    //        return;
-
-    //    _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.SolutionName);
-
-    //    var user = args.User;
-    //    var used = args.Using.Value;
-
-    //    InnateVerb verbSquirt = new()
-    //    {
-    //        Act = () => AttemptSquirt(entity, user, used),
-    //        Text = Loc.GetString($"squirt-verb-get-text"),
-    //        Priority = 1
-    //    };
-    //    args.Verbs.Add(verbSquirt);
-    //}
-
-    // Note: AddPissInsideVerb and AddPissInsideInjectableVerb have been combined into
-    // AddRefillableInsideVerbs and AddInjectableInsideVerbs above
     private void OnDoAfterCum(Entity<CumProducerComponent> entity, ref CummingDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Args.Used == null)
@@ -562,7 +379,7 @@ public sealed class LewdTraitSystem : EntitySystem
     #endregion
 
     #region utilities
-    private void AttemptCum(Entity<CumProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
+    protected override void AttemptCum(Entity<CumProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
     {
         if (!HasComp<CumProducerComponent>(userUid))
             return;
@@ -577,7 +394,7 @@ public sealed class LewdTraitSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doargs);
     }
 
-    private void AttemptMilk(Entity<MilkProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
+    protected override void AttemptMilk(Entity<MilkProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
     {
         if (!Resolve(lewd, ref lewd.Comp!))
             return;
@@ -592,7 +409,7 @@ public sealed class LewdTraitSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doargs);
     }
 
-    private void AttemptDrinkMilk(Entity<MilkProducerComponent> lewd, EntityUid userUid)
+    protected override void AttemptDrinkMilk(Entity<MilkProducerComponent> lewd, EntityUid userUid)
     {
         if (!Resolve(lewd, ref lewd.Comp!))
             return;
@@ -628,7 +445,7 @@ public sealed class LewdTraitSystem : EntitySystem
     //    _doAfterSystem.TryStartDoAfter(doargs);
     //}
 
-    private void AttemptPiss(Entity<PissProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
+    protected override void AttemptPiss(Entity<PissProducerComponent> lewd, EntityUid userUid, EntityUid containerUid)
     {
         if (!HasComp<PissProducerComponent>(userUid))
             return;
@@ -664,7 +481,7 @@ public sealed class LewdTraitSystem : EntitySystem
             if (!_solutionContainer.ResolveSolution(uid, containerCum.SolutionName, ref containerCum.Solution))
                 continue;
 
-            if (EntityManager.TryGetComponent(uid, out HungerComponent? hunger))
+            if (TryComp(uid, out HungerComponent? hunger))
             {
                 if (_hunger.GetHungerThreshold(hunger) < HungerThreshold.Okay)
                     continue;
@@ -700,14 +517,15 @@ public sealed class LewdTraitSystem : EntitySystem
             if (!_solutionContainer.ResolveSolution(uid, containerMilk.SolutionName, ref containerMilk.Solution))
                 continue;
 
-            if (EntityManager.TryGetComponent(uid, out HungerComponent? hunger))
+            if (TryComp(uid, out HungerComponent? hunger))
             {
                 if (_hunger.GetHungerThreshold(hunger) < HungerThreshold.Okay)
                     continue;
                 _solutionContainer.TryAddReagent(containerMilk.Solution.Value, containerMilk.ReagentId, containerMilk.QuantityPerUpdate, out var quantity);
-                if(quantity > 0){
-                _hunger.ModifyHunger(uid, -containerMilk.HungerUsage, hunger);
-                continue;
+                if (quantity > 0)
+                {
+                    _hunger.ModifyHunger(uid, -containerMilk.HungerUsage, hunger);
+                    continue;
                 }
             }
             _solutionContainer.TryAddReagent(containerMilk.Solution.Value, containerMilk.ReagentId, containerMilk.QuantityPerUpdate, out _);
@@ -729,7 +547,7 @@ public sealed class LewdTraitSystem : EntitySystem
 
             if (!_solutionContainer.ResolveSolution(uid, containerPiss.SolutionName, ref containerPiss.Solution))
                 continue;
-            if (EntityManager.TryGetComponent(uid, out HungerComponent? hunger))
+            if (TryComp(uid, out HungerComponent? hunger))
             {
                 if (_hunger.GetHungerThreshold(hunger) < HungerThreshold.Okay)
                     continue;

@@ -54,7 +54,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 65
+    price: 120 # HL: Price balancing
   - type: DeltaPressure
     minPressure: 150000
     minPressureDelta: 100000
@@ -115,7 +115,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 30
+    price: 60 # HL: Price balancing
   - type: DeltaPressure
     minPressure: 37500
     minPressureDelta: 25000

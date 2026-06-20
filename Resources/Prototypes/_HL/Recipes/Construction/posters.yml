@@ -1712,3 +1712,4 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+

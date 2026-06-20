@@ -13,11 +13,9 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
-using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
-using Robust.Shared.Utility;
 
 namespace Content.Server._HL.Brainwashing;
 
@@ -36,8 +34,8 @@ public sealed class BrainwasherSystem : SharedBrainwasherSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<BrainwasherComponent, GetVerbsEvent<Verb>>(ConfigureVerb);
-        SubscribeLocalEvent<BrainwasherComponent, GetVerbsEvent<InnateVerb>>(BrainwashingVerb);
+        base.Initialize(); // HL: We've added an Init to the Shared System for the client-side verb drawing
+
         SubscribeLocalEvent<BrainwasherComponent, ClothingGotEquippedEvent>((uid, component, args) => StartBrainwashing(uid, args.Wearer, component));
         SubscribeLocalEvent<BrainwasherComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<BrainwasherComponent, EngagedEvent>(Engaged);
@@ -131,46 +129,17 @@ public sealed class BrainwasherSystem : SharedBrainwasherSystem
         _audioSystem.PlayPvs(component.ChargingSound, uid, new AudioParams());
     }
 
-    private void ConfigureVerb(EntityUid uid, BrainwasherComponent component, GetVerbsEvent<Verb> args)
+    protected override void DoConfigureVerb(EntityUid uid, BrainwasherComponent component)
     {
-        if (!args.CanAccess || !args.CanInteract
-            || HasComp<MobStateComponent>(uid) && args.User != uid)
+        var ui = new BrainwashEditor(_sharedBrainwashedSystem);
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
             return;
-
-        args.Verbs.Add(new Verb
-        {
-            Act = () =>
-            {
-                var ui = new BrainwashEditor(_sharedBrainwashedSystem);
-                if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
-                    return;
-                _euiManager.OpenEui(ui, session);
-                ui.UpdateCompulsions(component, uid);
-            },
-            Text = component.ConfigureText,
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
-            Priority = 1
-        });
+        _euiManager.OpenEui(ui, session);
+        ui.UpdateCompulsions(component, uid);
     }
 
-    private void BrainwashingVerb(EntityUid uid, BrainwasherComponent component, GetVerbsEvent<InnateVerb> args)
+    protected override void DoBrainwashingVerb(EntityUid uid, EntityUid target, BrainwasherComponent component)
     {
-        if (!args.CanAccess || !args.CanInteract || args.User != uid
-            || HasComp<BorgChassisComponent>(args.Target))
-            return;
-
-        if (uid != args.Target && _consentSystem.HasConsent(args.Target, "MindControl"))
-        {
-            args.Verbs.Add(new InnateVerb
-            {
-                Act = () =>
-                {
-                    StartBrainwashing(args.User, args.Target, component);
-                },
-                Text = "Brainwash",
-                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
-                Priority = 1
-            });
-        }
+        StartBrainwashing(uid, target, component);
     }
 }

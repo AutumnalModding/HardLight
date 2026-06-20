@@ -9,20 +9,21 @@
     state: brain-slime
   - type: Stomach
     specialDigestible:
-      Frontier: general moth digestion
       tags:
        - ClothMade
        - Paper
        - Pill
+       - Trash
       components:
       - MothFood
-      End Frontier: general moth digestion
+      isSpecialDigestibleExclusive: false
   - type: Organ
     slotId: core
+  - type: PreservesSpoilage
   - type: Brain
   - type: Metabolizer
     maxReagents: 6
-    metabolizerTypes: [ Slime, Animal, Goblin, Moth ]
+    metabolizerTypes: [ Slime, Animal, Goblin, Moth, Vox ]
     updateInterval: 0.5
     removeEmpty: true
     groups:

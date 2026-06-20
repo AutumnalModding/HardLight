@@ -2,10 +2,11 @@ using Robust.Shared.Containers;
 using Robust.Shared.Audio;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.FloofStation;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent] //HL: Added NetworkedComponent so the client sees this too, it doesn't need any fields.
 public sealed partial class VoreComponent : Component
 {
     [DataField]

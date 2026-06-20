@@ -52,7 +52,7 @@
     scalingType: Linear
     scalingPower: 0.0005
   - type: StaticPrice
-    price: 80 # Frontier: 200<80 - TODO: material value rework
+    price: 200 # HL: Price balancing
   - type: RadiationBlocker
     resistance: 6
 
@@ -109,7 +109,7 @@
     minPressureDelta: 12500
     scalingType: Threshold
   - type: StaticPrice
-    price: 40 # Frontier: 100<40 - TODO: material value rework
+    price: 100 # HL: Price balancing
   - type: RadiationBlocker
     resistance: 3
 

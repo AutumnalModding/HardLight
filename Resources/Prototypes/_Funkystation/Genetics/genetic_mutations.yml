@@ -599,6 +599,7 @@
   - type: MutationRadio
     radioChannels:
     - Common
+    - Faction
 
 - type: geneticMutation
   id: MusculatureEnhancement
@@ -746,6 +747,7 @@
   instability: 18
   components:
   - type: FlashImmunity
+    blocksSpecialVision: false # Hardlight: your eyes probably muted alongside it
 
 - type: geneticMutation
   id: QuickReflexes

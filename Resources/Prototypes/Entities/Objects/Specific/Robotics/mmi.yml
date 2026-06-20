@@ -28,6 +28,7 @@
     - Binary
     - Trinary # Hardlight
     - Common
+    - Faction
   - type: NameIdentifier
     group: MMI
   - type: DoAfter

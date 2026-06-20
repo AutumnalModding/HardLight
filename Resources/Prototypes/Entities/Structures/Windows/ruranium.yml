@@ -49,7 +49,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 140 # Frontier: 215<140 - TODO: material value rework
+    price: 215 # HL: Price balancing
   - type: DeltaPressure
     minPressure: 150000
     minPressureDelta: 100000
@@ -114,7 +114,7 @@
     minPressureDelta: 25000
     scalingType: Threshold
   - type: StaticPrice
-    price: 70 # Frontier: 110<70 - TODO: material value rework
+    price: 110 # HL: Price balancing
   - type: RadiationBlocker
     resistance: 5
 

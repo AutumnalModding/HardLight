@@ -14,6 +14,7 @@ using Content.Shared.Movement.Systems; // HardLight
 using Content.Shared.Players;
 using Content.Shared.Preferences; // HardLight
 using Content.Shared.Roles;
+using Content.Shared.Tag; // Hardlight
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
@@ -41,6 +42,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // HardLight
+    [Dependency] private readonly TagSystem _tagSystem = default!; // Hardlight
 
     public override void Initialize()
     {
@@ -134,7 +136,7 @@ public sealed class TraitSystem : EntitySystem
     /// This is intended for non-standard spawn paths like admin spawning or cloning
     /// that already have a validated profile and just need its trait components replayed.
     /// </summary>
-    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, string? playerName = null, bool addTraitGear = true)
+    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, string? playerName = null, bool addTraitGear = true, bool ignoreEntityRestrictions = false)
     {
         var sortedTraits = new List<TraitPrototype>();
         foreach (var traitId in profile.TraitPreferences)
@@ -153,22 +155,36 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
-            AddTrait(uid, traitPrototype, addTraitGear);
+            AddTrait(uid, traitPrototype, addTraitGear, ignoreEntityRestrictions);
         }
     }
 
     /// <summary>
     ///     Adds a single Trait Prototype to an Entity.
     /// </summary>
-    public void AddTrait(EntityUid uid, TraitPrototype traitPrototype, bool addTraitGear = true) // HardLight: Added bool addTraitGear
+    public void AddTrait(EntityUid uid, TraitPrototype traitPrototype, bool addTraitGear = true, bool ignoreEntityRestrictions = false) // HardLight: Added bool addTraitGear
     {
-        // Check whitelist/blacklist
-        if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
-            _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, uid))
+        // Character-override bodies can intentionally differ from the validated profile body.
+        // In that case we need to preserve the selected traits instead of re-filtering them.
+        if (!ignoreEntityRestrictions &&
+            (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
+             _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, uid)))
             return;
 
         // Add all components required by the prototype
-        EntityManager.AddComponents(uid, traitPrototype.Components, traitPrototype.ReplaceComponents); // Hardlight: Added ReplaceComponents
+        // Hardlight start - Add ReplaceComponents
+        var components = traitPrototype.Components;
+        var tagEntry = components.FirstOrDefault(kv => kv.Value.Component is TagComponent);
+
+        if (tagEntry.Value is { } tagEntryValue && tagEntryValue.Component is TagComponent tagEntryComp &&
+            EntityManager.TryGetComponent<TagComponent>(uid, out var existingTags))
+        {
+            _tagSystem.AddTags(uid, tagEntryComp.Tags);
+            components = new ComponentRegistry(components.Where(kv => kv.Key != tagEntry.Key).ToDictionary(kv => kv.Key, kv => kv.Value));
+        }
+
+        EntityManager.AddComponents(uid, components, traitPrototype.ReplaceComponents); 
+        // Hardlight end
 
             // Starlight start
             var language = EntityManager.System<LanguageSystem>();

@@ -121,7 +121,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 10 # Frontier: 22.5<10
+    price: 22.5 # HL: Price balancing
   - type: DeltaPressure
     minPressure: 3750
     minPressureDelta: 2500

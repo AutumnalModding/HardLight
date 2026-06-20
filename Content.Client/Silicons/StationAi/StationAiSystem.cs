@@ -81,6 +81,9 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         if (args.Sprite == null)
             return;
 
+        if (!_sprite.LayerMapTryGet((entity.Owner, args.Sprite), StationAiVisualLayers.Icon, out _, logMissing: false))
+            return;
+
         if (_appearance.TryGetData<PrototypeLayerData>(entity.Owner, StationAiVisualLayers.Icon, out var layerData, args.Component))
             _sprite.LayerSetData((entity.Owner, args.Sprite), StationAiVisualLayers.Icon, layerData);
 

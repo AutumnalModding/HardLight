@@ -91,7 +91,7 @@
   # color: "#005dbf"
   # longRange: true
 
-# - type: radioChannel
+  # - type: radioChannel
   # id: DuskEnclave
   # name: chat-radio-dusk-enclave
   # keycode: "'"

@@ -28,9 +28,6 @@ namespace Content.Server.Body.Systems;
 
 public sealed class BloodstreamSystem : EntitySystem
 {
-    private const string SynthBloodReagent = "SynthBlood"; // HardLight
-    private const string NanitesReagent = "Nanites"; // HardLight
-    private const string InertNanitesReagent = "InertNanites"; // HardLight
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -555,7 +552,11 @@ public sealed class BloodstreamSystem : EntitySystem
     /// <summary>
     ///     Change what someone's blood is made of, on the fly.
     /// </summary>
-    public void ChangeBloodReagent(EntityUid uid, string reagent, BloodstreamComponent? component = null)
+    /// <param name="storeOriginalBloodReagent">
+    ///     Temporary effects should keep the previous blood reagent so it can be restored later.
+    ///     Permanent swaps should pass false so bloodstream regeneration uses the new reagent as its baseline.
+    /// </param>
+    public void ChangeBloodReagent(EntityUid uid, string reagent, BloodstreamComponent? component = null, bool storeOriginalBloodReagent = true)
     {
         if (!Resolve(uid, ref component, logMissing: false)
             || reagent == component.BloodReagent)
@@ -563,8 +564,8 @@ public sealed class BloodstreamSystem : EntitySystem
             return;
         }
 
-        // Store the original blood reagent if not already stored
-        if (component.OriginalBloodReagent == null)
+        // Store the original blood reagent if not already stored.
+        if (storeOriginalBloodReagent && component.OriginalBloodReagent == null)
         {
             component.OriginalBloodReagent = component.BloodReagent;
         }
@@ -578,6 +579,9 @@ public sealed class BloodstreamSystem : EntitySystem
         var currentVolume = bloodSolution.RemoveReagent(component.BloodReagent, bloodSolution.Volume, ignoreReagentData: true);
 
         component.BloodReagent = reagent;
+
+        if (!storeOriginalBloodReagent)
+            component.OriginalBloodReagent = null;
 
         if (currentVolume > 0)
             _solutionContainerSystem.TryAddReagent(component.BloodSolution.Value, component.BloodReagent, currentVolume, null, GetEntityBloodData(uid, component.BloodReagent)); // HardLight: Added component.BloodReagent
@@ -603,12 +607,10 @@ public sealed class BloodstreamSystem : EntitySystem
     /// </summary>
     public List<ReagentData> GetEntityBloodData(EntityUid uid, string? bloodReagent = null) // HardLight: Added string? bloodReagent = null
     {
-        // HardLight start
-        if (bloodReagent == SynthBloodReagent ||
-            bloodReagent == NanitesReagent ||
-            bloodReagent == InertNanitesReagent)
+        // Hardlight start
+        if (!ShouldGenerateBloodData(bloodReagent))
             return new List<ReagentData>();
-        // HardLight end
+        // Hardlight end
 
         var bloodData = new List<ReagentData>();
         var dnaData = new DnaData();
@@ -622,6 +624,19 @@ public sealed class BloodstreamSystem : EntitySystem
 
         return bloodData;
     }
+
+    // Hardlight start
+    private bool ShouldGenerateBloodData(string? bloodReagent)
+    {
+        if (bloodReagent == null)
+            return false;
+
+        if (!_prototypeManager.TryIndex<ReagentPrototype>(bloodReagent, out var reagentProto))
+            return false;
+
+        return reagentProto.GenerateBloodData;
+    }
+    // Hardlight end
 
     /// <summary>
     /// Clears the original blood reagent stored in the bloodstream component.

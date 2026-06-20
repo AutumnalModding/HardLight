@@ -1,5 +1,5 @@
 using Content.Server.Abilities.Psionics;
-using Content.Server.Carrying;
+using Content.Shared.Carrying; // HL: Moved Carrying Component to Shared
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;

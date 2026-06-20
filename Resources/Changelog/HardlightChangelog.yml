@@ -4414,3 +4414,620 @@ Entries:
       message: Document paper can fill printers
   id: 466
   time: '2026-05-28T21:55:35.0000000+00:00'
+- author: Fasuh
+  changes:
+    - type: Fix
+      message: Fixed Anaconda gun needing ammo and not self recharging.
+  id: 467
+  time: '2026-05-29T03:05:57.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Tweak
+      message: Skates are now 40% faster!
+  id: 468
+  time: '2026-05-29T03:09:30.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Painkillers!
+  id: 469
+  time: '2026-05-29T18:53:06.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Tweak
+      message: Rain lizard code optimized and trimmed.
+  id: 470
+  time: '2026-05-29T18:53:26.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed issues that were preventing round from continuing, research
+        issues, and station pay
+  id: 471
+  time: '2026-05-29T19:08:08.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Fix
+      message: Fixed missing techs
+    - type: Fix
+      message: Fixed missing recipes
+    - type: Fix
+      message: Fixed parented projectile velocity
+    - type: Fix
+      message: Fixed Apartments
+    - type: Fix
+      message: Fixed Mech weapon power
+    - type: Fix
+      message: Fixed blocked explosion location
+    - type: Fix
+      message: Fixed botany limitations
+    - type: Fix
+      message: 'Fixed AI station spawns. '
+    - type: Fix
+      message: Fixed Shield values
+    - type: Remove
+      message: Removed hostile Mono ship spawns temporarily
+    - type: Add
+      message: 'Added zoom feature to research UI '
+    - type: Add
+      message: 'Added faction comms to everyone '
+  id: 472
+  time: '2026-06-01T01:36:59.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Over fifteen new vinyl tracks!
+  id: 473
+  time: '2026-06-01T01:37:36.0000000+00:00'
+- author: oksam
+  changes:
+    - type: Add
+      message: New links for Sec SOP/Space law
+  id: 474
+  time: '2026-06-01T01:40:16.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Tweak
+      message: cryoed traitor objectives now reroll
+  id: 475
+  time: '2026-06-02T18:45:19.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: 'Added secret-secret accent text! '
+    - type: Fix
+      message: Fixed some lag errors on the backend
+    - type: Fix
+      message: Fixed blood replacement system
+    - type: Fix
+      message: 'Fixed Patreon character traits '
+    - type: Fix
+      message: Fixed component saving in apartments
+  id: 476
+  time: '2026-06-04T04:07:32.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Technical backing for engraving tools.
+  id: 477
+  time: '2026-06-04T04:14:33.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Tweak
+      message: AI Remote Devices now incorporates shuntable borgs
+  id: 478
+  time: '2026-06-07T05:23:06.0000000+00:00'
+- author: Drekk
+  changes:
+    - type: Fix
+      message: Fixed Changelog missing some changes!
+    - type: Fix
+      message: Fixed Changelog not showing in Discord
+  id: 479
+  time: '2026-06-09T10:40:08.0000000+00:00'
+- author: Vonte
+  changes:
+    - type: Add
+      message: added 2 new accurate security variants of clothing.
+    - type: Tweak
+      message: >-
+        changed leftover security gear that still was red from before the
+        palette change (For full list check the PR).
+  id: 480
+  time: '2026-06-09T10:44:47.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: Pacifists can now throw things without hurting people.
+  id: 481
+  time: '2026-06-09T10:45:17.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Fix
+      message: More entities, including scurrets, are now pacified at CC.
+  id: 482
+  time: '2026-06-09T10:51:11.0000000+00:00'
+- author: SeaborneProto
+  changes:
+    - type: Add
+      message: Added breast milk reagent!
+    - type: Tweak
+      message: Milkable traits now use Breast Milk!
+  id: 483
+  time: '2026-06-09T10:55:03.0000000+00:00'
+- author: rtasva
+  changes:
+    - type: Add
+      message: >-
+        CC has maps, beacons, bluespace flashers, borg rechargers, & cameras
+        now!
+    - type: Add
+      message: Bathrooms, Sauna, Brig, Briefing room, and more to CC!
+    - type: Fix
+      message: Lights on CC now won't be all broken after the 24 hours or so
+  id: 484
+  time: '2026-06-09T10:58:44.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Tweak
+      message: Hardlight is now the first changelog in the in-game menu.
+    - type: Fix
+      message: Discord should no longer get spammed when PRs are merged, my bad :3
+  id: 485
+  time: '2026-06-09T17:57:38.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: >-
+        Fixed some actions in the right-click menu on a player showing up with a
+        delay.
+  id: 486
+  time: '2026-06-09T17:59:12.0000000+00:00'
+- author: bendonji
+  changes:
+    - type: Add
+      message: >-
+        Resomi now have new noises for coughing, yawning, sighing and gasping.
+        No more weird hooman noises!
+    - type: Fix
+      message: Resomi can now sound like sad little birds when they die. Less exciting.
+  id: 487
+  time: '2026-06-09T17:59:30.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: Fixed ghosts blocking ships from saving
+  id: 488
+  time: '2026-06-09T18:00:02.0000000+00:00'
+- author: FieryTech
+  changes:
+    - type: Fix
+      message: (Amber Station) CDETs now are fully enclosed.
+    - type: Fix
+      message: (Amber Station) Medical bay lights switched from LED to normal lights.
+  id: 489
+  time: '2026-06-09T18:00:24.0000000+00:00'
+- author: Adds Einalia Plushie - Cargoheads rejoice
+  changes: []
+  id: 490
+  time: '2026-06-09T20:13:06.0000000+00:00'
+- author: Fardoche0
+  changes:
+    - type: Fix
+      message: 'Breaching Hammer can now be used to pry. '
+  id: 491
+  time: '2026-06-09T20:19:53.0000000+00:00'
+- author: Fardoche0
+  changes:
+    - type: Fix
+      message: Fixed the options to weave and spin with the Bionic Spinarette trait.
+  id: 492
+  time: '2026-06-12T22:11:18.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Add
+      message: AI Shunt Receiver
+    - type: Tweak
+      message: AI Remote Devices and Shunt Control now requires AI Shunt Receiver
+  id: 493
+  time: '2026-06-12T22:12:36.0000000+00:00'
+- author: Vonte
+  changes:
+    - type: Fix
+      message: Paramedic windbreaker is now unzippable
+    - type: Fix
+      message: Ion storms now display the correct message to Synthetic trait characters
+    - type: Fix
+      message: >-
+        the security holoprojector barrier now has a blue pointlight to match
+        its new colors
+    - type: Fix
+      message: >-
+        the dynamoxine medpen from the sec vendor will no longer display a large
+        ERROR instead of a sprite inhand
+  id: 494
+  time: '2026-06-12T22:13:02.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added some differentiation to PDA ringers so you you can tell who
+        exactly next to you is receiving all those nanochats~
+  id: 495
+  time: '2026-06-12T22:13:51.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: Fixed a few moth foods not having valid recipes.
+    - type: Fix
+      message: Fixed 2x2 machine frames not having recipes.
+    - type: Fix
+      message: Fixed widow packets not having a recipe.
+  id: 496
+  time: '2026-06-12T22:14:44.0000000+00:00'
+- author: TrylobyteWasTaken
+  changes:
+    - type: Tweak
+      message: >-
+        Open Valve on Dispensers now checks through all containers instead of
+        just the beaker slot.
+    - type: Fix
+      message: Plumbing Filters now work.
+  id: 497
+  time: '2026-06-12T22:15:25.0000000+00:00'
+- author: Iisazel
+  changes:
+    - type: Tweak
+      message: Updated texture for rambler
+  id: 498
+  time: '2026-06-12T22:15:45.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Tweak
+      message: >-
+        Some round-specific items are now cleaned up and deleted automatically
+        after getting to ColComm
+  id: 499
+  time: '2026-06-12T22:16:07.0000000+00:00'
+- author: Iisazel
+  changes:
+    - type: Fix
+      message: Active nanites now process properly and do not fill up stomaches
+  id: 500
+  time: '2026-06-12T22:17:50.0000000+00:00'
+- author: MothHours
+  changes: []
+  id: 501
+  time: '2026-06-12T22:18:46.0000000+00:00'
+- author: Illumos
+  changes:
+    - type: Add
+      message: FTL-less shuttle console, for use by mappers.
+  id: 502
+  time: '2026-06-12T22:20:38.0000000+00:00'
+- author: CaptainComedii
+  changes:
+    - type: Add
+      message: Cybersun Corporate Jumpsuit
+    - type: Add
+      message: Cybersun R&D Cloak
+  id: 503
+  time: '2026-06-12T22:21:31.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Fix
+      message: Fixed dragon breath
+  id: 504
+  time: '2026-06-12T22:21:49.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Tweak
+      message: Adjusted the tintreach's blunt damage from 65 -> 30, a 54% reduction
+    - type: Tweak
+      message: >-
+        Adjusted the tintreach's structural damage from 300 -> 200 when wielded,
+        a 33% reduction
+  id: 505
+  time: '2026-06-12T22:45:42.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Tweak
+      message: Syndicate expedition npcs no longer death rattle alert.
+  id: 506
+  time: '2026-06-15T23:25:22.0000000+00:00'
+- author: Slatebreaker
+  changes:
+    - type: Tweak
+      message: Cyborgs now spawn with PDAs with Cyborg IDs
+    - type: Tweak
+      message: QuadBorg IDs now have their respective job icons
+  id: 507
+  time: '2026-06-15T23:26:05.0000000+00:00'
+- author: Iisazel
+  changes:
+    - type: Tweak
+      message: Argocyte blades are no longer the strongest weapon in the game
+  id: 508
+  time: '2026-06-15T23:30:26.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Tweak
+      message: >-
+        Station AI name changes to character name if positronic brain is
+        inserted during construction
+  id: 509
+  time: '2026-06-15T23:31:59.0000000+00:00'
+- author: FieryTech
+  changes:
+    - type: Tweak
+      message: New xenoborg mothership mapping, for all your assimilation needs.
+  id: 510
+  time: '2026-06-15T23:33:45.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Tweak
+      message: Ship AIs have comms restricted from Command and Security
+  id: 511
+  time: '2026-06-15T23:34:19.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Add
+      message: >-
+        Late-round "Quiet before storm" event that brings an eerie lull followed
+        by a department-themed crisis.
+    - type: Tweak
+      message: >-
+        Station events now ramp up in danger over the shift instead of firing at
+        random.
+    - type: Tweak
+      message: >-
+        Major threats (nuke ops, xenoborgs, zombie outbreaks) no longer stack
+        with other big events, and Central Command's threat detection will hint
+        at their presence after 60 minutes.
+  id: 512
+  time: '2026-06-15T23:35:14.0000000+00:00'
+- author: BackeTako
+  changes:
+    - type: Add
+      message: Added a Scandinavian Accent
+  id: 513
+  time: '2026-06-15T23:35:47.0000000+00:00'
+- author: okdamsam
+  changes:
+    - type: Add
+      message: Slow ooc admin command
+  id: 514
+  time: '2026-06-15T23:36:15.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added a new reagent that cures addictine, but cannot exist outside
+        someone's bloodstream.
+    - type: Add
+      message: Chemicals that spoil have a new dropdown in their guidebook entry!
+    - type: Tweak
+      message: Updated the existing chemical spoilage system.
+    - type: Fix
+      message: >-
+        Fixed nanites instantly turning inert inside every bloodstream except
+        synth's. They will now appropriately maul anyone that gets it inside of
+        them
+  id: 515
+  time: '2026-06-16T00:12:26.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Add
+      message: >-
+        NullSpace Fixes, Stability Returns, Brighteye are now back with their
+        previous abilities and balanced correctly.
+    - type: Tweak
+      message: >-
+        Security tools related to nullspace entities has been tweaked, check
+        uplink for more details.
+    - type: Add
+      message: Added back PhaseNoms, The Dark, ShadeGen.
+  id: 516
+  time: '2026-06-16T01:49:01.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Tweak
+      message: Vent critters now organize to fuck up one person
+  id: 517
+  time: '2026-06-16T02:06:14.0000000+00:00'
+- author: Hammeredmantis
+  changes:
+    - type: Add
+      message: 'Added the spark of hatred to AI '
+  id: 518
+  time: '2026-06-16T02:06:42.0000000+00:00'
+- author: Iisazel
+  changes:
+    - type: Add
+      message: Added alot more ship storage options
+  id: 519
+  time: '2026-06-18T06:37:05.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Added folding bags with rollers
+    - type: Remove
+      message: Reduced the bluespace stash max size capacity from Ginormous to Huge
+  id: 520
+  time: '2026-06-18T09:51:38.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Fix
+      message: Light Sensitivity Trait having a error icon.
+    - type: Fix
+      message: TheDark deleted itself on server cleanup.
+    - type: Fix
+      message: Fixed Phase Effect Sprite Size not getting affected.
+    - type: Fix
+      message: NullSpace Locator not working.
+    - type: Fix
+      message: NullSpacePuller not stopping the pulling action correctly.
+  id: 521
+  time: '2026-06-18T10:54:54.0000000+00:00'
+- author: ScolarVisari
+  changes:
+    - type: Add
+      message: Added Tradeband language
+  id: 522
+  time: '2026-06-18T10:55:22.0000000+00:00'
+- author: Iisazel
+  changes:
+    - type: Add
+      message: >-
+        Figurines (And sex toys) now save when left on the floor! Please dont
+        explode the server with this power
+  id: 523
+  time: '2026-06-18T10:57:25.0000000+00:00'
+- author: Notarin
+  changes:
+    - type: Add
+      message: Added the addressed telepathy psionic power.
+    - type: Tweak
+      message: Gave the mantis the addressed telepathy psionic power
+  id: 524
+  time: '2026-06-18T10:57:46.0000000+00:00'
+- author: Slatebreaker
+  changes:
+    - type: Tweak
+      message: >-
+        Document cases can now hold clipboards and casettes, and show their 100%
+        explosion resistance
+  id: 525
+  time: '2026-06-18T10:59:39.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 526
+  time: '2026-06-18T11:02:09.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Tweak
+      message: 'changed syndicate weapon values '
+    - type: Tweak
+      message: syndicate equipment no longer saves
+  id: 527
+  time: '2026-06-18T11:27:33.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Fix
+      message: >-
+        Fixed saved ships losing their consoles and air vents/scrubbers when
+        loaded. Previously-saved ships are repaired automatically on load.
+  id: 528
+  time: '2026-06-19T09:44:29.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Fix
+      message: >-
+        Light sensitivity traits no longer burn you in light levels they
+        shouldn't.
+  id: 529
+  time: '2026-06-19T09:44:43.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added: Audible Ping for when you receive chat highlights! (You can
+        toggle it on/off in Accessibility settings or adjust the volume in Audio
+        settings.)
+  id: 530
+  time: '2026-06-19T09:45:38.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added an undock all button, no longer will you have to iterate through
+        all of your docks manually
+  id: 531
+  time: '2026-06-19T09:46:49.0000000+00:00'
+- author: Petalpool
+  changes:
+    - type: Add
+      message: (Elkridge Depot) Pisoner wardrobe wall locker to perma
+    - type: Add
+      message: (Elkridge Depot) Bowl for prisoners in perma
+    - type: Tweak
+      message: >-
+        (Elkridge Depot) Cargo is no longer all access, and is instead, cargo
+        access.
+  id: 532
+  time: '2026-06-19T10:04:23.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added arachnophobia mode! No longer will you have to see the spiders if
+        you don't want to.
+  id: 533
+  time: '2026-06-19T10:05:34.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: Fixed finished votes being left on screen
+  id: 534
+  time: '2026-06-19T10:05:55.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Remove
+      message: temporarily reverting syndicate weapon values
+    - type: Remove
+      message: temporarily reverting the stash item size change for bags
+    - type: Remove
+      message: 'temporarily reverting the stash banned items '
+    - type: Remove
+      message: minor cleanup of broken assets from previous PR
+  id: 535
+  time: '2026-06-19T10:11:35.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Add
+      message: >-
+        Added the ability to give custom names to NSFW markings, among a few
+        other customisable options!
+    - type: Fix
+      message: Fixed felionoids not getting any NSFW marking options
+  id: 536
+  time: '2026-06-19T10:12:16.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Tweak
+      message: Size affects pitch of emotes
+  id: 537
+  time: '2026-06-19T10:12:35.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Even more bug fixes for the automated tests!
+  id: 538
+  time: '2026-06-20T05:18:47.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Fixed so many construction issues
+  id: 539
+  time: '2026-06-20T05:19:10.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Fixed a bunch of maps and ships having invalid tiles.
+  id: 540
+  time: '2026-06-20T05:19:56.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Tweak
+      message: >-
+        Balanced item prices so you can't get infinite money from buying/selling
+        anymore.
+  id: 541
+  time: '2026-06-20T05:21:14.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Fixed some traits not having a proper name
+  id: 542
+  time: '2026-06-20T05:21:40.0000000+00:00'

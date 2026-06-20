@@ -217,16 +217,22 @@ public sealed class RadioSystem : EntitySystem
             ChatChannel.Radio,
             originalMessage ?? message,
             wrappedMessage,
-            NetEntity.Invalid,
-            null);
+            GetNetEntity(messageSource), // Goobstation - Chat Pings -- Added GetNetEntity(messageSource), to source
+            null)
+        {
+            RadioChannelId = channel.ID
+        };
         var obfuscated = _language.ObfuscateSpeech(content, language);
         var obfuscatedWrapped = WrapRadioMessage(channel, obfuscated, language, true, channelText, speech, selectedVerb, defaultNameString, obfuscatedNameString); // HardLight
         var obfuscatedChat = new ChatMessage(
             ChatChannel.Radio,
             obfuscated,
             obfuscatedWrapped,
-            NetEntity.Invalid,
-            null);
+            GetNetEntity(messageSource), // Goobstation - Chat Pings -- Added GetNetEntity(messageSource), to source
+            null)
+        {
+            RadioChannelId = channel.ID
+        };
         var ev = new RadioReceiveEvent(messageSource, channel, originalChat, obfuscatedChat, language, radioSource, []);
         // HardLight-edit end
 

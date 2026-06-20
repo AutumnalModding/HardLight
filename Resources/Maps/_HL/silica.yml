@@ -4,8 +4,8 @@ meta:
   engineVersion: 274.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/24/2026 22:57:22
-  entityCount: 26483
+  time: 05/30/2026 17:24:30
+  entityCount: 26489
 maps:
 - 1
 grids:
@@ -9118,6 +9118,19 @@ entities:
     - type: ImplicitRoof
     - type: TileHistory
       chunkHistory: {}
+  - uid: 18578
+    components:
+    - type: MetaData
+      name: solution - vat_oil
+    - type: Transform
+      parent: 18407
+    - type: Solution
+      solution:
+        maxVol: 100
+        name: vat_oil
+        reagents: []
+    - type: ContainedSolution
+      containerName: vat_oil
   - uid: 18601
     components:
     - type: MetaData
@@ -17359,10 +17372,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26285
@@ -17388,10 +17398,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26287
@@ -17417,10 +17424,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26289
@@ -17446,10 +17450,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26291
@@ -17475,10 +17476,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26293
@@ -17504,10 +17502,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26295
@@ -17533,10 +17528,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26297
@@ -17562,10 +17554,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26299
@@ -17591,10 +17580,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26301
@@ -17620,10 +17606,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26303
@@ -17649,10 +17632,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26305
@@ -17678,10 +17658,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26307
@@ -17707,10 +17684,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26309
@@ -17736,10 +17710,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26311
@@ -17765,10 +17736,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26313
@@ -17794,10 +17762,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26315
@@ -17823,10 +17788,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26317
@@ -17852,10 +17814,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26319
@@ -17881,10 +17840,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26321
@@ -17910,10 +17866,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26323
@@ -17939,10 +17892,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26325
@@ -17968,10 +17918,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26327
@@ -17997,10 +17944,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26329
@@ -18026,10 +17970,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26331
@@ -18055,10 +17996,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26333
@@ -18084,10 +18022,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26335
@@ -18113,10 +18048,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26337
@@ -18142,10 +18074,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26339
@@ -18171,10 +18100,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26341
@@ -18200,10 +18126,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26343
@@ -18229,10 +18152,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26345
@@ -18258,10 +18178,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26347
@@ -18287,10 +18204,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26349
@@ -18316,10 +18230,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26351
@@ -18345,10 +18256,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26353
@@ -18374,10 +18282,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26355
@@ -18403,10 +18308,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26357
@@ -18432,10 +18334,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26359
@@ -18461,10 +18360,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26361
@@ -18490,10 +18386,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26363
@@ -18519,10 +18412,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26365
@@ -18548,10 +18438,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26367
@@ -18577,10 +18464,7 @@ entities:
       solution:
         maxVol: 500
         name: tank
-        reagents:
-        - data: []
-          ReagentId: Water
-          Quantity: 500
+        reagents: []
     - type: ContainedSolution
       containerName: tank
   - uid: 26369
@@ -23534,7 +23418,7 @@ entities:
       pos: -29.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -151213.62
+      secondsUntilStateChange: -151609.16
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23546,7 +23430,7 @@ entities:
       pos: 30.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -151220.12
+      secondsUntilStateChange: -151615.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23558,7 +23442,7 @@ entities:
       pos: 30.5,-24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -151220.81
+      secondsUntilStateChange: -151616.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24751,7 +24635,7 @@ entities:
       pos: 36.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -242916.92
+      secondsUntilStateChange: -243312.45
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -100030,11 +99914,6 @@ entities:
     - type: Transform
       pos: 16.5,-2.5
       parent: 2
-  - uid: 12813
-    components:
-    - type: Transform
-      pos: 27.5,-0.5
-      parent: 2
   - uid: 12814
     components:
     - type: Transform
@@ -142156,6 +142035,16 @@ entities:
       containers:
         solution@gold: !type:ContainerSlot
           ent: 26143
+- proto: Intercom
+  entities:
+  - uid: 26487
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,12.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomAll
   entities:
   - uid: 18372
@@ -142507,13 +142396,35 @@ entities:
     - type: Transform
       pos: -0.5,-9.5
       parent: 2
-- proto: KitchenElectricGrill
+- proto: KitchenDeepFryer
   entities:
-  - uid: 18403
+  - uid: 18407
     components:
     - type: Transform
-      pos: 0.5,-9.5
+      pos: 1.5,-7.5
       parent: 2
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - vat_oil
+    - type: ContainerContainer
+      containers:
+        vat_entities: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        solution@vat_oil: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 18578
 - proto: KitchenElectricRange
   entities:
   - uid: 22644
@@ -142544,11 +142455,6 @@ entities:
     components:
     - type: Transform
       pos: -25.5,35.5
-      parent: 2
-  - uid: 18407
-    components:
-    - type: Transform
-      pos: 1.5,-7.5
       parent: 2
   - uid: 18408
     components:
@@ -142584,6 +142490,11 @@ entities:
     components:
     - type: Transform
       pos: 45.5,-18.5
+      parent: 2
+  - uid: 26484
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
       parent: 2
 - proto: KitchenReagentGrinder
   entities:
@@ -143992,11 +143903,6 @@ entities:
     - type: Transform
       pos: 14.5,51.5
       parent: 2
-  - uid: 18578
-    components:
-    - type: Transform
-      pos: 2.5,39.5
-      parent: 2
   - uid: 18579
     components:
     - type: Transform
@@ -145043,6 +144949,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26154
+    - type: StackSignature
+      signature: MaterialBananium|Honk=500;Nutriment=400;Vitamin=200;
   - uid: 18659
     components:
     - type: Transform
@@ -145056,6 +144964,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26155
+    - type: StackSignature
+      signature: MaterialBananium|Honk=500;Nutriment=400;Vitamin=200;
 - proto: MaterialCloth
   entities:
   - uid: 11209
@@ -145073,6 +144983,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 25923
+    - type: StackSignature
+      signature: MaterialCloth|Fiber=500;
   - uid: 18660
     components:
     - type: Transform
@@ -145086,6 +144998,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26156
+    - type: StackSignature
+      signature: MaterialCloth|Fiber=500;
   - uid: 18661
     components:
     - type: Transform
@@ -145099,6 +145013,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26157
+    - type: StackSignature
+      signature: MaterialCloth|Fiber=500;
 - proto: MaterialDiamond1
   entities:
   - uid: 18662
@@ -145155,6 +145071,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26161
+    - type: StackSignature
+      signature: MaterialDurathread|Fiber=500;
 - proto: MaterialWoodPlank
   entities:
   - uid: 18666
@@ -147969,11 +147887,6 @@ entities:
     components:
     - type: Transform
       pos: -24.529057,22.426197
-      parent: 2
-  - uid: 18982
-    components:
-    - type: Transform
-      pos: -21.5,-18.5
       parent: 2
   - uid: 18983
     components:
@@ -152188,6 +152101,51 @@ entities:
       containers:
         solution@injector: !type:ContainerSlot
           ent: 26221
+- proto: PrinterDoc
+  entities:
+  - uid: 12813
+    components:
+    - type: Transform
+      pos: 27.5,-0.5
+      parent: 2
+  - uid: 18403
+    components:
+    - type: Transform
+      pos: -22.5,-4.5
+      parent: 2
+  - uid: 18982
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,39.5
+      parent: 2
+  - uid: 22218
+    components:
+    - type: Transform
+      pos: -21.5,-18.5
+      parent: 2
+  - uid: 26485
+    components:
+    - type: Transform
+      pos: 15.5,-24.5
+      parent: 2
+  - uid: 26489
+    components:
+    - type: Transform
+      pos: 25.5,37.5
+      parent: 2
+- proto: PrinterDocFlatpack
+  entities:
+  - uid: 26486
+    components:
+    - type: Transform
+      pos: 13.248072,4.7592654
+      parent: 2
+  - uid: 26488
+    components:
+    - type: Transform
+      pos: -7.455572,29.531784
+      parent: 2
 - proto: Protolathe
   entities:
   - uid: 19716
@@ -158776,6 +158734,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26259
+    - type: StackSignature
+      signature: SheetUranium|Radium=200;Uranium=800;
 - proto: ShelfBar
   entities:
   - uid: 12373
@@ -167302,6 +167262,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26370
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21713
     components:
     - type: Transform
@@ -167315,6 +167277,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26371
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21714
     components:
     - type: Transform
@@ -167328,6 +167292,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26372
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21715
     components:
     - type: Transform
@@ -167341,6 +167307,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26373
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21716
     components:
     - type: Transform
@@ -167354,6 +167322,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26374
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21717
     components:
     - type: Transform
@@ -167367,6 +167337,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26375
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
   - uid: 21718
     components:
     - type: Transform
@@ -167380,6 +167352,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26376
+    - type: StackSignature
+      signature: SpaceCash|Fiber=100;
 - proto: SpaceCash10
   entities:
   - uid: 21719
@@ -167395,6 +167369,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26377
+    - type: StackSignature
+      signature: SpaceCash10|Fiber=100;
   - uid: 21720
     components:
     - type: Transform
@@ -167408,6 +167384,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26378
+    - type: StackSignature
+      signature: SpaceCash10|Fiber=100;
 - proto: SpaceCash100
   entities:
   - uid: 20880
@@ -167424,6 +167402,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26260
+    - type: StackSignature
+      signature: SpaceCash100|Fiber=100;
 - proto: SpaceCash1000
   entities:
   - uid: 21721
@@ -167439,6 +167419,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26379
+    - type: StackSignature
+      signature: SpaceCash1000|Fiber=100;
   - uid: 21722
     components:
     - type: Transform
@@ -167452,6 +167434,8 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 26380
+    - type: StackSignature
+      signature: SpaceCash1000|Fiber=100;
 - proto: SpaceHeater
   entities:
   - uid: 21723
@@ -171119,11 +171103,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-14.5
-      parent: 2
-  - uid: 22218
-    components:
-    - type: Transform
-      pos: 1.5,-7.5
       parent: 2
   - uid: 22219
     components:

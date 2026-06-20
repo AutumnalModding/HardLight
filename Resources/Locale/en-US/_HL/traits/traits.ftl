@@ -44,6 +44,10 @@ hl-trait-voice-wawa-desc = Through one way or another, you sound like an adorabl
 hl-trait-horny-name = Horny
 hl-trait-horny-desc = Your moods have a tendency to be erotic, and drive you to act accordingly.
 
+
+hl-trait-scandinavian-name = Scandinavian accent
+hl-trait-scandinavian-desc = You have to assemble the sentence yourself.
+
 lead-footed-name = Lead-footed
 lead-footed-text = Somehow able to stay standing during the rigors of FTL.
 inoculated-name = Inoculated
@@ -71,6 +75,9 @@ hl-trait-egglayer-desc = You produce and lay eggs (10 cum per egg)
 
 hl-trait-egglayer-infertile-name = Egg Layer (very infertile)
 hl-trait-egglayer-infertile-desc = You produce eggs very slowly and seldomly (50 cum per egg)
+
+hl-trait-Prizeballlayer = Gashaponsition
+hl-trait-Prizeballlayer-desc = You produce and dispense Prizeballs (50 Tickets per Prizeball)
 
 hl-trait-Brainwasher-name = Brainwasher
 hl-trait-Brainwasher-desc = Through natural or artificial means, you have the ability to brainwash peoples.
@@ -135,3 +142,6 @@ trait-ultravision-nobypass-desc = Through a random mutation, you perceive the wo
 
 trait-deuteranopia-nobypass-name = Deuteranopia (Untoggleable)
 trait-deuteranopia-nobypass-desc = Through a random mutation, you have red-green colour blindness. (Note this cannot be disable with the accessibility toggle)
+
+trait-test-bionic-spinarette-name = Test Bionic Spinarette
+trait-test-bionic-spinarette-desc = Speeeeeeen

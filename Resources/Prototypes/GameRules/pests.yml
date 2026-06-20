@@ -7,6 +7,7 @@
     - id: SnailMigrationLowPop
     - id: CockroachMigration
     - id: MouseMigration
+    #- id: RandomCritterHorde
 
 - type: entityTable
   id: SpicyPestEventsTable
@@ -28,6 +29,8 @@
     earliestStart: 15
     weight: 6
     duration: 50
+  - type: EventHeat # HardLight
+    cost: 40
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -52,6 +55,8 @@
     weight: 6
     duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+  - type: EventHeat # HardLight
+    cost: 90
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -76,6 +81,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 50
+  - type: EventHeat # HardLight
+    cost: 40
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
@@ -93,6 +100,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 50
+  - type: EventHeat # HardLight
+    cost: 40
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -114,6 +123,8 @@
     weight: 6
     duration: 50
     minimumPlayers: 30
+  - type: EventHeat # HardLight
+    cost: 40
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -136,6 +147,8 @@
     earliestStart: 15
     weight: 4
     duration: 50
+  - type: EventHeat # HardLight
+    cost: 60
   - type: RadCrittersRule
     entries:
     - id: dreadtalonbase

@@ -13,3 +13,9 @@
   #Vox Froguli - shoes that can be worn and won't prevent Vox innate magboots from working
 - type: Tag
   id: WhitelistVoxTalons
+
+- type: Tag
+  id: Cartridge50_magnumFMJ
+
+- type: Tag
+  id: SpeedLoader50Magnum

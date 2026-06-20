@@ -80,6 +80,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
 
+
 # Banners
 - type: construction
   id: BannerNanotrasenReal

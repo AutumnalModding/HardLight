@@ -11,7 +11,7 @@
   completetime: 5
   materials:
     Brass: 10
-    
+
 - type: latheRecipe
   id: BulletCasing45_ACP
   result: MaterialBulletCasing45_ACP
@@ -81,7 +81,7 @@
   completetime: 5
   materials:
     Brass: 100
-    
+
 - type: latheRecipe
   id: BulletCasing12_gauge
   result: MaterialBulletCasing12_gauge
@@ -95,27 +95,27 @@
   completetime: 5
   materials:
     Plasteel: 10
-    
+
 - type: latheRecipe
   id: AmmoBoxSmallEmpty
   result: AmmoBoxSmallEmpty
   completetime: 5
   materials:
     Steel: 100
-  
+
 - type: latheRecipe
   id: AmmoBoxMediumEmpty
   result: AmmoBoxMediumEmpty
   completetime: 5
   materials:
     Steel: 100
-    
+
 - type: latheRecipe
   id: AmmoBoxLargeEmpty
   result: AmmoBoxLargeEmpty
   completetime: 5
   materials:
-    Steel: 100    
+    Steel: 100
 
 - type: latheRecipe
   id: AmmoBoxShotgunEmpty
@@ -123,7 +123,7 @@
   completetime: 5
   materials:
     Steel: 100
-    
+
 
 - type: latheRecipe
   id: AmmoBoxBig
@@ -243,3 +243,47 @@
   id: AmmoBox762x54mmRRubberBig
   parent: AmmoBoxBigRubber
   result: AmmoBox762x54mmRRubberBig
+
+- type: latheRecipe
+  id: AmmoBox50_magnumFMJ
+  parent: AmmoBoxBig
+  result: AmmoBox50_magnumFMJ
+
+- type: latheRecipe
+  id: AmmoBox50_magnumPractice
+  parent: AmmoBoxBigPractice
+  result: AmmoBox50_magnumPractice
+
+- type: latheRecipe
+  id: AmmoBox50_magnumRubber
+  parent: AmmoBoxBigRubber
+  result: AmmoBox50_magnumRubber
+
+- type: latheRecipe
+  id: SpeedLoader50Magnum
+  result: SpeedLoader50Magnum
+  completetime: 5
+  materials:
+    Steel: 15
+
+- type: latheRecipe
+  id: SpeedLoader50MagnumPractice
+  result: SpeedLoader50MagnumPractice
+  completetime: 5
+  materials:
+    Steel: 10
+    Plastic: 5
+
+- type: latheRecipe
+  id: SpeedLoader50MagnumRubber
+  result: SpeedLoader50MagnumRubber
+  completetime: 5
+  materials:
+    Steel: 10
+    Plastic: 10
+- type: latheRecipe
+  id: SpeedLoader50MagnumEmpty
+  result: SpeedLoader50MagnumEmpty
+  completetime: 5
+  materials:
+    Steel: 5

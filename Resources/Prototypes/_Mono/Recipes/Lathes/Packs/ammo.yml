@@ -399,6 +399,13 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - AmmoBox50_magnumFMJ
+  - AmmoBox50_magnumRubber
+  - AmmoBox50_magnumPractice
+  - SpeedLoader50Magnum
+  - SpeedLoader50MagnumEmpty
+  - SpeedLoader50MagnumRubber
+  - SpeedLoader50MagnumPractice
 
 #civilian = FMJ + practice + empty + rubber
 
@@ -566,6 +573,13 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - AmmoBox50_magnumFMJ
+  - AmmoBox50_magnumRubber
+  - AmmoBox50_magnumPractice
+  - SpeedLoader50Magnum
+  - SpeedLoader50MagnumEmpty
+  - SpeedLoader50MagnumRubber
+  - SpeedLoader50MagnumPractice
 
 #advanced = Uranium + Incendiary
 
@@ -639,3 +653,7 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - MagazineSmart
+  - Magazine40mmEmpty
+  - 40mmGrenadeFlash
+  - 40mmGrenadeThermobaric

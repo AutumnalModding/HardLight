@@ -82,7 +82,7 @@
   form: Protagonist
   name: Suburbia
   color: "#FFEA00"
-  
+
 - type: company
   id: VSR
   form: Protagonist
@@ -254,7 +254,7 @@
   disabled: true # Open to devs, technical oriented mappers, and architecture oriented engineers.
   logins:
   - Notarin
-  
+
 # ====Rogue / Antag. Companies====
 - type: company
   id: TheViperGroup
@@ -308,8 +308,15 @@
   form: Antagonist
   name: Gorlex Marauders
   color: "#880808" # blood red
-  disabled: true # locked because literally nukies
-
+  disabled: true # GLORY TO THE LOKI DIVISION.
+  logins:
+  - KillSwitch
+  - Kayla
+  - chancethuret
+  - Ultrakillmodder
+  - Borgoz
+  - Rotund_Raccoon
+  
 - type: company
   id: AID
   form: Protagonist
@@ -318,3 +325,13 @@
   logins:
   - Dhizi
   - OkSam
+  - khionu
+
+- type: company
+  id: Cybersun
+  form: Antagonist
+  name: Cybersun R&D
+  color: "#ee6f4d" #pale orange
+  logins:
+  - CaptainComedy
+
