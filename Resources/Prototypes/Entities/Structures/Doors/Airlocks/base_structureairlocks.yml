@@ -234,6 +234,10 @@
     node: glassAirlock
   - type: Paintable
     group: AirlockGlass
+  - type: DeltaPressure
+    minPressure: 262144
+    minPressureDelta: 131072
+    scalingType: Threshold
   - type: Tag
     tags:
       - GlassAirlock

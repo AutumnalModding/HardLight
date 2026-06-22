@@ -194,6 +194,9 @@
       occludes: false
     - type: Construction
       node: FirelockGlass
+    - type: DeltaPressure
+      minPressure: 524288
+      minPressureDelta: 262144
 
 - type: entity
   id: FirelockEdge
