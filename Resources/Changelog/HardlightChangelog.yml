@@ -5031,3 +5031,113 @@ Entries:
       message: Fixed some traits not having a proper name
   id: 542
   time: '2026-06-20T05:21:40.0000000+00:00'
+- author: IngvarJackal
+  changes:
+    - type: Add
+      message: Add 4 voice pitch traits
+    - type: Remove
+      message: Size dependent emote pitch
+  id: 543
+  time: '2026-06-20T09:49:19.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Tweak
+      message: >-
+        Chemmasters are back to their old transfer values (1, 5, 10, 25, 50,
+        100)
+    - type: Tweak
+      message: >-
+        Reagent dispensers are back to their old transfer values (1, 5, 10, 15,
+        20, 25, 30, 50, 100)
+  id: 544
+  time: '2026-06-20T21:50:47.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Fixed the automated tests!
+  id: 545
+  time: '2026-06-20T21:54:11.0000000+00:00'
+- author: Hammeredmantis
+  changes:
+    - type: Fix
+      message: Changed the limiter on asteroid spawns, space feels populated now
+  id: 546
+  time: '2026-06-21T04:50:51.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cnc ooc preference icons being visible when characters were
+        otherwise stealthed.
+  id: 547
+  time: '2026-06-21T04:56:04.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Fix
+      message: Fixed the AI Eye disappearing after returning from expedition
+  id: 548
+  time: '2026-06-21T04:57:05.0000000+00:00'
+- author: Typheus
+  changes:
+    - type: Fix
+      message: AI Eye no longer moves around while piloting a ship as an AI Core
+  id: 549
+  time: '2026-06-21T04:57:21.0000000+00:00'
+- author: Shades
+  changes:
+    - type: Add
+      message: >-
+        Phase-Barrier Cable, a new way to block shadekins able to be crafted in
+        protolathe or buy it from sec kit.
+    - type: Fix
+      message: Shadegen not working correctly with items in containers.
+    - type: Tweak
+      message: Bluespace Flashers Range from 12 to 6.2.
+    - type: Fix
+      message: HOPEFULLY... Fix The Dark Deleting Itself...
+    - type: Remove
+      message: The ability for Brighteyes to be Revolutionary.
+  id: 550
+  time: '2026-06-21T07:04:11.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: >-
+        Fixed harpies racial modifiers not correctly applying, they will now be
+        correctly poisoned by allicin and theobromine, and breathe twice as fast
+        compared to humans.
+  id: 551
+  time: '2026-06-21T07:05:04.0000000+00:00'
+- author: 2DSiggy
+  changes:
+    - type: Add
+      message: Vinyls can now be stored in bluespace bookshelves.
+  id: 552
+  time: '2026-06-21T07:07:11.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: 'Added leap to speed legs '
+    - type: Tweak
+      message: Changed the way that Speed boots and legs function
+  id: 553
+  time: '2026-06-21T08:40:40.0000000+00:00'
+- author: re-silvered
+  changes:
+    - type: Fix
+      message: >-
+        Fixed some Felionoid species modifiers, meaning they will go into crit
+        at 85 and receive a speed boost when not wearing shoes, alongside silent
+        footsteps.
+    - type: Remove
+      message: >-
+        Removes Felionoids being able to drag without their hands as it's not
+        mentioned as something they should be receiving in the guidebook.
+  id: 554
+  time: '2026-06-21T08:41:03.0000000+00:00'
+- author: DrekkCuga
+  changes:
+    - type: Fix
+      message: Fixed some Pipes and Fire Locks on Amber
+  id: 555
+  time: '2026-06-22T04:38:44.0000000+00:00'
