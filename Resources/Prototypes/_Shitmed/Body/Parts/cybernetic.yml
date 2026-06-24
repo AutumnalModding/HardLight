@@ -145,36 +145,72 @@
 - type: entity
   parent: LeftLegCybernetic
   id: SpeedLeftLeg
-  name: S.P.E.E.D left leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: D.A.S.H left leg
+  description: A cybernetic left leg that allows its wearer to execute a bionic dash.
   components:
   - type: MovementBodyPart
-    walkSpeed: 2.6 # Hardlight speed change
-    sprintSpeed: 4.7 # Hardlight speed change
+    walkSpeed: 2.5 # Hardlight speed change
+    sprintSpeed: 4.5 # Hardlight speed change
   - type: BodyPart
     onAdd:
     # - type: NoSlip Hardlight
     - type: ProtectedFromStepTriggers
+    - type: JumpAbility
+      action: Actionspeeddash
+      canCollide: true
+      jumpDistance: 6
+      jumpSound:
+        path: /Audio/Weapons/punchmiss.ogg
+        params:
+          pitch: 1.33
+          volume: -5
+          variation: 0.05
+    - type: JumpCollisionKnockback
+      throwForce: 50
 
 - type: entity
   parent: RightLegCybernetic
   id: SpeedRightLeg
-  name: S.P.E.E.D right leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: D.A.S.H right leg
+  description: A cybernetic right leg that allows its wearer to execute a bionic dash.
   components:
   - type: MovementBodyPart
-    walkSpeed: 2.6 # Hardlight speed change
-    sprintSpeed: 4.7 # Hardlight speed change
+    walkSpeed: 2.5 # Hardlight speed change
+    sprintSpeed: 4.5 # Hardlight speed change
   - type: BodyPart
     onAdd:
     # - type: NoSlip Hardlight
     - type: ProtectedFromStepTriggers
+    - type: JumpAbility
+      action: Actionspeeddash
+      canCollide: true
+      jumpDistance: 6
+      jumpSound:
+        path: /Audio/Weapons/punchmiss.ogg
+        params:
+          pitch: 1.33
+          volume: -5
+          variation: 0.05
+    - type: JumpCollisionKnockback
+      throwForce: 50
+
+- type: entity
+  id: Actionspeeddash
+  name: Dash
+  description: Use your short but agile legs to leap an equally short distance. Be careful not to bump into anything!
+  components:
+  - type: InstantAction
+    useDelay: 10
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+    event: !type:GravityJumpEvent {}
 
 - type: entity
   parent: HeadHuman
   id: FireproofHead
   name: head
-  description: A fireproof head. 
+  description: A fireproof head.
   components:
   - type: Damageable
     damageContainer: Silicon
@@ -189,7 +225,7 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Fireproof
-    
+
 - type: entity
   parent: LeftLegCybernetic
   id: FireproofLeftLeg
@@ -199,7 +235,7 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Fireproof
-    
+
 - type: entity
   parent: RightArmCybernetic
   id: FireproofRightArm
@@ -209,7 +245,7 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Fireproof
-    
+
 - type: entity
   parent: LeftArmCybernetic
   id: FireproofLeftArm
@@ -219,7 +255,7 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Fireproof
-    
+
 - type: entity
   id: RightFootFireproof
   parent: RightFootHuman
@@ -246,7 +282,7 @@
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Fireproof
-    
+
 - type: entity
   id: LeftHandFireproof
   parent: LeftHandHuman

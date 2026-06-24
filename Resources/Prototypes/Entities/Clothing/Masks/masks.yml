@@ -52,6 +52,7 @@
   - type: Clothing
     sprite: Clothing/Mask/gassyndicate.rsi
   - type: FlashImmunity
+    blocksSpecialVision: false # Hardlight: Syndicate gas masks don't block NV/thermals
   - type: EyeProtection
   - type: Armor
     modifiers:
@@ -191,7 +192,7 @@
       Steel: 50
       Plastic: 100
   - type: StaticPrice
-    price: 15 # increases in price after decomposed into raw materials # Frontier: 30<12.5, 12.5<15 - TODO: material value rework
+    price: 30 # HL: Price balancing
 
 - type: entity
   parent: ClothingMaskBase
@@ -437,6 +438,7 @@
     - Snout
     hideOnToggle: true
   - type: FlashImmunity
+    blocksSpecialVision: false # Hardlight: ERT gas masks don't block NV/thermals
   - type: EyeProtection
   - type: Armor
     modifiers:

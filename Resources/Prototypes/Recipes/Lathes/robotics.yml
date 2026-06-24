@@ -216,6 +216,27 @@
   materials:
     Steel: 500
     Glass: 200
+
+#Freelance
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: LeftLegBorgFreelance
+  result: LeftLegBorgFreelance
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: RightLegBorgFreelance
+  result: RightLegBorgFreelance
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: HeadBorgFreelance
+  result: HeadBorgFreelance
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: TorsoBorgFreelance
+  result: TorsoBorgFreelance
 # Hardlight end
 
 # Parts
@@ -245,6 +266,20 @@
     Gold: 100
     Silver: 100
     Plasma: 1000
+
+# Hardlight    
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: AIShuntReceiver
+  result: AIShuntReceiver
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 1000
+# Hardlight End
 
 # Modules
 

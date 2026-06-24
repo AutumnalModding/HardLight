@@ -255,6 +255,8 @@
     - WeaponCaseLongHristovExpedition
     - WeaponCaseLongMusketExpedition
     - WeaponCaseLongRailgunPeregrine # HL. Was annoyingly rare in testing. We'll call this a "rate up" for now lmao
+    - WeaponCaseShortTitan #HL
+    - WeaponCaseShortBoneCollector #HL
     chance: 1.0
     offset: 0.0
     rarePrototypes:

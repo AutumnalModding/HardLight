@@ -594,7 +594,7 @@
   - type: UserInterface
     interfaces:
       enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleBoundUserInterface # R&D Console rework
+        type: FancyResearchConsoleBoundUserInterface # Goobstation R&D Console rework (ported via Triad #1903)
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
@@ -1815,7 +1815,8 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
-    board: StationAiUploadCircuitboardUnlocked
+    board: StationAiUploadCircuitboard
+#HL: Reverting to non-unlocked as there's an unlocked entity you can use if needed.
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
   - type: Lock

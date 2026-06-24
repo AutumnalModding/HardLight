@@ -283,24 +283,27 @@ namespace Content.Server.Preferences.Managers
 
         private async Task<PlayerPreferences> GetOrCreatePreferencesAsync(NetUserId userId, CancellationToken cancel)
         {
+            PlayerPreferences? prefs;
             try
             {
-                var prefs = await _db.GetPlayerPreferencesAsync(userId, cancel);
-                if (prefs is null)
-                {
-                    // No prefs found, create new defaults
-                    return await _db.InitPrefsAsync(userId, HumanoidCharacterProfile.Random(), cancel);
-                }
-
-                // Optionally, add further validation here if prefs could be malformed
-                return prefs;
+                prefs = await _db.GetPlayerPreferencesAsync(userId, cancel);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                _sawmill.Error($"Failed to load or create preferences for user {userId}: {ex}");
-                // Fallback to default preferences to avoid crashing the server
+                _sawmill.Error($"Preference load failed safely for user {userId}: {ex}");
+                throw new UserDbDataManager.UserDbLoadException(
+                    "Your character data could not be loaded safely. Please contact server staff for profile recovery.",
+                    ex);
+            }
+
+            if (prefs is null)
+            {
+                // No prefs found, create new defaults.
                 return await _db.InitPrefsAsync(userId, HumanoidCharacterProfile.Random(), cancel);
             }
+
+            // Optionally, add further validation here if prefs could be malformed.
+            return prefs;
         }
 
         public async Task RefreshPreferencesAsync(ICommonSession session, CancellationToken cancel)
@@ -322,6 +325,16 @@ namespace Content.Server.Preferences.Managers
                 {
                     prefsData.Prefs = prefs;
                     prefsData.PrefsLoaded = true;
+
+                    // Refresh only needs structural normalization before resending prefs.
+                    // Avoid session-dependent loadout checks here because supporting data can still be loading.
+                    var collection = IoCManager.Instance!;
+                    var validatedChars = new Dictionary<int, ICharacterProfile>();
+                    foreach (var (slot, profile) in prefs.Characters)
+                    {
+                        validatedChars[slot] = profile.Validated(null, collection);
+                    }
+                    prefs = new PlayerPreferences(validatedChars, prefs.SelectedCharacterIndex, prefs.AdminOOCColor);
 
                     var msg = new MsgPreferencesAndSettings
                     {

@@ -148,6 +148,13 @@ namespace Content.Shared.Preferences
         [DataField]
         public string Company { get; private set; } = "None";
 
+        /// <summary>
+        /// Compatibility-only field for loading legacy profile blobs.
+        /// This value is accepted during deserialization but not used by gameplay.
+        /// </summary>
+        [DataField]
+        public string? CriminalRecordEntry { get; private set; }
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -545,7 +552,7 @@ namespace Content.Shared.Preferences
             return true;
         }
 
-        public void EnsureValid(ICommonSession session, IDependencyCollection collection)
+        public void EnsureValid(ICommonSession? session, IDependencyCollection collection)
         {
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
@@ -759,7 +766,7 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
+        public ICharacterProfile Validated(ICommonSession? session, IDependencyCollection collection)
         {
             var profile = new HumanoidCharacterProfile(this);
             profile.EnsureValid(session, collection);

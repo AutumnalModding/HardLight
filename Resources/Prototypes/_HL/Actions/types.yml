@@ -32,7 +32,21 @@
   - type: InstantAction
     icon: { sprite: Objects/Consumable/Food/egg.rsi, state: icon }
     useDelay: 5
+    checkCanInteract: false
     event: !type:LewdEggLayingActionEvent
+
+- type: entity
+  id: ActionLayPrizeball
+  name: Lay your prizeball
+  description: Kneel and push with all your might.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _NF/Objects/Fun/prizeticket.rsi, state: prizeball }
+    useDelay: 5
+    checkCanInteract: false
+    event: !type:PrizeballLayingActionEvent
+
 
 - type: entity
   id: ActionResomiGravityJump

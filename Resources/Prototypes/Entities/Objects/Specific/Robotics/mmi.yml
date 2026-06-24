@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseSiliconBrainLanguages ] # Starlight: Languages
   id: MMI
   name: man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
@@ -28,6 +28,7 @@
     - Binary
     - Trinary # Hardlight
     - Common
+    - Faction
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -58,6 +59,7 @@
     whitelist:
       components:
       - SecretStash
+  - type: RetroMonitorView # Mono - #3902
 
 - type: entity
   parent: MMI
@@ -74,7 +76,7 @@
             - Brain
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseSiliconBrainLanguages ] # Starlight: Languages
   id: PositronicBrain
   name: positronic brain
   description: An artificial brain capable of spontaneous neural activity.
@@ -148,3 +150,4 @@
       whitelist:
         components:
         - SecretStash
+    - type: RetroMonitorView # Mono - #3902

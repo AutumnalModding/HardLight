@@ -9,3 +9,4 @@ dusk-enclave-onboarding-desc = You can make Dusk Enclave onboarding packages.
 
 dusk-enclave-onboarding-action-name = Produce Onboarding Package
 dusk-enclave-onboarding-action-desc = Produce one Dusk Enclave onboarding package.
+

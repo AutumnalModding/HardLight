@@ -138,21 +138,12 @@
     metabolizerTypes: [Human]
     groups:
     - id: Medicine
+    - id: Cryogenic
     - id: Poison
     - id: Narcotic
   - type: Item
     size: Small
     heldPrefix: heart
-
-- type: entity
-  id: OrganProtoKinCore
-  parent: BaseProtogenOrgan
-  name: Cybernetic Shadekin Core
-  description: "The result of a one-time operation to restore a shadekin's core, it is bright once more- but not as bright as it could've been."
-  components:
-  - type: Organ
-  - type: Sprite
-    state: core
 
 - type: entity
   id: OrganProtogenStomach
@@ -317,6 +308,7 @@
     metabolizerTypes: [Avali]
     groups:
     - id: Medicine
+    - id: Cryogenic
     - id: Poison
     - id: Narcotic
 
@@ -332,7 +324,7 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  
+
 # Arachnid
 
 - type: entity
@@ -351,6 +343,7 @@
     metabolizerTypes: [Arachnid]
     groups:
     - id: Medicine
+    - id: Cryogenic
     - id: Poison
     - id: Narcotic
 

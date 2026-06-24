@@ -3,6 +3,7 @@ using System.Collections.Immutable;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
+using Content.Shared._HL.Traits.Assorted;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -99,7 +100,8 @@ public partial class ChatSystem
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            var language = _language.GetLanguage(source); // Starlight-edit: Languages
+            SendEntityEmote(source, action, range, nameOverride, language, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker); // Starlight-edit: Languages
         }
 
         // do the rest of emote event logic here
@@ -157,9 +159,22 @@ public partial class ChatSystem
 
         // if general params for all sounds set - use them
         var param = proto.GeneralParams ?? sound.Params;
+
+        // HardLight start: voice-pitch trait shifts emote sound pitch.
+        // Halve the random pitch spread so trait-based pitch shifts read clearly against it.
+        if (param.Variation is { } variation)
+            param = param.WithVariation(variation * EmoteVariationMultiplier);
+
+        // Shift pitch by any voice-pitch trait the entity has.
+        if (TryComp<EmotePitchComponent>(uid, out var pitch) && pitch.Semitones != 0f)
+            param = param.WithPitchScale(param.Pitch * MathF.Pow(2f, pitch.Semitones / 12f));
+        // HardLight end
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }
+
+    private const float EmoteVariationMultiplier = 0.5f; // HardLight: halve every emote's random pitch spread
     /// <summary>
     /// Checks if a valid emote was typed, to play sounds and etc and invokes an event.
     /// </summary>

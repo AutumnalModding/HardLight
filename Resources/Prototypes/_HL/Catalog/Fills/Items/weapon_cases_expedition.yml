@@ -12,3 +12,27 @@
       amount: 6
     - id: AmmoBox12_gaugeBuckshot
       amount: 2
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortTitan
+  suffix: Dungeon, Titan
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverTitan
+      amount: 1
+    - id: SpeedLoader50Magnum
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortBoneCollector
+  suffix: Dungeon, Bone Collector
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverBoneCollector
+      amount: 1
+    - id: SpeedLoader50Magnum
+      amount: 2

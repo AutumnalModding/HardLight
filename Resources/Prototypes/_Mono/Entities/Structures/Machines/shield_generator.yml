@@ -83,6 +83,7 @@
   - type: Appearance
   - type: ShipShieldEmitter
     damageLimit: 108000 # Mono: was 60000, scaled with Sentinel rebalance
+    shieldPadding: 50 # old default
     damageOverloadTimePunishment: 8 # Mono: brief lockout before recharge
     healPerSecond: 1700 # Mono: ~16s full recharge
     damageExp: 1.05 # Base is 1.1
@@ -114,9 +115,11 @@
   id: ShieldGeneratorPOI
   parent: [ShieldGeneratorBase, BaseC3Contraband]
   name: FS-421 "Fortress" Outpost Shield Generator
+  description: The Fortress. The latest and greatest in static, large-scale shielding.
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
+    shieldPadding: 100 # big shield for stations to let people and ships hide
     damageLimit: 450000 # Mono: was 250000, scaled with Sentinel rebalance
     healPerSecond: 5400 # Mono: ~12s full recharge
     damageExp: 1
@@ -138,7 +141,7 @@
       color: "#FF9933"
   - type: Anchorable
     flags:
-    - Unanchorable 
+    - Unanchorable
   - type: Destructible
     thresholds:
     - trigger:
@@ -193,9 +196,11 @@
   id: ShieldGeneratorTSFCapital
   parent: ShieldGeneratorBase
   name: LM-212 "Vanguard" Capital Shield Generator
+  description: A heavy capital shield. Good durability, quick recharge and anti-collison built in one.
   suffix: TSF CAPITAL ONLY
   components:
   - type: ShipShieldEmitter
+    shieldPadding: 75 # bigger shield for carrier with fighters
     damageLimit: 215000 # Mono: was 120000, scaled with Sentinel rebalance
     healPerSecond: 3600 # Mono: ~10s full recharge
     damageExp: 1
@@ -262,9 +267,11 @@
   id: ShieldGenerator
   parent: [ShieldGeneratorBase, BaseC3Contraband]
   name: MS-500 "Titan" Shield Generator
+  description: The Titan. Advanced shielding, with a quick recharge time, and excels against colisions.
   suffix: ADS ONLY
   components:
   - type: ShipShieldEmitter
+    shieldPadding: 45 # just a little tighter
     damageLimit: 215000 # Mono: was 120000, scaled with Sentinel rebalance
     healPerSecond: 3600 # Mono: ~10s full recharge
     damageExp: 1.05 # Base is 1.1
@@ -286,9 +293,11 @@
   id: ShieldGeneratorMedium
   parent: [ShieldGeneratorBase, BaseC2Contraband]
   name: MS-250 "Aegis" Shield Generator
+  description: The Aegis. Advanced shielding, with a long recharge time, with very high durability.
   suffix: ADS ONLY, SCI VOUCHER SHIPS ONLY
   components:
   - type: ShipShieldEmitter
+    shieldPadding: 15 # very tight shield
     damageLimit: 168000 # Mono: was 95000, scaled with Sentinel rebalance
     healPerSecond: 2400 # Mono: ~14s full recharge
     damageExp: 1.05 # Base is 1.1
@@ -371,8 +380,10 @@
   id: ShieldGeneratorSmall
   parent: [ShieldGeneratorBase, BaseC2Contraband]
   name: MS-100 "Sentinel" Shield Generator
+  description: The Sentinel. A good, reliable shield.
   components:
   - type: ShipShieldEmitter
+    shieldPadding: 30 # tighter shield
     damageLimit: 120000 # Mono: tuned so lbyte (2k DPS) takes ~60s to break
     healPerSecond: 1333 # Mono: ~18s full recharge
     damageExp: 1.05 # Mono

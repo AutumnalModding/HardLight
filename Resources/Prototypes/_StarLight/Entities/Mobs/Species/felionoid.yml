@@ -1,18 +1,18 @@
 ﻿- type: entity
   name: Urist McFelionoid
-  parent: BaseMobHuman 
+  parent: BaseMobHuman
   # removed BaseSpeciesPickupable, handled by another engine
   id: BaseMobFelionoid
   abstract: true
   components:
-  # - type: LanguageKnowledge # HL: component not available in this codebase
-  #   speaks:
-  #   - GalacticCommon
-  #   - Nekomimetic
-  #   understands:
-  #   - GalacticCommon
-  #   - Nekomimetic
-  #   - Cat
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Nekomimetic
+    understands:
+    - GalacticCommon
+    - Nekomimetic
+    - Cat
   # - type: Absorbable # HL: component not available in this codebase
   # copied from felinid
   - type: Sprite
@@ -39,8 +39,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: Puller
-    needsHands: false
   - type: Body
     prototype: Felionoid
   - type: Damageable
@@ -82,6 +80,7 @@
       Female: FemaleFelionoid
       Unsexed: MaleFelionoid
   - type: Felinid
+  - type: NoShoesSilentFootsteps
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -103,6 +102,7 @@
     state: felionoid
     requiredLegs: 2
   - type: MobThresholds
+    allowRevives: true
     thresholds:
       0: Alive
       85: Critical

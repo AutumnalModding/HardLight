@@ -4,15 +4,12 @@ using Content.Server.DoAfter;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Inventory;
-using Content.Server.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Mobs;
 using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Verbs;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Carrying;
 using Content.Shared.Contests;
@@ -26,16 +23,12 @@ using Content.Shared.Throwing;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Nyanotrasen.Item.PseudoItem;
-using Content.Shared.Storage;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Carrying
 {
-    public sealed class CarryingSystem : EntitySystem
+    public sealed class CarryingSystem : SharedCarryingSystem // HL: Moved the base to SharedCarryingSystem so we can handle the Verb drawing on both to remove UI lag
     {
         [Dependency] private readonly VirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
@@ -43,11 +36,9 @@ namespace Content.Server.Carrying
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
-        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-        [Dependency] private readonly PseudoItemSystem _pseudoItem = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -58,8 +49,6 @@ namespace Content.Server.Carrying
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
-            SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
             SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
             SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -78,51 +67,6 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnBuckleChange);
             SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnCarriedTerminating);
             SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
-        }
-
-        private void AddCarryVerb(EntityUid uid, CarriableComponent component, GetVerbsEvent<AlternativeVerb> args)
-        {
-            if (!args.CanInteract || !args.CanAccess || !_mobStateSystem.IsAlive(args.User)
-                || !CanCarry(args.User, uid, component)
-                || HasComp<CarryingComponent>(args.User)
-                || HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target)
-                || args.User == args.Target)
-                return;
-
-            AlternativeVerb verb = new()
-            {
-                Act = () =>
-                {
-                    StartCarryDoAfter(args.User, uid, component);
-                },
-                Text = Loc.GetString("carry-verb"),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
-        }
-
-        private void AddInsertCarriedVerb(EntityUid uid, CarryingComponent component, GetVerbsEvent<InnateVerb> args)
-        {
-            // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
-            // then add an action to insert the carried entity into the target
-            var toInsert = args.Using;
-            if (toInsert is not { Valid: true } || !args.CanAccess
-                || !TryComp<PseudoItemComponent>(toInsert, out var pseudoItem)
-                || !TryComp<StorageComponent>(args.Target, out var storageComp)
-                || !_pseudoItem.CheckItemFits((toInsert.Value, pseudoItem), (args.Target, storageComp)))
-                return;
-
-            InnateVerb verb = new()
-            {
-                Act = () =>
-                {
-                    DropCarried(uid, toInsert.Value);
-                    _pseudoItem.TryInsert(args.Target, toInsert.Value, pseudoItem, storageComp);
-                },
-                Text = Loc.GetString("action-name-insert-other", ("target", toInsert)),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
         }
 
         /// <summary>
@@ -254,6 +198,8 @@ namespace Content.Server.Carrying
         private void OnDoAfter(EntityUid uid, CarriableComponent component, CarryDoAfterEvent args)
         {
             component.CancelToken = null;
+            component.HasCancelToken = false; // HL: We can't sync the CancelToken to the client, so have a marker to see if we've set one or not. This is used to check if we want to show the Verb action.
+            DirtyField(uid, component, nameof(CarriableComponent.HasCancelToken)); // HL: Make sure it's synced to the client too
             if (args.Handled || args.Cancelled
                 || !CanCarry(args.Args.User, uid, component))
                 return;
@@ -262,7 +208,7 @@ namespace Content.Server.Carrying
             args.Handled = true;
         }
 
-        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
+        protected override void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
             // Prevent duplicate attempts properly
             if (HasComp<CarryingComponent>(carrier) || HasComp<BeingCarriedComponent>(carried))
@@ -289,6 +235,8 @@ namespace Content.Server.Carrying
             // End Frontier
 
             component.CancelToken = new CancellationTokenSource();
+            component.HasCancelToken = true; // HL: We can't sync the CancelToken to the client, so have a marker to see if we've set one or not. This is used to check if we want to show the Verb action.
+            DirtyField(carried, component, nameof(CarriableComponent.HasCancelToken)); // HL: Make sure it's synced to the client too
 
             var ev = new CarryDoAfterEvent();
             var args = new DoAfterArgs(EntityManager, carrier, duration, ev, carried, target: carried) // Frontier: length<duration
@@ -342,7 +290,7 @@ namespace Content.Server.Carrying
             return true;
         }
 
-        public void DropCarried(EntityUid carrier, EntityUid carried)
+        public override void DropCarried(EntityUid carrier, EntityUid carried)
         {
             CleanupCarryState(carrier, carried, true);
         }
@@ -380,20 +328,6 @@ namespace Content.Server.Carrying
 
             var slowdownComp = EnsureComp<CarryingSlowdownComponent>(carrier);
             _slowdown.SetModifier(carrier, modifier, modifier, slowdownComp);
-        }
-
-        public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
-        {
-            if (!Resolve(carried, ref carriedComp, false)
-                || carriedComp.CancelToken != null
-                || !HasComp<MapGridComponent>(Transform(carrier).ParentUid)
-                || HasComp<BeingCarriedComponent>(carrier)
-                || HasComp<BeingCarriedComponent>(carried)
-                || !TryComp<HandsComponent>(carrier, out var hands)
-                || hands.CountFreeHands() < carriedComp.FreeHandsRequired)
-                return false;
-
-            return true;
         }
 
         public override void Update(float frameTime)

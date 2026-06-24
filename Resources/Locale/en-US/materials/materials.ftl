@@ -48,3 +48,4 @@ stack-Royal-Resin = { $count ->
     [one] 1 blob of royal resin
    *[other] { $count } blobs of royal resin
 }
+

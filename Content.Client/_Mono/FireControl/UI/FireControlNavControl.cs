@@ -61,9 +61,12 @@ public sealed class FireControlNavControl : BaseShuttleControl
     private float _lastCursorUpdateTime;
     private const float CursorUpdateInterval = 0.05f;
 
+    // HardLight: perpendicular offsets (metres) for the targeting-line safety corridor. Only the
+    // centre line is drawn, and only when all offsets are clear (margin against clipping own hull).
+    private static readonly float[] TargetingCorridorOffsets = { -0.2f, -0.1f, 0f, 0.1f, 0.2f };
+
     public Action<EntityCoordinates>? OnRadarClick;
     public bool ShowIFF { get; set; } = true;
-    public bool RotateWithEntity { get; set; } = true;
 
     public FireControlNavControl() : base(64f, 1500f, 512f)
     {
@@ -154,13 +157,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
     private void TryFireAtPosition(Vector2 relativePosition)
     {
-        if (_coordinates == null || _rotation == null || OnRadarClick == null)
-            return;
-
-        var a = InverseScalePosition(relativePosition);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
+        var coords = GetMouseEntityCoordinates(relativePosition);
         OnRadarClick?.Invoke(coords);
     }
 
@@ -186,7 +183,6 @@ public sealed class FireControlNavControl : BaseShuttleControl
     {
         SetMatrix(EntManager.GetCoordinates(state.Coordinates), state.Angle);
         _docks = state.Docks;
-        RotateWithEntity = state.RotateWithEntity;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -212,12 +208,17 @@ public sealed class FireControlNavControl : BaseShuttleControl
             return;
         }
 
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
-        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
-        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
-        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-        Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
+        // HardLight: follow the ship's live rotation, not the console's fixed local angle (which froze
+        // the radar facing north and desynced click inversion in GetMouseEntityCoordinates).
+        var coordEnt = _coordinates.Value.EntityId;
+        _rotation = _transform.GetWorldRotation(coordEnt);
+
+        var worldRot = _rotation.Value;
+
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value).Offset(_rotation.Value.RotateVec(Offset));
+        var mapCoord = _transform.ToCoordinates(mapPos);
+        var worldToShuttle = Matrix3Helpers.CreateTranslation(-mapCoord.Position) * Matrix3Helpers.CreateRotation(-worldRot);
+        Matrix3x2.Invert(worldToShuttle, out var shuttleToWorld);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView;
         Matrix3x2.Invert(worldToView, out var viewToWorld);
@@ -344,29 +345,55 @@ public sealed class FireControlNavControl : BaseShuttleControl
             if (_isMouseInside && _controllables != null)
             {
                 var worldPosition = mapPosition;
-                var isFireControllable = _controllables.Any(c =>
-                {
-                    var coords = EntManager.GetCoordinates(c.Coordinates);
-                    var entityMapPos = _transform.ToMapCoordinates(coords);
-                    return Vector2.Distance(entityMapPos.Position, worldPosition) < 0.1f &&
-                           _selectedWeapons.Contains(c.NetEntity);
-                });
 
-                if (isFireControllable)
+                // Find the selected weapon (turret) whose position matches this blip.
+                NetEntity? matchedWeapon = null;
+                foreach (var c in _controllables)
+                {
+                    if (!_selectedWeapons.Contains(c.NetEntity))
+                        continue;
+
+                    var entityMapPos = _transform.ToMapCoordinates(EntManager.GetCoordinates(c.Coordinates));
+                    if (Vector2.Distance(entityMapPos.Position, worldPosition) < 0.1f)
+                    {
+                        matchedWeapon = c.NetEntity;
+                        break;
+                    }
+                }
+
+                if (matchedWeapon is { } weaponNet)
                 {
                     var cursorViewPos = InverseScalePosition(_lastMousePos);
                     cursorViewPos = ScalePosition(cursorViewPos);
 
                     var cursorWorldPos = Vector2.Transform(cursorViewPos, viewToWorld);
 
-                    var direction = cursorWorldPos - worldPosition;
-                    var ray = new CollisionRay(worldPosition, direction.Normalized(), (int)CollisionGroup.Impassable);
+                    var toCursor = cursorWorldPos - worldPosition;
+                    var distance = toCursor.Length();
 
-                    var results = _physics.IntersectRay(xform.MapID, ray, direction.Length(), ignoredEnt: _coordinates?.EntityId);
-
-                    if (!results.Any())
+                    if (distance > 0.01f)
                     {
-                        handle.DrawLine(viewPosition, cursorViewPos, color.WithAlpha(0.3f));
+                        var dir = toCursor / distance;
+                        var perp = new Vector2(-dir.Y, dir.X);
+
+                        // Ignore only the firing turret (it doesn't collide with its own shell); own
+                        // walls still block. Cast the corridor and draw the line only if all rays are clear.
+                        var turret = EntManager.GetEntity(weaponNet);
+
+                        var clear = true;
+                        foreach (var offset in TargetingCorridorOffsets)
+                        {
+                            var origin = worldPosition + perp * offset;
+                            var ray = new CollisionRay(origin, dir, (int)CollisionGroup.Impassable);
+                            if (_physics.IntersectRay(xform.MapID, ray, distance, ignoredEnt: turret).Any())
+                            {
+                                clear = false;
+                                break;
+                            }
+                        }
+
+                        if (clear)
+                            handle.DrawLine(viewPosition, cursorViewPos, color.WithAlpha(0.3f));
                     }
                 }
             }
@@ -513,9 +540,26 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
     private Vector2 InverseScalePosition(Vector2 value)
     {
-        // Account for UI scaling: value is unscaled, so adjust by UIScale
         var scaledValue = value * UIScale;
         return (scaledValue - MidPointVector) / MinimapScale;
+    }
+
+    // Mono
+    private EntityCoordinates GetMouseEntityCoordinates(Vector2 relativePosition)
+    {
+        if (_coordinates is not { } cord || _rotation is not { } rot)
+            return new();
+
+        // HardLight: convert virtual UI pixels to physical pixels (InverseMapPosition works in those)
+        // so aiming stays correct at non-100% UI scale.
+        var physicalPosition = relativePosition * UIScale;
+
+        var screenRelativeWorldPos = InverseMapPosition(physicalPosition);
+        var relativeWorldPos = rot.RotateVec(screenRelativeWorldPos);
+        var coordEntRot = _transform.GetWorldRotation(cord.EntityId);
+        var coords = cord.Offset((-coordEntRot).RotateVec(relativeWorldPos));
+
+        return coords;
     }
 
     private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, float size, Color color, RadarBlipShape shape)
@@ -638,15 +682,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
         _lastCursorUpdateTime = (float)currentTime;
 
-        // Convert mouse position to world coordinates for missile tracking
-        if (_coordinates == null || _rotation == null || OnRadarClick == null)
-            return;
-
-        var a = InverseScalePosition(relativePosition);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
-
+        var coords = GetMouseEntityCoordinates(relativePosition);
         // This will update the server of our cursor position without triggering actual firing
         OnRadarClick?.Invoke(coords);
     }

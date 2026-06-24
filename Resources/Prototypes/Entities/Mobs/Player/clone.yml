@@ -52,23 +52,33 @@
   # TODO: AddAccentClothingComponent should use an inventory relay event.
   # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - RussianAccent
+  - ScandinavianAccent # Hardlight
   - ScrambledAccent
   - SkeletonAccent
   - SlurredAccent
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  - GoblinAccent # Frontier
-  - ScottishAccent # Frontier
-  - StreetpunkAccent # Frontier
-  - BankAccount # Frontier
-  - UltraVision # Frontier
-  - DogVision # Frontier
-  - StinkyTrait # Frontier
-  #- TallWhitelist # Frontier
-  #- ShortWhitelist # Frontier
-  #- SizeAttribute # Frontier
-  - NFSalvageMobRestrictions # Frontier
+  - EmotePitch # HardLight
+  # Frontier start
+  - GoblinAccent
+  - ScottishAccent
+  - StreetpunkAccent
+  - BankAccount
+  - UltraVision
+  - DogVision
+  - StinkyTrait
+  # - TallWhitelist
+  # - ShortWhitelist
+  # - SizeAttribute
+  - NFSalvageMobRestrictions
+  # Frontier end
+  # Starlight start: Languages
+  - LanguageSpeaker
+  - ForeignerTrait
+  eventComponents:
+  - LanguageKnowledge #Clone languages via event so if they get changed you dont suddently re-learn languages.
+  # Starlight end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

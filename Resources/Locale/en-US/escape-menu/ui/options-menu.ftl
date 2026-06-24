@@ -42,6 +42,8 @@ ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
+# Goobstation - Highlight Volume
+ui-options-highlight-volume = Chat Highlight Ping Volume:
 ui-options-radio-chime-mute = Play Radio Chime
 ui-options-tts-label = TTS Options
 ui-options-tts-enabled = Enable TTS
@@ -111,6 +113,7 @@ ui-options-ambient-occlusion = Show Ambient Occlusion
 ui-options-fps-counter = Show FPS counter
 ui-options-show-structure-smoothing = Show extended wall and window smoothing
 ui-options-show-cyborg-subtypes = Show unique Cyborg subtype sprites
+ui-options-show-aphrodisiac-effects = Show effects of aphrodisiacs
 ui-options-vp-width = Viewport width:
 ui-options-hud-layout = HUD layout:
 
@@ -372,6 +375,7 @@ ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
 ui-options-screen-shake-intensity = Screen shake intensity
+ui-options-no-filters = Disable species vision
 
 ## EE - Combat Options
 ui-options-function-look-up = Look up/Take aim
@@ -382,6 +386,8 @@ ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
 ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
 ui-options-speech-bubble-background-opacity = Speech bubble background opacity
+# Goobstation - Highlight chat sounds!
+ui-options-highlight-sound = Play sound on highlight
 
 ui-options-censor-nudity = Censor character nudity
 

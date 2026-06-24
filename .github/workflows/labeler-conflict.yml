@@ -1,5 +1,10 @@
 name: Check Merge Conflicts
 
+concurrency:
+  group: labels
+  cancel-in-progress: false
+  queue: max
+
 on:
   pull_request_target:
     types:
@@ -14,7 +19,7 @@ permissions:
 
 jobs:
   Label:
-    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'PJBot' ) && ( github.actor != 'FrontierATC' ) # Frontier
+    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'PJBot' ) && ( github.actor != 'xemeraldwingx-dot' ) # Hardlight
     runs-on: ubuntu-latest
     steps:
       - name: Check for Merge Conflicts

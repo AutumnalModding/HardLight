@@ -86,6 +86,7 @@
   - CondenserMachineCircuitBoard
   # - HotplateMachineCircuitboard # Frontier: dynamic
   - OperatingTableCircuitboard # Shitmed Change
+  - OrganHarvesterMachineCircuitboard # Mono - #3899
 
 # Shitmed
 - type: latheRecipePack
@@ -134,3 +135,4 @@
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - MedicalTechFabCircuitboard # Frontier

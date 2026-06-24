@@ -5,6 +5,7 @@
   id: BaseMob
   abstract: true
   components:
+  - type: LanguageSpeaker # Starlight
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -113,6 +114,8 @@
     - Shock
     - Cold
     - Caustic
+    - Asphyxiation
+    - Radiation
   - type: DamageOnHighSpeedImpact
     damage:
       types:

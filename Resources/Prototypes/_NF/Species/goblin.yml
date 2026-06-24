@@ -7,7 +7,7 @@
   sprites: MobGoblinSprites
   markingLimits: MobGoblinMarkingLimits
   dollPrototype: MobGoblinDummy
-  skinColoration: HumanToned #Possible values: TintedHues, Hues, HumanToned
+  skinColoration: AnyColour # Hardlight
   maleFirstNames: NamesGoblinFirstMale
   femaleFirstNames: NamesGoblinFirstFemale
   lastNames: NamesGoblinLast
@@ -59,10 +59,10 @@
       required: false
 #      defaultMarkings: [ GoblinNoseBasic ]
     UndergarmentTop:
-      points: 1
+      points: 3
       required: false
     UndergarmentBottom:
-      points: 1
+      points: 3
       required: false
     Chest:
       points: 1

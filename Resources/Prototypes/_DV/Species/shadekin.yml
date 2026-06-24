@@ -7,15 +7,15 @@
   defaultSkinTone: "#ffffff"
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
-  skinColoration: Hues
+  skinColoration: AnyColour # Hardlight
   eyeColoration: Shadekin
   maleFirstNames: names_shadekin
   femaleFirstNames: names_shadekin
   naming: First
   minAge: 18
   maxAge: 300
-  youngAge: 50
-  oldAge: 250
+  youngAge: 100
+  oldAge: 300
 
 - type: speciesBaseSprites
   id: MobShadekinSprites
@@ -63,10 +63,10 @@
       required: true
       defaultMarkings: [EarsShadekin]
     UndergarmentTop:
-      points: 1
+      points: 3
       required: false
     UndergarmentBottom:
-      points: 1
+      points: 3
       required: false
     Genital:
       points: 35

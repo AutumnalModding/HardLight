@@ -87,28 +87,53 @@
   icon: JobIconEngineeringBorg
   supervisors: job-supervisors-ChiefEngineer
   jobEntity: PlayerBorgQuadEngineer
+  
+- type: job
+  id: FreelanceQuadborg
+  name: Freelance Borg
+  description: job-description-mercenary
+  playTimeTracker: JobFreelanceQuadBorg
+  canBeAntag: false
+  startingGear: FreelanceQuadBorgGear
+  icon: "JobIconMercenary"
+  supervisors: job-supervisors-hire
+  jobEntity: PlayerBorgQuadFreelance
+  access:
+  - Mercenary
+  - Captain
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
 
 - type: startingGear
   id: MedicalQuadBorgGear
   equipment:
-    id: MedicalPDA
+    id: MedicalQuadborgPDA
 
 - type: startingGear
   id: ServiceQuadBorgGear
   equipment:
-    id: ServiceWorkerPDA
+    id: ServiceQuadborgPDA
 
 - type: startingGear
   id: SalvageQuadBorgGear
   equipment:
-    id: SalvagePDA
+    id: SalvageQuadborgPDA
 
 - type: startingGear
   id: SecurityQuadBorgGear
   equipment:
-    id: SecurityPDA
+    id: SecurityQuadborgPDA
 
 - type: startingGear
   id: EngineeringQuadBorgGear
   equipment:
-    id: EngineerPDA
+    id: EngineerQuadborgPDA
+    
+- type: startingGear
+  id: FreelanceQuadBorgGear
+  equipment:
+    id: MercenaryPDA

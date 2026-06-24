@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Server._NF.PublicTransit.Components;
@@ -13,6 +14,7 @@ using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems; // Add this if missing
+using Content.Shared._HL.Rescue.Rescue; // Hardlight
 using Content.Shared._NF.Shipyard.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -45,6 +47,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly ArrivalsSystem _arrivalsSystem = default!;
         [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!; // Hardlight
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -534,6 +537,13 @@ namespace Content.Server.GameTicking
                     if (xform.MapID != DefaultMap)
                         return;
 
+                    HashSet<Entity<ShuttleConsoleComponent>> consoles = new();
+                    _lookup.GetChildEntities(shuttleUid, consoles);
+                    if (consoles.Any(entity => !entity.Comp.CanFTL))
+                    {
+                        return;
+                    }
+
                     var shuttleRadius = 32f;
                     if (TryComp<MapGridComponent>(shuttleUid, out var grid))
                         shuttleRadius = MathF.Max(shuttleRadius, MathF.Max(grid.LocalAABB.Width, grid.LocalAABB.Height) * 0.5f);
@@ -855,6 +865,29 @@ namespace Content.Server.GameTicking
             }
         }
 
+        // Hardlight start
+        /// <summary>
+        ///     Goes through a list and deletes specified prototype entities.
+        /// </summary>
+        private void QueueDeleteEntities(params string[] prototypeIds)
+        {
+            var cleanupPrototypeIds = prototypeIds.ToHashSet();
+            var metaQuery = EntityQueryEnumerator<MetaDataComponent>();
+
+            while (metaQuery.MoveNext(out var entityUid, out var metadata))
+            {
+                var prototype = metadata.EntityPrototype;
+                if (prototype == null)
+                    continue;
+
+                if (cleanupPrototypeIds.Contains(prototype.ID))
+                {
+                    QueueDel(entityUid);
+                }
+            }
+        }
+        // Hardlight end
+
         /// <summary>
         ///     Cleanup that has to run to clear up anything from the previous round.
         ///     Stuff like wiping the previous map clean.
@@ -886,10 +919,36 @@ namespace Content.Server.GameTicking
             //            _mapManager.Restart();
 
             //            _banManager.Restart();
+            if (_map.MapExists(DefaultMap))
+                _map.DeleteMap(DefaultMap);
+
             _gameMapManager.ClearSelectedMap();
 
-            // Clear up any game rules.
+            // Hardlight - Delete specified entities before new map loads, items that have the potential to break round progression
+            QueueDeleteEntities(
+                "RescueBeacon",
+                "PinpointerNuclear", // todo: make old pinpointers have a defunct state instead of just deleting them for better rp.
+                "HandTeleporter",
+                "BoxFolderQmClipboard",
+                "DoorRemoteArmory",
+                "DoorRemoteCargo",
+                "DoorRemoteEngineering",
+                "DoorRemoteMedical",
+                "DoorRemoteResearch",
+                "DoorRemoteSecurity",
+                "DoorRemoteService",
+                "DoorRemoteCustom",
+                "DoorRemoteCommand",
+                "PinpointerMothership", // todo: same here as nuke pinpointer
+                "Demag",
+                "EncryptionKeySyndie", // The syndicate rotates their encryption! Your old ones won't work :3
+                "ShadowPortal", // Don't want shadow anomaly shenanigans on CC
+                "ShadowKudzu",
+                "ShadowKudzuWeak",
+                "ShadowTree"
+                );
 
+            // Clear up any game rules.
             ClearGameRules();
             CurrentPreset = null;
 
@@ -901,7 +960,7 @@ namespace Content.Server.GameTicking
             //{
             //    _playerGameStatuses[session.UserId] = LobbyEnabled ? PlayerGameStatus.NotReadyToPlay : PlayerGameStatus.ReadyToPlay;
             //}
-            // DefaultMap = default; // This will set DefaultMap to 0 (invalid)
+            DefaultMap = MapId.Nullspace;
             RoundId = 0;
 
             // Remove all job slots from every station

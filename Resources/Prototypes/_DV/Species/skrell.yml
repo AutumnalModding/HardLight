@@ -8,7 +8,7 @@
   defaultSkinTone: "#8cd7a3"
   markingLimits: MobSkrellMarkingLimits
   dollPrototype: MobSkrellDummy
-  skinColoration: Hues
+  skinColoration: AnyColour # Hardlight
   maleFirstNames: RMCNamesSkrellFirst
   femaleFirstNames: RMCNamesSkrellFirst
   lastNames: RMCNamesSkrellLast
@@ -81,10 +81,10 @@
       points: 4
       required: false
     UndergarmentTop:
-      points: 1
+      points: 3
       required: false
     UndergarmentBottom:
-      points: 1
+      points: 3
       required: false
 
 # All humanoidBaseSprite definitions below remain unchanged

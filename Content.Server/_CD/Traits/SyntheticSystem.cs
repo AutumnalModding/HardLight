@@ -10,7 +10,7 @@ public sealed class SyntheticSystem : EntitySystem // HardLight: Synth<Synthetic
 {
     // Begin DeltaV - make strings static readonly
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
-    private static readonly ProtoId<ReagentPrototype> SyntheticBloodReagent = "SyntheticBlood"; // HardLight: Synth<Synthetic
+    private static readonly ProtoId<ReagentPrototype> SyntheticBloodReagent = "SynthBlood";
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
@@ -31,6 +31,6 @@ public sealed class SyntheticSystem : EntitySystem // HardLight: Synth<Synthetic
         }
 
         // Give them synthetic blood. Ion storm notif is handled in that system, // HardLight: synth<synthetic
-        _bloodstream.ChangeBloodReagent(uid, SyntheticBloodReagent); // DeltaV - make strings static readonly, // HardLight: Synth<Synthetic
+        _bloodstream.ChangeBloodReagent(uid, SyntheticBloodReagent, storeOriginalBloodReagent: false); // DeltaV - make strings static readonly, // HardLight: Synth<Synthetic
     }
 }

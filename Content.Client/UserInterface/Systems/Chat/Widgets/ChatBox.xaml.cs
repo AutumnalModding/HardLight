@@ -43,9 +43,12 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextEntered += OnTextEntered;
         ChatInput.Input.OnKeyBindDown += OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged += OnTextChanged;
+        ChatInput.Input.OnFocusEnter += OnFocusEnter;
+        ChatInput.Input.OnFocusExit += OnFocusExit;
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        ChatInput.FilterButton.Popup.OnRadioFilterChanged += OnRadioFilterChanged;
 
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
@@ -70,6 +73,14 @@ public partial class ChatBox : UIWidget
     {
         Logger.DebugS("chat", $"{msg.Channel}: {msg.Message}");
         if (!ChatInput.FilterButton.Popup.IsActive(msg.Channel))
+        {
+            return;
+        }
+
+        // HardLight: client-side radio channel filter
+        if (msg.Channel == ChatChannel.Radio
+            && msg.RadioChannelId != null
+            && !ChatInput.FilterButton.Popup.IsRadioChannelVisible(msg.RadioChannelId))
         {
             return;
         }
@@ -138,6 +149,16 @@ public partial class ChatBox : UIWidget
         }
     }
 
+    // HardLight: repopulate when a radio sub-channel filter changes
+    private void OnRadioFilterChanged()
+    {
+        Contents.Clear();
+        foreach (var message in _controller.History)
+        {
+            OnMessageAdded(message.Item2);
+        }
+    }
+
     private void OnNewHighlights(string highlighs)
     {
         _controller.UpdateHighlights(highlighs);
@@ -158,7 +179,7 @@ public partial class ChatBox : UIWidget
                 ("size", 8+sizeIncrease)
             ));
         } // WD EDIT END
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)
@@ -229,6 +250,18 @@ public partial class ChatBox : UIWidget
 
         // Warn typing indicator about change
         _controller.NotifyChatTextChange();
+    }
+
+    private void OnFocusEnter(LineEditEventArgs args)
+    {
+        // Warn typing indicator about focus
+        _controller.NotifyChatFocus(true);
+    }
+
+    private void OnFocusExit(LineEditEventArgs args)
+    {
+        // Warn typing indicator about focus
+        _controller.NotifyChatFocus(false);
     }
 
     protected override void Dispose(bool disposing)

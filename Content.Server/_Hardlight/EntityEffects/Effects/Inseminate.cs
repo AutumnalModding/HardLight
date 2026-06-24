@@ -1,6 +1,5 @@
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
-using Content.Server.Animals.Components;
+using Content.Shared.Animals.Components; // HL: Moved the LewdEggLayingComponent to Shared
 using Content.Server.Animals.Systems;
 using Robust.Shared.Prototypes;
 

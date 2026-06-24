@@ -63,6 +63,7 @@ namespace Content.Server.Shuttles.Systems
             // in which case I would also add their subs here.
             SubscribeLocalEvent<ShuttleConsoleComponent, DockRequestMessage>(OnRequestDock);
             SubscribeLocalEvent<ShuttleConsoleComponent, UndockRequestMessage>(OnRequestUndock);
+            SubscribeLocalEvent<ShuttleConsoleComponent, UndockAllRequestMessage>(OnRequestUndockAll);
         }
 
         public void UndockDocks(EntityUid gridUid)
@@ -98,7 +99,7 @@ namespace Content.Server.Shuttles.Systems
         private void OnShutdown(EntityUid uid, DockingComponent component, ComponentShutdown args)
         {
             if (component.DockedWith == null ||
-                EntityManager.GetComponent<MetaDataComponent>(uid).EntityLifeStage > EntityLifeStage.MapInitialized)
+                Comp<MetaDataComponent>(uid).EntityLifeStage > EntityLifeStage.MapInitialized)
             {
                 return;
             }
@@ -141,8 +142,8 @@ namespace Content.Server.Shuttles.Systems
             dockA.DockJointId = null;
 
             // If these grids are ever null then need to look at fixing ordering for unanchored events elsewhere.
-            var gridAUid = EntityManager.GetComponent<TransformComponent>(dockAUid).GridUid;
-            var gridBUid = EntityManager.GetComponent<TransformComponent>(dockBUid.Value).GridUid;
+            var gridAUid = Comp<TransformComponent>(dockAUid).GridUid;
+            var gridBUid = Comp<TransformComponent>(dockBUid.Value).GridUid;
 
             var msg = new UndockEvent
             {
@@ -163,7 +164,7 @@ namespace Content.Server.Shuttles.Systems
             var component = entity.Comp;
 
             // Use startup so transform already initialized
-            if (!EntityManager.GetComponent<TransformComponent>(uid).Anchored)
+            if (!Comp<TransformComponent>(uid).Anchored)
                 return;
 
             // This little gem is for docking deserialization
@@ -190,7 +191,7 @@ namespace Content.Server.Shuttles.Systems
                 if (MetaData(component.DockedWith.Value).EntityLifeStage < EntityLifeStage.Initialized)
                     return;
 
-                var otherDock = EntityManager.GetComponent<DockingComponent>(component.DockedWith.Value);
+                var otherDock = Comp<DockingComponent>(component.DockedWith.Value);
                 DebugTools.Assert(otherDock.DockedWith != null);
 
                 Dock((uid, component), (component.DockedWith.Value, otherDock));
@@ -241,8 +242,8 @@ namespace Content.Server.Shuttles.Systems
             // https://gamedev.stackexchange.com/questions/98772/b2distancejoint-with-frequency-equal-to-0-vs-b2weldjoint
 
             // We could also potentially use a prismatic joint? Depending if we want clamps that can extend or whatever
-            var dockAXform = EntityManager.GetComponent<TransformComponent>(dockAUid);
-            var dockBXform = EntityManager.GetComponent<TransformComponent>(dockBUid);
+            var dockAXform = Comp<TransformComponent>(dockAUid);
+            var dockBXform = Comp<TransformComponent>(dockBUid);
 
             DebugTools.Assert(dockAXform.GridUid != null);
             DebugTools.Assert(dockBXform.GridUid != null);
@@ -258,8 +259,8 @@ namespace Content.Server.Shuttles.Systems
                 SharedJointSystem.LinearStiffness(
                     2f,
                     0.7f,
-                    EntityManager.GetComponent<PhysicsComponent>(gridA).Mass,
-                    EntityManager.GetComponent<PhysicsComponent>(gridB).Mass,
+                    Comp<PhysicsComponent>(gridA).Mass,
+                    Comp<PhysicsComponent>(gridB).Mass,
                     out var stiffness,
                     out var damping);
 
@@ -278,8 +279,8 @@ namespace Content.Server.Shuttles.Systems
                     joint = _jointSystem.GetOrCreateWeldJoint(gridA, gridB, DockingJoint + dockAUid);
                 }
 
-                var gridAXform = EntityManager.GetComponent<TransformComponent>(gridA);
-                var gridBXform = EntityManager.GetComponent<TransformComponent>(gridB);
+                var gridAXform = Comp<TransformComponent>(gridA);
+                var gridBXform = Comp<TransformComponent>(gridB);
 
                 var anchorA = dockAXform.LocalPosition + dockAXform.LocalRotation.ToWorldVec() / 2f;
                 var anchorB = dockBXform.LocalPosition + dockBXform.LocalRotation.ToWorldVec() / 2f;
@@ -420,16 +421,18 @@ namespace Content.Server.Shuttles.Systems
 
             var shuttleUid = Transform(console.Value).GridUid;
 
-            if (!CanShuttleDock(shuttleUid))
+            if (!TryGetEntity(args.DockEntity, out var ourDock) ||
+                !TryGetEntity(args.TargetDockEntity, out var targetDock) ||
+                !TryComp(ourDock, out DockingComponent? ourDockComp) ||
+                !TryComp(targetDock, out DockingComponent? targetDockComp))
             {
                 _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
                 return;
             }
 
-            if (!TryGetEntity(args.DockEntity, out var ourDock) ||
-                !TryGetEntity(args.TargetDockEntity, out var targetDock) ||
-                !TryComp(ourDock, out DockingComponent? ourDockComp) ||
-                !TryComp(targetDock, out DockingComponent? targetDockComp))
+            // VRS: check both shuttles; gas docks bypass PreventPilotComponent (Triad #3817)
+            var otherShuttleUid = Transform(targetDock.Value).GridUid;
+            if (!CanShuttleDock(shuttleUid, ourDockComp) || !CanShuttleDock(otherShuttleUid, targetDockComp))
             {
                 _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
                 return;
@@ -500,6 +503,38 @@ namespace Content.Server.Shuttles.Systems
 
             return CanDock(new MapCoordinates(worldPosA, xformA.MapID), worldRotA,
                 new MapCoordinates(worldPosB, xformB.MapID), worldRotB);
+        }
+
+        private void OnRequestUndockAll(EntityUid uid, ShuttleConsoleComponent component, UndockAllRequestMessage args)
+        {
+            if (args.DockEntities.Count == 0)
+                return;
+
+            var undockedAny = false;
+
+            foreach (var dockEntity in args.DockEntities)
+            {
+                if (!TryGetEntity(dockEntity, out var dockEnt) ||
+                    !TryComp(dockEnt, out DockingComponent? dockComp))
+                {
+                    continue;
+                }
+
+                var dock = (dockEnt.Value, dockComp);
+
+                if (!CanUndock(dock))
+                {
+                    continue;
+                }
+
+                Undock(dock);
+                undockedAny = true;
+            }
+
+            if (!undockedAny)
+            {
+                _popup.PopupCursor(Loc.GetString("shuttle-console-undock-fail"));
+            }
         }
     }
 }

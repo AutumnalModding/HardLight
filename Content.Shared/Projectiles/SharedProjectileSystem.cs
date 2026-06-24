@@ -79,7 +79,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    private static readonly string GunCanAimShooterTag = "GunCanAimShooter";
 
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -109,8 +108,19 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // Subscribe to ensure MetaDataComponent on projectile entities for networking
         SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
 
+        // HardLight: record the origin grid so ship-gun shells can phase through their own ship.
+        SubscribeLocalEvent<Content.Shared._Mono.ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
+
         // Mono
         SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
+    }
+
+    /// <summary>
+    /// HardLight: record the origin grid so the projectile can phase through it for its whole flight.
+    /// </summary>
+    private void OnProjectileGridPhaseStartup(EntityUid uid, Content.Shared._Mono.ProjectileGridPhaseComponent component, ComponentStartup args)
+    {
+        component.SourceGrid = Transform(uid).GridUid;
     }
 
     /// <summary>
@@ -483,6 +493,16 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             args.Cancelled = true;
         }
 
+        // HardLight: ship-gun shells phase through every entity on their origin grid (hull, shield,
+        // turrets) for their whole flight, so they never collide with / get slowed by their own ship.
+        if (TryComp<Content.Shared._Mono.ProjectileGridPhaseComponent>(uid, out var phaseComp)
+            && phaseComp.SourceGrid is { } sourceGrid
+            && Transform(args.OtherEntity).GridUid == sourceGrid)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         // Check if any shield system wants to prevent collision
         var ev = new ProjectileCollisionAttemptEvent(uid, args.OtherEntity);
         RaiseLocalEvent(ref ev);
@@ -501,11 +521,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-
-            if ((component.Shooter == args.OtherEntity || component.Weapon == args.OtherEntity) &&
-            component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
-            TryComp<TargetedProjectileComponent>(uid, out var targeted) && EntityManager.GetEntity(targeted.Target) == args.OtherEntity)
-            return;
     }
 
     // Goobstation - Crawling fix

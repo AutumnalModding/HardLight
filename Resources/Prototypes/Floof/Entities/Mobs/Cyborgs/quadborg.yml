@@ -70,21 +70,24 @@
     - Trinary # Hardlight
     - Science
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
     - Trinary # Hardlight
     - Science
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
     - Trinary # Hardlight
     - Science
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
-    maxModules: 5
+    maxModules: 8
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
@@ -161,6 +164,7 @@
     - Security
     - Science
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -169,6 +173,7 @@
     - Security
     - Science
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -177,9 +182,10 @@
     - Security
     - Science
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
-    maxModules: 5
+    maxModules: 8
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
@@ -235,18 +241,21 @@
     - Trinary # Hardlight
     - Syndicate
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
     - Trinary # Hardlight
     - Syndicate
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
     - Trinary # Hardlight
     - Syndicate
     - Common
+    - Faction
   # HardLight end
   - type: NpcFactionMember
     factions:
@@ -381,6 +390,55 @@
     movementStateOn: chews_movingballz
 
 - type: entity
+  id: littlehelper
+  parent: [BorgChassisApex]
+  components:
+  - type: Sprite
+    sprite: _HL/Mobs/Player/borgs/quads.rsi
+    scale: 0.7, 0.7
+    layers:
+    - state: littlehelper
+      map: ["movement"]
+    - state: littlehelperr
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: littlehelperl
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 8
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSecurity
+      - BorgModuleMedical
+      - BorgModuleSyndicate
+      - BorgModuleSyndicateAssault
+      - XenoborgModuleGeneric
+    hasMindState: littlehelperr
+    noMindState: littlehelper
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: littlehelper_moving
+    noMovementLayers:
+      movement:
+        state: littlehelper
+  - type: BorgTransponder
+    sprite:
+      sprite: _HL/Mobs/Player/borgs/quads.rsi
+      state: littlehelper
+    name: cyborg
+  - type: SpriteStateToggle
+    spriteLayer: movement
+    stateOff: littlehelper
+    stateOn: littlehelperballz
+    movementStateOff: littlehelper_moving
+    movementStateOn: littlehelper_movingballz
+
+- type: entity
   id: wolfborg
   parent: [BorgChassisApex]
   components:
@@ -483,6 +541,7 @@
     - Supply
     - Service
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -497,6 +556,7 @@
     - Supply
     - Service
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -511,6 +571,7 @@
     - Supply
     - Service
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
     maxModules: 12 #HL
@@ -583,6 +644,7 @@
     - Science
     - Supply
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -590,6 +652,7 @@
     - Science
     - Supply
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -597,6 +660,7 @@
     - Science
     - Supply
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
     maxModules: 7
@@ -655,6 +719,7 @@
     - Science
     - Service
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -662,6 +727,7 @@
     - Science
     - Service
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -669,6 +735,7 @@
     - Science
     - Service
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
     maxModules: 8
@@ -731,6 +798,7 @@
     - Engineering
     - Science
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -738,6 +806,7 @@
     - Engineering
     - Science
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -745,6 +814,7 @@
     - Engineering
     - Science
     - Common
+    - Faction
   # HardLight end
   - type: BorgChassis
     maxModules: 8
@@ -808,6 +878,7 @@
     - Medical
     - Science
     - Common
+    - Faction
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Binary
@@ -815,6 +886,7 @@
     - Medical
     - Science
     - Common
+    - Faction
   - type: ActiveRadio
     intrinsicChannels:
     - Binary
@@ -822,6 +894,7 @@
     - Medical
     - Science
     - Common
+    - Faction
   - type: SurgerySpeedModifier #shitmed
     speedModifier: 1.75
   # HardLight end

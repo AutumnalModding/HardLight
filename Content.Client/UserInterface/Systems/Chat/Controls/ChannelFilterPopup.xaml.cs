@@ -34,14 +34,18 @@ public sealed partial class ChannelFilterPopup : Popup
 
     private readonly Dictionary<ChatChannel, ChannelFilterCheckbox> _filterStates = new();
 
+    private RadioFilterWindow? _radioFilterWindow;
+
     public event Action<ChatChannel, bool>? OnChannelFilter;
     public event Action<string>? OnNewHighlights;
+    public event Action? OnRadioFilterChanged;
 
     public ChannelFilterPopup()
     {
         RobustXamlLoader.Load(this);
 
         HighlightButton.OnPressed += HighlightsEntered;
+        RadioFilterButton.OnPressed += OnRadioFilterButtonPressed;
         // Add a placeholder text to the highlights TextEdit.
         HighlightEdit.Placeholder = new Rope.Leaf(Loc.GetString("hud-chatbox-highlights-placeholder"));
 
@@ -127,6 +131,24 @@ public sealed partial class ChannelFilterPopup : Popup
     {
         OnNewHighlights?.Invoke(Rope.Collapse(HighlightEdit.TextRope));
     }
+
+    private void OnRadioFilterButtonPressed(ButtonEventArgs _args)
+    {
+        if (_radioFilterWindow == null)
+        {
+            _radioFilterWindow = new RadioFilterWindow();
+            _radioFilterWindow.OnFilterChanged += () => OnRadioFilterChanged?.Invoke();
+        }
+
+        if (_radioFilterWindow.IsOpen)
+            _radioFilterWindow.Close();
+        else
+            _radioFilterWindow.OpenCentered();
+    }
+
+    /// <summary>Returns true if a radio channel should be shown in the chat box.</summary>
+    public bool IsRadioChannelVisible(string channelId)
+        => _radioFilterWindow?.IsChannelVisible(channelId) ?? true;
 
     public void UpdateUnread(ChatChannel channel, int? unread)
     {

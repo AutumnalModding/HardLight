@@ -1,37 +1,40 @@
 #nullable enable
+using Content.Server._Mono.Ships.Systems; // Mono
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Salvage.Expeditions;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
+using Content.Shared._Mono.Ships.Components; // Mono
 using Content.Shared._NF.Shuttles.Events; // Frontier
+using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
+using Content.Shared.Construction.Components; // Frontier
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Procedural;
+using Content.Shared.Salvage.Expeditions;
+using Content.Shared.Salvage.Expeditions.Modifiers;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Events;
 using Content.Shared.Shuttles.Systems;
-using Content.Shared.Tag;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Power;
 using Content.Shared.Shuttles.UI.MapObjects;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Content.Shared.Timing;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Utility;
-using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
-using Content.Shared.Access.Systems; // Frontier
-using Content.Shared.Construction.Components; // Frontier
-using Content.Server.Salvage.Expeditions;
-using Content.Shared.Procedural;
-using Content.Shared.Salvage.Expeditions;
-using Content.Shared.Salvage.Expeditions.Modifiers;
-using Robust.Shared.Audio.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -54,6 +57,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly Content.Server.Salvage.SalvageSystem _salvage = default!;
     [Dependency] private readonly ExpeditionDiskSystem _expeditionDisks = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!; // HL
+    [Dependency] private readonly CrewedShuttleSystem _crewedShuttle = default!; // Mono
+    [Dependency] private readonly SharedStationAiSystem _sharedStationAiSystem = default!;
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -221,6 +226,19 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     private void OnConsoleUIOpenAttempt(EntityUid uid, ShuttleConsoleComponent component,
         ActivatableUIOpenAttemptEvent args)
     {
+        // Mono: on crewed shuttles, deny opening a shuttle console if this user already has
+        // a gunnery console open on the same grid (unless they are an AdvancedPilot).
+        var shuttle = _transform.GetParentUid(uid);
+        var uiOpen = _crewedShuttle.AnyGunneryConsoleActiveByPlayer(shuttle, args.User);
+        var forceOne = HasComp<CrewedShuttleComponent>(shuttle) && !HasComp<AdvancedPilotComponent>(args.User);
+
+        if (uiOpen && forceOne)
+        {
+            args.Cancel();
+            _popup.PopupClient(Loc.GetString("shuttle-console-crewed"), args.User);
+            return;
+        }
+
         if (!TryPilot(args.User, uid))
             args.Cancel();
     }
@@ -612,6 +630,12 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         pilotComponent.Console = uid;
         ActionBlockerSystem.UpdateCanMove(entity);
+
+        //Hardlight: If pilot is an AI, remove AI Eye control
+        if (_sharedStationAiSystem.TryGetCore(entity, out var core))
+            _sharedStationAiSystem.SwitchPilotingMode(core, true);
+        //Hardlight end
+
         pilotComponent.Position = EntityManager.GetComponent<TransformComponent>(entity).Coordinates;
         Dirty(entity, pilotComponent);
     }
@@ -633,6 +657,11 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         _alertsSystem.ClearAlert(pilotUid, pilotComponent.PilotingAlert);
 
         _popup.PopupEntity(Loc.GetString("shuttle-pilot-end"), pilotUid, pilotUid);
+
+        //Hardlight: If pilot is an AI, return AI Eye control
+        if (_sharedStationAiSystem.TryGetCore(pilotUid, out var core))
+            _sharedStationAiSystem.SwitchPilotingMode(core, false);
+        //Hardlight end
 
         if (pilotComponent.LifeStage < ComponentLifeStage.Stopping)
             EntityManager.RemoveComponent<PilotComponent>(pilotUid);

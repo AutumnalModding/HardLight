@@ -1,23 +1,28 @@
-using System.Linq;
+using Content.Server._CorvaxNext.Silicons.Borgs.Components;
+using Content.Server._Mono.SpaceArtillery.Components;
+using Content.Server._NF.Roles.Systems; // VRS: move JobTrackingComponent across shunt (HL #1354)
 using Content.Server.Mech.Systems;
 using Content.Server.Silicons.Borgs;
 using Content.Server.Silicons.Laws;
 using Content.Server.SurveillanceCamera;
-using Content.Server._CorvaxNext.Silicons.Borgs.Components;
-using Content.Server._Mono.SpaceArtillery.Components;
-using Content.Shared.Mech.Components;
+using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared._HL.Silicons.Components;
+using Content.Shared._NF.Roles.Components; // VRS: move JobTrackingComponent across shunt (HL #1354)
 using Content.Shared.Actions;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mind;
 using Content.Shared.PAI;
 using Content.Shared.Popups;
-using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Turrets;
 using Content.Shared.Verbs;
-using Robust.Shared.GameStates;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
+using System.Linq;
 
 namespace Content.Server._CorvaxNext.Silicons.Borgs;
 
@@ -30,6 +35,8 @@ public sealed class PositronicJumpSystem : EntitySystem
     [Dependency] private readonly SiliconLawSystem _lawSystem = default!;
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly JobTrackingSystem _jobTracking = default!; // VRS: HL #1354
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     private const string ReturnToAiAction = "ActionBackToAi";
 
@@ -115,6 +122,10 @@ public sealed class PositronicJumpSystem : EntitySystem
         if (_mind.TryGetMind(uid, out _, out _))
             return;
 
+        //Hardlight: If the user is an AI, then make sure target isn't invalid borg
+        if (HasComp<StationAiHeldComponent>(args.User) && !AITargetingValidBorg(args.User, uid))
+            return;
+        //Hardlight End
         var user = args.User;
         var target = uid;
 
@@ -242,7 +253,12 @@ public sealed class PositronicJumpSystem : EntitySystem
             return;
         }
 
-        if (!ReturnTargetAvailable(returnComp.ReturnTarget.Value))
+        var returnTarget = ResolveReturnOrigin(uid);
+
+        if (returnTarget == uid)
+            return;
+
+        if (!ReturnTargetAvailable(returnTarget))
             return;
 
         args.Verbs.Add(new AlternativeVerb
@@ -261,6 +277,37 @@ public sealed class PositronicJumpSystem : EntitySystem
             return false;
 
         return true;
+    }
+
+    private EntityUid ResolveReturnOrigin(EntityUid entity)
+    {
+        var resolved = entity;
+        var visited = new HashSet<EntityUid>();
+
+        while (visited.Add(resolved)
+               && TryComp<PositronicReturnComponent>(resolved, out var returnComp)
+               && returnComp.ReturnTarget is { } next
+               && next.IsValid()
+               && Exists(next))
+        {
+            resolved = next;
+        }
+
+        return resolved;
+    }
+
+    private void TransferReturnState(EntityUid from, EntityUid to)
+    {
+        var returnTarget = ResolveReturnOrigin(from);
+        var returnComp = EnsureComp<PositronicReturnComponent>(to);
+        returnComp.ReturnTarget = returnTarget;
+        _actions.AddAction(to, ref returnComp.ReturnActionEntity, ReturnToAiAction);
+
+        if (!TryComp<PositronicReturnComponent>(from, out var previousReturnComp))
+            return;
+
+        RemoveReturnAction(previousReturnComp);
+        RemComp<PositronicReturnComponent>(from);
     }
 
     private void OnReturnMindIntoAi(EntityUid uid, PositronicReturnComponent component, ref ReturnMindIntoAiEvent args)
@@ -290,19 +337,66 @@ public sealed class PositronicJumpSystem : EntitySystem
         if (mind.OwnedEntity == target)
             return false;
 
+        //Hardlight: If user is AI make sure they're not taking over an invalid borg
+        if (HasComp<StationAiHeldComponent>(user) && !AITargetingValidBorg(user, target))
+            return false;
+        //Hardlight end
+
         if (mind.OwnedEntity != null)
-        {
-            var previous = mind.OwnedEntity.Value;
-            var returnComp = EnsureComp<PositronicReturnComponent>(target);
-            returnComp.ReturnTarget = previous;
-            _actions.AddAction(target, ref returnComp.ReturnActionEntity, ReturnToAiAction);
-        }
+            TransferReturnState(mind.OwnedEntity.Value, target);
 
         _lawSystem.CopyLawsProvider(user, target);
+        // VRS: Move job tracking with the mind so the source's MindRemovedMessage doesn't release
+        // the AI job slot to new joiners while the player is still occupying the role on a borg.
+        // (HardLight issue #1354.) The destination's subsequent MindAddedMessage will run
+        // CloseJob -> IsPlayerJobTracked check -> no-op, leaving the slot at its current value.
+        TransferJobTracking(user, target);
         _mind.TransferTo(mindId, target, ghostCheckOverride: true, mind: mind);
         return true;
     }
 
+    /// <summary>
+    /// Checks target to make sure user can take control
+    /// </summary>
+    /// <param name="user">User attempting to take control</param>
+    /// <param name="target">Target user is trying to control</param>
+    /// <returns></returns>
+    public bool IsTargetValidControlCandidate(EntityUid user, EntityUid target)
+    {
+        if (!_mind.TryGetMind(user, out var mindId, out var mind))
+            return false;
+
+        if (_mind.TryGetMind(target, out _, out _))
+            return false;
+
+        if (mind.OwnedEntity == target)
+            return false;
+
+        return true;
+    }
+
+    //Hardlight:
+    /// <summary>
+    /// Checks if the target is a borg and if so, make sure it has the proper receiver
+    /// installed to restrict AI takeovers.
+    /// </summary>
+    /// <param name="user"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public bool AITargetingValidBorg(EntityUid user, EntityUid target)
+    {
+        if (!TryComp<BorgChassisComponent>(target, out var chassis))
+            return true;
+
+        if (!TryComp<AIShuntReceiverComponent>(chassis.BrainContainer.ContainedEntity, out var radioComponent))
+            return false;
+
+        if (radioComponent.AssignedGrid == null || radioComponent?.AssignedGrid != _transformSystem.GetGrid(user))
+            return false;
+
+        return true;
+    }
+    //Hardlight End
     public bool TryReturnControl(EntityUid target)
     {
         if (TryComp<RemoteMechPilotComponent>(target, out var remoteMechPilot))
@@ -317,16 +411,35 @@ public sealed class PositronicJumpSystem : EntitySystem
             return false;
         }
 
-        var returnTarget = returnComp.ReturnTarget.Value;
+        var returnTarget = ResolveReturnOrigin(target);
+
+        if (returnTarget == target)
+            return false;
 
         if (!ReturnTargetAvailable(returnTarget))
             return false;
 
         RemoveReturnAction(returnComp);
 
+        // VRS: Mirror the outbound shunt so the slot stays held when control returns to the AI core
+        // (HardLight issue #1354).
+        TransferJobTracking(target, returnTarget);
         _mind.TransferTo(mindId, returnTarget, ghostCheckOverride: true, mind: mind);
         RemComp<PositronicReturnComponent>(target);
         return true;
+    }
+
+    /// <summary>
+    /// VRS: Move <see cref="JobTrackingComponent"/> from <paramref name="from"/> to
+    /// <paramref name="to"/> so the upcoming mind transfer does not release the source's job slot.
+    /// Used by the AI / borg shunt path (HardLight issue #1354).
+    /// </summary>
+    private void TransferJobTracking(EntityUid from, EntityUid to)
+    {
+        if (!HasComp<JobTrackingComponent>(from))
+            return;
+
+        _jobTracking.MoveTrackingFromTo(from, to);
     }
 
     private bool TryTakeMechControl(EntityUid user, EntityUid mech, MechComponent mechComponent)
@@ -360,9 +473,6 @@ public sealed class PositronicJumpSystem : EntitySystem
         var remotePilot = EnsureComp<RemoteMechPilotComponent>(proxy);
         remotePilot.Mech = mech;
 
-        var returnComp = EnsureComp<PositronicReturnComponent>(proxy);
-        returnComp.ReturnTarget = previous;
-
         if (!_mech.TryInsert(mech,
                 proxy,
                 mechComponent,
@@ -375,7 +485,7 @@ public sealed class PositronicJumpSystem : EntitySystem
             return false;
         }
 
-        _actions.AddAction(proxy, ref returnComp.ReturnActionEntity, ReturnToAiAction);
+        TransferReturnState(previous, proxy);
 
         if (mechComponent.MechEjectActionEntity != null)
         {
@@ -404,7 +514,10 @@ public sealed class PositronicJumpSystem : EntitySystem
             return false;
         }
 
-        var returnTarget = returnComp.ReturnTarget.Value;
+        var returnTarget = ResolveReturnOrigin(proxy);
+
+        if (returnTarget == proxy)
+            return false;
 
         if (!ReturnTargetAvailable(returnTarget))
             return false;

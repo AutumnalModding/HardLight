@@ -12,6 +12,18 @@
             - material: Paper
               amount: 1
               doAfter: 1
+        # Chud Means Frend
+        - to: PosterChudMeansFrend
+          steps:
+            - material: Paper
+              amount: 1
+              doAfter: 1
+        # Chud Means Lets Fuck
+        - to: PosterChudMeansLetsFuck
+          steps:
+            - material: Paper
+              amount: 1
+              doAfter: 1
         # Contraband Posters
         - to: PosterContrabandFreeTonto
           steps:
@@ -1958,6 +1970,28 @@
           steps:
             - tool: Prying
               doAfter: 1
+    - node: PosterChudMeansFrend
+      entity: PosterChudMeansFrend
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPaper
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
+    - node: PosterChudMeansLetsFuck
+      entity: PosterChudMeansLetsFuck
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPaper
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1
     #Map Poster Nodes
     - node: PosterMapBagel
       entity: PosterMapBagel
@@ -2080,3 +2114,4 @@
           steps:
             - tool: Prying
               doAfter: 1
+

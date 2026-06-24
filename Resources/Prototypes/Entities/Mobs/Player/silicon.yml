@@ -11,6 +11,7 @@
     - Trinary # Hardlight
     - ColSec
     - Common
+    - Faction
     - Command
     - Engineering
     - Freelance
@@ -28,6 +29,7 @@
     - Trinary # Hardlight
     - ColSec
     - Common
+    - Faction
     - Command
     - Engineering
     - Freelance
@@ -103,6 +105,7 @@
     - Binary
     - Trinary # Hardlight
     - Common
+    - Faction
   - type: ActionGrant
     actions:
     - ActionAIViewLaws
@@ -441,7 +444,7 @@
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
-  parent: PositronicBrain
+  parent: [ BaseSiliconLanguages, PositronicBrain ] # Starlight: Languages
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
@@ -485,6 +488,7 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+    - CanPilot # Hardlight
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
@@ -509,7 +513,7 @@
   description: The AI's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
-  - type: NoFTL
+  #- type: NoFTL Hardlight: Removed to stop eyes breaking when expeditions end
   - type: Tag
     tags:
     - GhostOnlyWarp

@@ -162,6 +162,7 @@
   - AmmoBox12_gaugeIncendiary
   - AmmoBox12_gaugePractice
   - AmmoBox12_gaugeUranium
+  - AmmoBox12_gaugeFlare
   - Magazine45_ACPSubMachineGunTopMountedFMJ
   - Magazine45_ACPSubMachineGunTopMountedEmpty
   - Magazine9x19mmSubMachineGunTopMountedFMJ
@@ -178,6 +179,10 @@
   - AmmoBox23x75mmFlashbang
   - AmmoBox23x75mmPractice
   - AmmoBox23x75mmUranium
+  - AmmoBoxSmallEmpty
+  - AmmoBoxMediumEmpty
+  - AmmoBoxLargeEmpty
+  - AmmoBoxShotgunEmpty
 
 #Uranium recipes
 
@@ -230,7 +235,7 @@
   - Magazine8x65mmEmpty
   - Magazine762x54mmREmpty
   - Magazine762x51mmEmpty
-  - Magazine12_gaugeEmpty 
+  - Magazine12_gaugeEmpty
   - Magazine45_ACPSubMachineGunTopMountedEmpty
   - Magazine9x19mmSubMachineGunTopMountedEmpty
   - Magazine57x28mmSubMachineGunTopMountedEmpty
@@ -394,6 +399,13 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - AmmoBox50_magnumFMJ
+  - AmmoBox50_magnumRubber
+  - AmmoBox50_magnumPractice
+  - SpeedLoader50Magnum
+  - SpeedLoader50MagnumEmpty
+  - SpeedLoader50MagnumRubber
+  - SpeedLoader50MagnumPractice
 
 #civilian = FMJ + practice + empty + rubber
 
@@ -424,6 +436,10 @@
   - Magazine9x19mmSubMachineGunTopMountedEmpty
   - Magazine57x28mmSubMachineGunTopMountedEmpty
   - Magazine46x30mmSubMachineGunTopMountedEmpty
+  - AmmoBoxSmallEmpty
+  - AmmoBoxMediumEmpty
+  - AmmoBoxLargeEmpty
+  - AmmoBoxShotgunEmpty
 #FMJ>
   - Magazine8x65mmSKR
   - AmmoBox8x65mmSKR
@@ -557,6 +573,13 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - AmmoBox50_magnumFMJ
+  - AmmoBox50_magnumRubber
+  - AmmoBox50_magnumPractice
+  - SpeedLoader50Magnum
+  - SpeedLoader50MagnumEmpty
+  - SpeedLoader50MagnumRubber
+  - SpeedLoader50MagnumPractice
 
 #advanced = Uranium + Incendiary
 
@@ -630,3 +653,7 @@
   - MagazineNovaliteC1Empty
   - Magazine635x40mmCaseless
   - Magazine635x40mmCaselessPistol
+  - MagazineSmart
+  - Magazine40mmEmpty
+  - 40mmGrenadeFlash
+  - 40mmGrenadeThermobaric

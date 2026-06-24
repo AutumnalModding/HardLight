@@ -548,6 +548,24 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         return true;
     }
 
+    public FixedPoint2 RemoveReagentAndReturn(Entity<SolutionComponent> soln, ReagentQuantity reagentQuantity) // Hardlight: This is technically the "newer" version of the API but updating the old one would break Fucking Everything so we just add this lmao
+    {
+        var (uid, comp) = soln;
+        var solution = comp.Solution;
+
+        var quant = solution.RemoveReagent(reagentQuantity);
+        if (quant <= FixedPoint2.Zero)
+            return FixedPoint2.Zero;
+
+        UpdateChemicals(soln);
+        return quant;
+    }
+
+    public FixedPoint2 RemoveReagentAndReturn(Entity<SolutionComponent> soln, ReagentId reagentId, FixedPoint2 quantity)
+    {
+        return RemoveReagentAndReturn(soln, new ReagentQuantity(reagentId, quantity)); // HL: As above
+    }
+
     /// <summary>
     ///     Removes reagent from a container.
     /// </summary>
@@ -1197,8 +1215,24 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         else
         {
             solutionComp = Comp<SolutionComponent>(solutionId);
-            DebugTools.Assert(TryComp(solutionId, out ContainedSolutionComponent? relation) && relation.Container == uid && relation.ContainerName == name);
-            DebugTools.Assert(solutionComp.Solution.Name == name);
+
+            if (!TryComp(solutionId, out ContainedSolutionComponent? relation))
+            {
+                relation = AddComp<ContainedSolutionComponent>(solutionId);
+                relation.ContainerName = name;
+            }
+
+            // Map-saved solution entities can still have stale runtime relation data here because
+            // the manager startup may run before the contained solution startup rebinds the parent.
+            if (relation.Container != uid || relation.ContainerName != name)
+            {
+                relation.Container = uid;
+                relation.ContainerName = name;
+                Dirty(solutionId, relation);
+            }
+
+            if (solutionComp.Solution.Name != name)
+                solutionComp.Solution.Name = name;
 
             var solution = solutionComp.Solution;
             solution.MaxVolume = FixedPoint2.Max(solution.MaxVolume, maxVol);

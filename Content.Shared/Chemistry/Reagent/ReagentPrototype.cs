@@ -140,6 +140,18 @@ namespace Content.Shared.Chemistry.Reagent
         public bool Absorbent = false;
 
         /// <summary>
+        /// HardLight: Whether this reagent should generate entity-specific bloodstream data such as DNA when used as a blood reagent.
+        /// </summary>
+        [DataField]
+        public bool GenerateBloodData = true;
+
+        /// <summary>
+        /// HardLight: Holds information about how this reagent spoils, if it spoils at all.
+        /// </summary>
+        [DataField]
+        public ReagentSpoilConditions? SpoilConditions;
+
+        /// <summary>
         /// How easily this reagent becomes fizzy when aggitated.
         /// 0 - completely flat, 1 - fizzes up when nudged.
         /// </summary>
@@ -232,6 +244,53 @@ namespace Content.Shared.Chemistry.Reagent
             }
         }
     }
+
+    // Hardlight start
+    [DataDefinition]
+    public sealed partial class ReagentSpoilConditions
+    {
+        /// <summary>
+        /// HardLight: What reagent this spoils into. If null, the reagent simply disappears when it spoils.
+        /// </summary>
+        [DataField("spoilsInto")]
+        public ProtoId<ReagentPrototype>? SpoilsInto;
+
+        /// <summary>
+        /// HardLight: The time it takes for this reagent to spoil.
+        /// </summary>
+        [DataField("spoilTime")]
+        public TimeSpan SpoilTime = TimeSpan.Zero;
+
+        /// <summary>
+        /// HardLight: Whether this reagent should be preserved from spoilage when in the bloodstream.
+        /// </summary>
+        [DataField]
+        public bool BloodstreamPreserve;
+
+        /// <summary>
+        /// HardLight: Whether containers marked as preserving spoilage-sensitive reagents prevent this reagent from spoiling.
+        /// </summary>
+        [DataField]
+        public bool PreservedBySpoilageContainers = true;
+
+        /// <summary>
+        /// HardLight: A list of bloodstream types that this reagent is preserved in.
+        /// </summary>
+        [DataField]
+        public HashSet<string> AllowedBloodTypes = new();
+
+        public bool ShouldSpoil(bool inBloodstream, string? bloodType)
+        {
+            if (BloodstreamPreserve && inBloodstream)
+                return false;
+
+            if (AllowedBloodTypes.Count > 0)
+                return inBloodstream && bloodType != null && AllowedBloodTypes.Contains(bloodType);
+
+            return true;
+        }
+    }
+    // Hardlight end
 
     [Serializable, NetSerializable]
     public struct ReagentGuideEntry

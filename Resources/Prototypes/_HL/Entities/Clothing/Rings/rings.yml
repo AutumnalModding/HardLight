@@ -16,6 +16,7 @@
   - type: Construction
     node: ring
 
+
 - type: entity
   parent: BaseItem
   id: ScrapRingLVUnfinished

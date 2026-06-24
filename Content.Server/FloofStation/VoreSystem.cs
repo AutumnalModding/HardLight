@@ -1,10 +1,7 @@
-using Content.Shared.Verbs;
 using Robust.Shared.Containers;
-using Robust.Shared.Utility;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Body.Components;
 using Content.Server._Common.Consent;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Examine;
 using Content.Server.Atmos.Components;
 using Content.Server.Temperature.Components;
@@ -28,18 +25,17 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.PowerCell.Components;
 using System.Linq;
-using Content.Shared.Forensics;
-using Content.Server.Forensics;
 using Content.Shared.Contests;
 using Content.Shared.Standing;
 using Content.Server.Power.Components;
-using Content.Shared.PowerCell;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Mind.Components;
+using Content.Server._Starlight.NullSpace;
+using Content.Shared._Starlight.NullSpace;
 
 namespace Content.Server.FloofStation;
 
-public sealed class VoreSystem : EntitySystem
+public sealed class VoreSystem : SharedVoreSystem // HL: Changed the base to Shared so the client can handle verb drawing
 {
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -60,13 +56,13 @@ public sealed class VoreSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly FoodSystem _food = default!;
+    [Dependency] private readonly NullSpacePhaseSystem _phase = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<VoreComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<VoreComponent, GetVerbsEvent<InnateVerb>>(AddVerbs);
         SubscribeLocalEvent<VoreComponent, BeingGibbedEvent>(OnGibContents);
         SubscribeLocalEvent<VoreComponent, ExaminedEvent>((uid, _, args) => OnExamine(uid, args));
         SubscribeLocalEvent<VoreComponent, VoreDoAfterEvent>(OnDoAfter);
@@ -80,110 +76,7 @@ public sealed class VoreSystem : EntitySystem
         component.Stomach = _containerSystem.EnsureContainer<Container>(uid, "stomach");
     }
 
-    private void AddVerbs(EntityUid uid, VoreComponent component, GetVerbsEvent<InnateVerb> args)
-    {
-        DevourVerb(uid, component, args);
-        VoreVerb(uid, component, args);
-    }
-
-    private void DevourVerb(EntityUid uid, VoreComponent component, GetVerbsEvent<InnateVerb> args)
-    {
-        if (!args.CanInteract
-            || !args.CanAccess
-            || args.User == args.Target
-            || !HasComp<VoreComponent>(args.Target)
-            || !_consent.HasConsent(args.Target, "Vore")
-            || !_consent.HasConsent(args.User, "Vore")
-            || HasComp<VoredComponent>(args.User))
-            return;
-
-        InnateVerb verbDevour = new()
-        {
-            Act = () => TryDevour(uid, args.Target, component),
-            Text = Loc.GetString("vore-devour"),
-            Category = VerbCategory.Vore,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/devour.rsi"), "icon-on"),
-            Priority = -1
-        };
-        args.Verbs.Add(verbDevour);
-    }
-
-    private void VoreVerb(EntityUid uid, VoreComponent component, GetVerbsEvent<InnateVerb> args)
-    {
-        if (args.User != args.Target)
-            return;
-
-        // Add toggle for showing examine text
-        if (component.ShowOnExamine)
-        {
-            InnateVerb verbHideExamine = new()
-            {
-                Act = () => component.ShowOnExamine = false,
-                Text = Loc.GetString("vore-show-examine-on"),
-                Category = VerbCategory.Vore,
-                Priority = 0,
-                Message = "Will show to bystanders examine text that suggests you've consumed people"
-            };
-            args.Verbs.Add(verbHideExamine);
-        }
-        else
-        {
-            InnateVerb verbShowExamine = new()
-            {
-                Act = () => component.ShowOnExamine = true,
-                Text = Loc.GetString("vore-show-examine-off"),
-                Category = VerbCategory.Vore,
-                Priority = 0,
-                Message = "Will show to bystanders examine text that suggests you've consumed people"
-            };
-            args.Verbs.Add(verbShowExamine);
-        }
-
-        foreach (var prey in component.Stomach.ContainedEntities)
-        {
-            InnateVerb verbRelease = new()
-            {
-                Act = () => _containerSystem.TryRemoveFromContainer(prey, true),
-                Text = Loc.GetString("vore-release", ("entity", prey)),
-                Category = VerbCategory.Vore,
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
-                Priority = 2
-            };
-            args.Verbs.Add(verbRelease);
-
-            if (!TryComp<VoredComponent>(prey, out var vored))
-                return;
-
-            if (_consent.HasConsent(prey, "Digestion")
-                && HasComp<DamageableComponent>(args.Target)
-                && !vored.Digesting)
-            {
-                InnateVerb verbDigest = new()
-                {
-                    Act = () => Digest(prey),
-                    Text = Loc.GetString("vore-digest", ("entity", prey)),
-                    Category = VerbCategory.Vore,
-                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/cutlery.svg.192dpi.png")),
-                    Priority = 1,
-                    ConfirmationPopup = true
-                };
-                args.Verbs.Add(verbDigest);
-            }
-            else if (vored.Digesting)
-            {
-                InnateVerb verbStopDigest = new()
-                {
-                    Act = () => StopDigest(prey),
-                    Text = Loc.GetString("vore-stop-digest", ("entity", prey)),
-                    Category = VerbCategory.Vore,
-                    Priority = 1,
-                };
-                args.Verbs.Add(verbStopDigest);
-            }
-        }
-    }
-
-    public void TryDevour(EntityUid uid, EntityUid target, VoreComponent? component = null)
+    public override void TryDevour(EntityUid uid, EntityUid target, VoreComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -202,12 +95,28 @@ public sealed class VoreSystem : EntitySystem
                         * _contests.StaminaContest(uid, target)
                         * (_standingState.IsDown(target) ? 0.5f : 1));
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, length, new VoreDoAfterEvent(), uid, target: target)
+        if (HasComp<NullSpaceComponent>(uid))
         {
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            RequireCanInteract = true
-        });
+            _popups.PopupEntity(Loc.GetString("vore-attempt-phasenom", ("prey", target)), target, PopupType.LargeCaution);
+
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, length, new VoreDoAfterEvent(), uid, target: target)
+            {
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                RequireCanInteract = false
+            });
+        }
+        else
+        {
+            _popups.PopupEntity(Loc.GetString("vore-attempt-devour", ("entity", uid), ("prey", target)), uid, PopupType.LargeCaution);
+
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, length, new VoreDoAfterEvent(), uid, target: target)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+                RequireCanInteract = true
+            });
+        }
     }
 
     private void OnDoAfter(EntityUid uid, VoreComponent component, VoreDoAfterEvent args)
@@ -226,6 +135,12 @@ public sealed class VoreSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return;
+
+        if (HasComp<NullSpaceComponent>(uid))
+        {
+            _transform.SetWorldPositionRotation(uid, _transform.GetWorldPositionRotation(target).WorldPosition, _transform.GetWorldPositionRotation(target).WorldRotation);
+            _phase.Phase(uid);
+        }
 
         var vored = EnsureComp<VoredComponent>(target);
         vored.Pred = uid;
@@ -298,7 +213,12 @@ public sealed class VoreSystem : EntitySystem
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(uid)} got released from {ToPrettyString(args.Container.Owner)} belly");
     }
 
-    public void Digest(EntityUid uid, VoredComponent? component = null)
+    public override void ReleasePrey(EntityUid uid, VoredComponent? compnent = null) // HL: Moved this from the verb code to here so the client doesn't need the containerSystem
+    {
+        _containerSystem.TryRemoveFromContainer(uid, true);
+    }
+
+    public override void Digest(EntityUid uid, VoredComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -336,7 +256,7 @@ public sealed class VoreSystem : EntitySystem
         }
     }
 
-    public void StopDigest(EntityUid uid, VoredComponent? component = null)
+    public override void StopDigest(EntityUid uid, VoredComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;

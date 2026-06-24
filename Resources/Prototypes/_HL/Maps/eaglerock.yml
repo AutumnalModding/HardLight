@@ -74,6 +74,7 @@
           SalvageQuadBorg: [ 3, 3 ]
           # Frontier (1)
           Mercenary: [ 0, 40 ] # Freelancer
+          FreelanceQuadborg: [0, 40]
           # Civilian (7)
           Lawyer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
@@ -82,6 +83,8 @@
           Clown: [ 2, 2 ]
           Mime: [ 2, 2 ]
           Musician: [ 2, 2 ]
+          # Anomaly (1)
+          Anomaly: [ 5, 5 ]
       - type: StationDeadDrop
         maxDeadDrops: 6 # small station
       - type: StationDeadDropReporting
