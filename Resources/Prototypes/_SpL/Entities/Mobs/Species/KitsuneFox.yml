@@ -30,7 +30,7 @@
     baseWalkSpeed: 3.25
     baseSprintSpeed: 6.25
   - type: Speech
-    speechVerb: Kitsune
+    speechVerb: KitsuneFox
     allowedEmotes: ['Growl', 'Squeak', 'Yip', 'Whine', 'Pout', 'Yap', 'Howl', 'Purr', 'Gekker'] # Hardlight: Yap, Pout, Purr, Gekker
   - type: Vocal
     sounds:
