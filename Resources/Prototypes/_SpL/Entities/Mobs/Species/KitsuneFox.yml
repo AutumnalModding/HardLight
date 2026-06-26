@@ -44,6 +44,8 @@
   - type: Deathgasp
   - type: MobStateActions
     actions:
+      Alive: # Hardlight
+      - ActionFoxfire # Hardlight
       Critical:
       - ActionCritSuccumb
       - ActionCritFakeDeath
