@@ -8,3 +8,14 @@
     useDelay: 2
     event: !type:PolymorphActionEvent
       protoId: KitsuneMorph
+
+- type: entity
+  id: ActionKitsuneMorph # legacy name just in case
+  name: Fox Polymorph
+  description: Go fox mode.
+  components:
+  - type: InstantAction
+    icon: { sprite: Mobs/Animals/fox.rsi, state: fox }
+    useDelay: 2
+    event: !type:PolymorphActionEvent
+      protoId: KitsuneMorph
