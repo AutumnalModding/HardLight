@@ -1,0 +1,111 @@
+- type: entity
+  parent: [BaseMobSpeciesOrganic]
+  id: BaseMobKitsune
+  name: Urist Tails
+  abstract: true
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Chaet
+    understands:
+    - GalacticCommon
+    - Fox
+    - Chaet
+  - type: Hunger
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: _SpL/Mobs/Species/Kitsune/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: HumanoidAppearance
+    species: Kitsune
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    # HL start: Hide genital markings on equip
+    - Genital
+    - Penis
+    - Breasts
+    # HL end
+  - type: Inventory
+    speciesId: kitsune
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: outerClothing
+      shoes: # DM only for colored shoes!
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: shoes
+  - type: Wagging
+  - type: Speech
+    speechVerb: Kitsune
+    allowedEmotes: ['Growl', 'Squeak', 'Yip', 'Whine', 'Pout', 'Yap', 'Howl', 'Purr', 'Gekker'] # Hardlight: Yap, Pout, Purr, Gekker
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
+  - type: Damageable
+    damageModifierSet: Kitsune
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/hiss.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Heat: 5
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - KitsunePolymorph
+    - KitsuneIllusion
+  - type: MobStateActions
+    actions:
+      Alive:
+      - ActionPolymorphKitsune
+      - ActionFoxfire # Hardlight
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobKitsuneDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory
+    speciesId: kitsune
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: outerClothing
+      shoes: # DM only for colored shoes!
+        sizeMaps:
+          32:
+            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+            state: shoes

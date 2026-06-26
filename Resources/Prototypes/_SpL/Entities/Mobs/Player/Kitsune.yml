@@ -1,0 +1,7 @@
+- type: entity
+  save: false
+  name: Urist McTails
+  parent: BaseMobKitsune
+  id: MobKitsune
+  components: # HL
+    - type: PotentialPsionic

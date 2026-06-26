@@ -1,0 +1,17 @@
+- type: trait
+  id: Chaet
+  name: trait-language-chaet-name
+  description: language-Chaet-description
+  category: LanguageTraits
+  cost: 2
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - CHaet
+      languagesUnderstood:
+        - CHaet
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Kitsune
+      inverted: true

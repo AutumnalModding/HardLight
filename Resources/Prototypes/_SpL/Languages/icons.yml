@@ -1,0 +1,7 @@
+- type: jobIcon
+  parent: JobIcon
+  id: LanguageIconChaet
+  icon:
+    sprite: /Textures/_SpL/Interface/language_icon.rsi
+    state: chaet
+  allowSelection: false
