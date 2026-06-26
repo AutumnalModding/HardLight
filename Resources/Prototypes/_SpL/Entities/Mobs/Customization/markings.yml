@@ -1,0 +1,17 @@
+- type: marking
+  id: KitsuneLegLeft
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Kitsune]
+  sprites:
+  - sprite: _SpL/Mobs/Species/Kitsune/parts.rsi
+    state: l_leg
+
+- type: marking
+  id: KitsuneLegRight
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Human, Kitsune]
+  sprites:
+  - sprite: _SpL/Mobs/Species/Kitsune/parts.rsi
+    state: r_leg

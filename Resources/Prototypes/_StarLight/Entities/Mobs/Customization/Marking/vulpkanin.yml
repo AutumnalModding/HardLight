@@ -3,7 +3,7 @@
 #  id: PawSocks
 #  markingCategory: Overlay
 #  bodyPart: RFoot #highest possible layer
-#  speciesRestriction: [Vulpkanin]
+#  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
 #  sprites:
 #    - sprite: _Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
 #      state: pawsocks
@@ -272,7 +272,7 @@
   id: VulpSnout
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/head_markings.rsi
       state: muzzle
@@ -704,7 +704,7 @@
 #   id: VulpBodyPointsCrest
 #   markingCategory: Overlay
 #   bodyPart: RFoot
-#   speciesRestriction: [Vulpkanin]
+#   speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
 #   sprites:
 #     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
 #       state: points_crest
@@ -713,7 +713,7 @@
 #   id: VulpBodyPointsFade
 #   markingCategory: Overlay
 #   bodyPart: RFoot
-#   speciesRestriction: [Vulpkanin]
+#   speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
 #   sprites:
 #     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
 #       state: points_fade
@@ -722,7 +722,7 @@
 #   id: VulpBodyPointsSharp
 #   markingCategory: Overlay
 #   bodyPart: RFoot
-#   speciesRestriction: [Vulpkanin]
+#   speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
 #   sprites:
 #     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
 #       state: points_sharp
@@ -732,7 +732,7 @@
   id: VulpPointsFeet
   markingCategory: Overlay
   bodyPart: RFoot
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_feet
@@ -741,7 +741,7 @@
   id: VulpPointsCrestLegs
   markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_crest-legs
@@ -750,7 +750,7 @@
   id: VulpPointsFadeLegs
   markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_fade-legs
@@ -759,7 +759,7 @@
   id: VulpPointsSharpLegs
   markingCategory: Legs
   bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_sharp-legs
@@ -769,7 +769,7 @@
   id: VulpPointsHands
   markingCategory: Overlay
   bodyPart: RHand
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_hands
@@ -778,7 +778,7 @@
   id: VulpPointsCrestArms
   markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_crest-arms
@@ -787,7 +787,7 @@
   id: VulpPointsFadeArms
   markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_fade-arms
@@ -796,7 +796,7 @@
   id: VulpPointsSharpArms
   markingCategory: Arms
   bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Hardlight: Kitsune^2
   sprites:
     - sprite: _Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
       state: points_sharp-arms
