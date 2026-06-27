@@ -3,10 +3,10 @@
   name: species-name-kitsune
   roundStart: true
   hasSubspecies: true
-  prototype: MobKitsuneDigitigrade
-  sprites: MobKitsuneSprites
+  prototype: MobKitsune
+  sprites: MobKitsuneSpritesPlantigrade # Hardlight
   markingLimits: MobKitsuneMarkingLimits
-  dollPrototype: MobKitsuneDummyDigitigrade
+  dollPrototype: MobKitsuneDummy
   skinColoration: AnyColour # Hardlight
   minAge: 18
   youngAge: 300
@@ -177,15 +177,15 @@
 
 # Hardlight start
 - type: species
-  id: KitsunePlantigrade
-  name: species-name-kitsune-plantigrade
+  id: KitsuneDigitigrade
+  name: species-name-kitsune-digitigrade
   subspeciesOf: Kitsune
   roundStart: true
   hasSubspecies: true
-  prototype: MobKitsune
-  sprites: MobKitsuneSpritesPlantigrade
+  prototype: MobKitsuneDigitigrade
+  sprites: MobKitsuneSprites
   markingLimits: MobKitsuneMarkingLimits
-  dollPrototype: MobKitsuneDummy
+  dollPrototype: MobKitsuneDummyDigitigrade
   skinColoration: AnyColour # Hardlight
   minAge: 18
   youngAge: 300

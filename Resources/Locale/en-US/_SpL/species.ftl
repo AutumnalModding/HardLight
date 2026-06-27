@@ -1,4 +1,4 @@
-species-name-kitsune-plantigrade = Kitsune (plantigrade)
+species-name-kitsune-digitigrade = Kitsune (digitigrade)
 
 marking-KitsuneLegLeft = Kitsune Left Leg
 marking-KitsuneLegRight = Kitsune Right Leg
