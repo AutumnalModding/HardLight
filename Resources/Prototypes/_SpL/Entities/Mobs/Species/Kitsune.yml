@@ -34,22 +34,6 @@
     # HL end
   - type: Inventory
     speciesId: kitsune
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
-            state: outerClothing
-      shoes: # DM only for colored shoes!
-        sizeMaps:
-          32:
-            sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
-            state: shoes
   - type: Wagging
   - type: Speech
     speechVerb: Kitsune
@@ -89,6 +73,15 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobKitsuneDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory
+    speciesId: kitsune
+
+# Hardlight start
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobKitsuneDummyDigitigrade
   categories: [ HideSpawnMenu ]
   components:
   - type: Inventory

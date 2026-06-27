@@ -5,3 +5,29 @@
   id: MobKitsune
   components: # HL
     - type: PotentialPsionic
+
+# Hardlight start
+- type: entity
+  save: false
+  parent: MobKitsune
+  id: MobKitsuneDigitigrade
+  components:
+    - type: Inventory
+      speciesId: kitsune
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+              state: jumpsuit
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+              state: outerClothing
+        shoes: # DM only for colored shoes!
+          sizeMaps:
+            32:
+              sprite: _SpL/Mobs/Species/Kitsune/displacement.rsi
+              state: shoes
+# Hardlight end
