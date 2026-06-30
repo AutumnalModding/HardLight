@@ -20,6 +20,8 @@
     - map: [ "back" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "gloves" ] # Hardlight
+    - map: [ "shoes" ] # Hardlight
   - type: Rotatable
   - type: Fixtures
     fixtures:

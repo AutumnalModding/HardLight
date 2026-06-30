@@ -62,7 +62,7 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,2
       displayName: Back
-    # Hardlight: accessory slots, originally three but the stripping window sucks
+    # Hardlight start
     - name: accessory1
       slotTexture: neck
       slotFlags: ACCESSORY
@@ -77,3 +77,17 @@
       uiWindowPos: 3,1
       strippingWindowPos: 0,3
       displayName: Accessory
+    - name: gloves
+      slotTexture: gloves
+      slotFlags: GLOVES
+      stripTime: 3
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,3
+      displayName: Gloves
+    - name: shoes
+      slotTexture: shoes
+      slotFlags: FEET
+      stripTime: 3
+      uiWindowPos: 2,0
+      strippingWindowPos: 2,0
+      displayName: Shoes
