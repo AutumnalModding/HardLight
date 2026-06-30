@@ -267,3 +267,21 @@
     graph: BookshelfBluespace
     node: bookshelfBluespace
   - type: BlockWeather
+
+
+- type: entity
+  id: BluespaceWardrobe
+  parent: [ LockerWoodenGeneric, BaseBluespaceStorage ]
+  name: bluespace wardrobe
+  description: A large wardrobe capable of holding several articles of clothing. Usage of bluespace crystals allows it to protect your posessions from dockyard workers.
+  components:
+  - type: Appearance
+  - type: AccessReader
+  - type: Storage
+    grid:
+    - 0,0,19,14
+  - type: Construction
+    graph: BluespaceSafe
+    node: done
+  - type: StaticPrice
+    price: 750000
