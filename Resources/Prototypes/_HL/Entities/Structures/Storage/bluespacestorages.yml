@@ -280,6 +280,7 @@
   - type: Storage
     grid:
     - 0,0,7,7
+    maxItemSize: Large
     whitelist:
       components:
       - Clothing
@@ -290,19 +291,13 @@
 
 - type: entity
   id: BluespaceMannequin
-  parent: [ Mannequin, BaseBluespaceStorage ]
+  parent: Mannequin
   name: bluespace mannequin
   description: A stylish mannequinn capable of showing off your armour sets. Usage of bluespace crystals allows it to protect your posessions from dockyard workers.
   components:
-  - type: Appearance
-  - type: AccessReader
-  - type: Storage
-    grid:
-    - 0,0,7,7
-    whitelist:
-      components:
-      - Clothing
   - type: StaticPrice
     price: 100000
   - type: Transform
     anchored: true
+  - type: HLPersistOnShipSave
+  - type: CargoSellBlacklist
