@@ -13,11 +13,11 @@
 # Shuttle Notes:
 # Turbine go wrrrrrr spinny :3
 - type: vessel
-  id: Kittson
+  id: Kittsonq
   parent: BaseVessel
   name: LRSI Kittson II
   description: A retrofit and modernization upgrade of the Lumi Reind Stellar Initiative corporation's old Kittson vessel.
-  price: 210000 # ~150k appraisal + 30k reactor + ~15%
+  price: 216000 # ~150k appraisal + 30k reactor + ~20%
   category: Large
   group: Shipyard
   shuttlePath: /Maps/_HL/Shuttles/kittson.yml
